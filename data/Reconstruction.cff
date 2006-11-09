@@ -1,0 +1,54 @@
+#
+# please understand that division global,highlevel is completely fake !
+#
+
+#local reconstruction
+
+include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
+include "RecoLocalMuon/Configuration/data/RecoLocalMuon.cff"
+include "RecoLocalCalo/Configuration/data/RecoLocalCalo.cff"
+
+sequence localreco =  {trackerlocalreco, muonlocalreco, calolocalreco }
+
+# Global  reco
+
+include "RecoEcal/Configuration/data/RecoEcal.cff"
+include "RecoTracker/Configuration/data/RecoTracker.cff"
+include "TrackingTools/Configuration/data/TrackingTools.cff"
+include "RecoEcal/Configuration/data/RecoEcal.cff"
+include "RecoJets/Configuration/data/RecoJets.cff"
+include "RecoMET/Configuration/data/RecoMET.cff"
+include "RecoMuon/Configuration/data/RecoMuon.cff"
+
+sequence globalreco = {ckftracks, muonreco, ecalClusters, caloTowersRec, recoJets, recoGenJets, metreco }
+sequence globalreco_plusRS = {globalreco, rstracks }
+sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
+sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
+
+# Higher level objects
+include "RecoVertex/Configuration/data/RecoVertex.cff"
+include "RecoEgamma/Configuration/data/RecoEgamma.cff"
+include "RecoPixelVertexing/Configuration/data/RecoPixelVertexing.cff"
+include "RecoBTau/Configuration/data/RecoBTau.cff"
+include "RecoBTag/Configuration/data/RecoBTag.cff"
+include "RecoTauTag/Configuration/data/RecoTauTag.cff"
+include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
+
+sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags } # whatever
+sequence highlevelreco_plusRS = {highlevelreco,vertexreco_RS} # whatever
+
+#
+# "Export" Section
+#
+
+# Default
+sequence reconstruction = {localreco, globalreco, highlevelreco}
+#other possibilities
+sequence reconstruction_plusRS = {localreco, globalreco_plusRS, highlevelreco_plusRS}
+sequence reconstruction_plusGSF = {localreco, globalreco_plusGSF, highlevelreco}
+sequence reconstruction_plusRS_plus__GSF = {localreco,globalreco_plusRS_plusGSF , highlevelreco_plusRS}
+#
+
+
+
+
