@@ -1,0 +1,80 @@
+
+   # REMINDER : vertex smearing and det.simulation need a startup seed;
+   # in your cfg, doNOT forget to give seeds via RandomNumberGeneratorService !!!
+   # 
+   # Example configuration of the RandomNumberGeneratorService to appear in cfg:
+   # service = RandomNumberGeneratorService
+   # {
+   #   untracked uint32 sourceSeed = 123456789
+   #   PSet moduleSeeds =
+   #   {
+   #      untracked uint32 VtxSmeared = 98765432
+   #      untracked uint32 g4SimHits  = 11
+   #      untracked uint32 mixNoPU    = 12345
+   #   }
+   # }
+   
+
+   # Vertex smearing
+   #
+   # There're 3 types of Vertex smearing module (Gauss, Flat, BeamProfile);
+   # the cfi's are available for each one :
+   # IOMC/EventVertexGenerators/data/VtxSmearedGauss.cfi
+   # IOMC/EventVertexGenerators/data/VtxSmearedFlat.cfi
+   # IOMC/EventVertexGenerators/data/VtxSmearedBeamProfile.cfi
+   #
+   # Either of the above returns label "VtxSmeared" that one places in the path
+   #   
+   # Note 1 : one and only label is allowed for either of these modules,
+   #          that is VtxSmeared (the reason is not to allow multiple smearing); 
+   #          an attempt to use any other label will cause the Fwk to throw
+   # Note 2 : because only one label is allowed, a user can have only one
+   #          instance of the Vertex smearing module in a given configuration;
+   #          in other words, if you put in 2 or all 3 of the available cfi's, 
+   #          the Fwk will throw
+   #
+   # Currently, we suggest using Gaussian vertex smearing
+   #
+   include "IOMC/EventVertexGenerators/data/VtxSmearedGauss.cfi"
+   
+   # Geant4-based detector simulation
+   # (necessary geometry and mag.field records included)
+   #
+   # It retuns label "g4SimHits" that one places in the path
+   #
+   # Advise : OscarProducer has a config. parameter to control
+   # which HepMCProduct (gen.info) to pickup as event input, 
+   # the original or the one with the vertex smearing applied; 
+   # the parameter's name is HepMCProductLabel, it belongs to
+   # the PSet Generator, and the default = "VtxSmeared"
+   #
+   include "SimG4Core/Configuration/data/SimG4Core.cff"
+   #
+   # if you want to skip vertex smearing, you need to reset it:
+   # replace g4SimHits.Generator.HepMCProductLabel = "source"
+   #
+   # several other useful parameters are listed in the WorkBook:
+   # https://twiki.cern.ch/twiki/bin/view/CMS/WorkBookSimDigi
+     
+        
+   # Digitization (electronics response modeling)
+   # (all necessary geometry and other records included in the cff's)
+   # 
+   # returns sequence "doAllDigi"
+   #
+   include "Configuration/StandardSequences/data/Digi.cff"
+   
+   # IMPORTANT : in order to operate Digis, one needs to include
+   # Mixing module (pileup modeling), at least in the 0-pileup mode
+   #
+   # Minimal configuration is given below, explicitely
+   # in the nearest future will be replaced by the cfi's
+   #
+   module mixNoPU = MixingModule
+   {
+      int32 bunchspace = 25
+   }
+
+   path psim  = { VtxSmeared, g4SimHits }
+   path pdigi = { mixNoPU, doAllDigi }
+   
