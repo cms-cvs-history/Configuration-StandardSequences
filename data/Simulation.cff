@@ -10,7 +10,7 @@
    #   {
    #      untracked uint32 VtxSmeared = 98765432
    #      untracked uint32 g4SimHits  = 11
-   #      untracked uint32 mixNoPU    = 12345
+   #      untracked uint32 mix        = 12345
    #   }
    # }
    
@@ -67,14 +67,17 @@
    # IMPORTANT : in order to operate Digis, one needs to include
    # Mixing module (pileup modeling), at least in the 0-pileup mode
    #
-   # Minimal configuration is given below, explicitely
-   # in the nearest future will be replaced by the cfi's
+   # There're 3 possible configurations of the Mixing module :
+   # no-pileup, low luminosity pileup, and high luminosity pileup
    #
-   module mixNoPU = MixingModule
-   {
-      int32 bunchspace = 25
-   }
+   # They come, respectively, through the 3 config's below
+   # *Each* config returns label "mix"; thus you canNOT have them
+   # all together in the same configuration, but only one !!!
+   #
+   include "SimGeneral/MixingModule/data/mixNoPU.cfi"
+   #include "SimGeneral/MixingModule/data/mixLowLumPU.cfi"
+   #include "SimGeneral/MixingModule/data/mixHighLumPU.cfi"
 
    path psim  = { VtxSmeared, g4SimHits }
-   path pdigi = { mixNoPU, doAllDigi }
+   path pdigi = { mix, doAllDigi }
    
