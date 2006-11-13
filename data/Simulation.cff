@@ -74,10 +74,10 @@
    # *Each* config returns label "mix"; thus you canNOT have them
    # all together in the same configuration, but only one !!!
    #
-   include "SimGeneral/MixingModule/data/mixNoPU.cfi"
+  # include "SimGeneral/MixingModule/data/mixNoPU.cfi"
    #include "SimGeneral/MixingModule/data/mixLowLumPU.cfi"
    #include "SimGeneral/MixingModule/data/mixHighLumPU.cfi"
 
-   path psim  = { VtxSmeared, g4SimHits }
-   path pdigi = { mix, doAllDigi }
+   sequence psim  = { VtxSmeared, g4SimHits }
+   sequence  pdigi = {doAllDigi }
    
