@@ -64,20 +64,6 @@
    #
    include "Configuration/StandardSequences/data/Digi.cff"
    
-   # IMPORTANT : in order to operate Digis, one needs to include
-   # Mixing module (pileup modeling), at least in the 0-pileup mode
-   #
-   # There're 3 possible configurations of the Mixing module :
-   # no-pileup, low luminosity pileup, and high luminosity pileup
-   #
-   # They come, respectively, through the 3 config's below
-   # *Each* config returns label "mix"; thus you canNOT have them
-   # all together in the same configuration, but only one !!!
-   #
-  # include "SimGeneral/MixingModule/data/mixNoPU.cfi"
-   #include "SimGeneral/MixingModule/data/mixLowLumPU.cfi"
-   #include "SimGeneral/MixingModule/data/mixHighLumPU.cfi"
-
    sequence psim  = { VtxSmeared, g4SimHits }
-   sequence  pdigi = {doAllDigi }
+   sequence pdigi = { doAllDigi }
    
