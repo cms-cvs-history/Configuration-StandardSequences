@@ -1,6 +1,6 @@
 
    # REMINDER : vertex smearing and det.simulation need a startup seed;
-   # in your cfg, doNOT forget to give seeds via RandomNumberGeneratorService !!!
+   # in your cfg, do NOT forget to give seeds via RandomNumberGeneratorService !!!
    # 
    # Example configuration of the RandomNumberGeneratorService to appear in cfg:
    # service = RandomNumberGeneratorService
@@ -18,12 +18,13 @@
    # Vertex smearing
    #
    # There're 3 types of Vertex smearing module (Gauss, Flat, BeamProfile);
-   # the cfi's are available for each one :
-   # IOMC/EventVertexGenerators/data/VtxSmearedGauss.cfi
-   # IOMC/EventVertexGenerators/data/VtxSmearedFlat.cfi
-   # IOMC/EventVertexGenerators/data/VtxSmearedBeamProfile.cfi
+   # the cff's are available for each one :
+   # Configuration/StandardSequences/data/VtxSmearedGauss.cff
+   # Configuration/StandardSequences/data/VtxSmearedFlat.cff
+   # Configuration/StandardSequences/data/VtxSmearedBeamPreofile.cff
    #
-   # Either of the above returns label "VtxSmeared" that one places in the path
+   # Either of the above returns label "VtxSmeared" that is already in the path below
+   # (but not included here!!!)
    #   
    # Note 1 : one and only label is allowed for either of these modules,
    #          that is VtxSmeared (the reason is not to allow multiple smearing); 
@@ -35,7 +36,6 @@
    #
    # Currently, we suggest using Gaussian vertex smearing
    #
-   include "IOMC/EventVertexGenerators/data/VtxSmearedGauss.cfi"
    
    # Geant4-based detector simulation
    # (necessary geometry and mag.field records included)
@@ -65,5 +65,5 @@
    include "Configuration/StandardSequences/data/Digi.cff"
    
    sequence psim  = { VtxSmeared, g4SimHits }
-   sequence pdigi = { doAllDigi }
+   sequence pdigi = { mix,doAllDigi }
    

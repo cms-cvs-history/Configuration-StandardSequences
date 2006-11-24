@@ -1,0 +1,2 @@
+include "IOMC/EventVertexGenerators/data/VtxSmearedBeamProfile.cfi"   
+#
