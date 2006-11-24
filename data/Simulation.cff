@@ -66,4 +66,5 @@
    
    sequence psim  = { VtxSmeared, g4SimHits }
    sequence pdigi = { mix,doAllDigi }
-   
+   sequence simulation = {simulation}
+#   
