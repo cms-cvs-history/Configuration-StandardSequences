@@ -34,7 +34,7 @@ include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
 
-sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags } # whatever
+sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco} # whatever
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_RS} # whatever
 
 #
