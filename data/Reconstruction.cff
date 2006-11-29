@@ -46,7 +46,7 @@ sequence reconstruction = {localreco, globalreco, highlevelreco}
 #other possibilities
 sequence reconstruction_plusRS = {localreco, globalreco_plusRS, highlevelreco_plusRS}
 sequence reconstruction_plusGSF = {localreco, globalreco_plusGSF, highlevelreco}
-sequence reconstruction_plusRS_plus__GSF = {localreco,globalreco_plusRS_plusGSF , highlevelreco_plusRS}
+sequence reconstruction_plusRS_plus_GSF = {localreco,globalreco_plusRS_plusGSF , highlevelreco_plusRS}
 #
 
 
