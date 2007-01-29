@@ -1,0 +1,17 @@
+#
+# Tracker alignment
+#
+include "CalibTracker/Configuration/data/Tracker_FakeAlignment.cff"
+#
+# Muon alignment
+#
+include "CalibMuon/Configuration/data/Muon_FakeAlignment.cff"
+#
+# HCAL Fake Conditions
+#
+include "CalibCalorimetry/Configuration/data/Hcal_FakeConditions.cff"
+#
+# ECAL Fake Conditions
+#
+include "CalibCalorimetry/Configuration/data/Ecal_FakeConditions.cff"
+#
