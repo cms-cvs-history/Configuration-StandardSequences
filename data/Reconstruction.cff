@@ -19,8 +19,10 @@ include "RecoEcal/Configuration/data/RecoEcal.cff"
 include "RecoJets/Configuration/data/RecoJets.cff"
 include "RecoMET/Configuration/data/RecoMET.cff"
 include "RecoMuon/Configuration/data/RecoMuon.cff"
-
-sequence globalreco = {ckftracks, muonreco, ecalClusters, caloTowersRec, recoJets, recoGenJets, metreco }
+#
+# temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
+#
+sequence globalreco = {ckftracks, muonreco, ecalClusters, caloTowersRec, recoJets, metreco }
 sequence globalreco_plusRS = {globalreco, rstracks }
 sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
 sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
