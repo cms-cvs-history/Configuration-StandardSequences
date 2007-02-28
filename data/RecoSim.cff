@@ -1,0 +1,11 @@
+#
+# $Id: $
+# define sequence for modules producing high level products from 
+# generator level info
+#
+include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidatesFast.cfi"
+
+include "RecoJets/Configuration/data/RecoGenJets.cff"
+
+sequence RecoSim = { genParticleCandidates, recoGenJets }
