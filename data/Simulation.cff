@@ -56,21 +56,26 @@
    # several other useful parameters are listed in the WorkBook:
    # https://twiki.cern.ch/twiki/bin/view/CMS/WorkBookSimDigi
 
-#  
+#
 # include TrackingParticle Producer
 # NOTA BENE: it MUST be run here at the moment, since it depends 
 # of the availability of the CrossingFrame in the Event
 #
      include "SimGeneral/TrackingAnalysis/data/trackingtruth.cfi"
-        
+
    # Digitization (electronics response modeling)
    # (all necessary geometry and other records included in the cff's)
-   # 
+   #
    # returns sequence "doAllDigi"
    #
    include "Configuration/StandardSequences/data/Digi.cff"
-   
+   include "Configuration/StandardSequences/data/RecoSim.cff"
+
+   include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+   include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidatesFast.cfi"
+
+
    sequence psim  = { VtxSmeared, g4SimHits }
    sequence pdigi = { mix,doAllDigi,trackingtruth }
-   sequence simulation = {psim,pdigi}
-#   
+   sequence simulation = {psim,pdigi,genParticleCandidates}
+#

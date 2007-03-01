@@ -35,6 +35,8 @@ include "RecoBTau/Configuration/data/RecoBTau.cff"
 include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
+include "Configuration/StandardSequences/data/RecoSim.cff"
+
 
 sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco} # whatever
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
@@ -44,7 +46,7 @@ sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #
 
 # Default
-sequence reconstruction = {localreco, globalreco, highlevelreco}
+sequence reconstruction = {localreco, globalreco, highlevelreco, RecoSim}
 #other possibilities
 sequence reconstruction_plusRS = {localreco, globalreco_plusRS, highlevelreco_plusRS}
 sequence reconstruction_plusGSF = {localreco, globalreco_plusGSF, highlevelreco}
