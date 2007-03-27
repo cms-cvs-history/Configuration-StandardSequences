@@ -45,16 +45,19 @@ sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 # "Export" Section
 #
 
-# Default
-sequence reconstruction = {localreco, globalreco, highlevelreco, RecoSim}
+# Default - change: now RS is in the default schedule
+sequence reconstruction = {localreco, globalreco, highlevelreco, RecoSim, globalreco_plusRS, highlevelreco_plusRS}
 #other possibilities
-sequence reconstruction_plusRS = {localreco, globalreco_plusRS, highlevelreco_plusRS}
-sequence reconstruction_plusGSF = {localreco, globalreco_plusGSF, highlevelreco}
+sequence reconstruction_plusRS = {reconstruction}
+sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronSequence}
 # the added _ is clearly a typo. for the moment I define both the correct and the wrong one!
-sequence reconstruction_plusRS_plus_GSF = {localreco,globalreco_plusRS_plusGSF , highlevelreco_plusRS}
+sequence reconstruction_plusRS_plus_GSF = {reconstruction_plusGSF}
 sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 #
-
+# for completeness
+#
+sequence reconstruction_woRS = {localreco, globalreco, highlevelreco, RecoSim}
+#
 
 
 
