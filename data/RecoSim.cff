@@ -1,8 +1,12 @@
 #
-# $Id: RecoSim.cff,v 1.1 2007/02/28 22:50:27 rahatlou Exp $
+# $Id: RecoSim.cff,v 1.2 2007/03/01 18:10:26 rahatlou Exp $
 # define sequence for modules producing high level products from 
 # generator level info
 #
 include "RecoJets/Configuration/data/RecoGenJets.cff"
+include "RecoMET/Configuration/data/RecoGenMET.cff"
+include "RecoJets/Configuration/data/GenJetParticles.cff"
 
-sequence RecoSim = { recoGenJets }
+sequence genJetMET = { genJetParticles, recoGenMET & recoGenJets }
+
+sequence RecoSim = { genJetMET }
