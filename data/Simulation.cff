@@ -62,7 +62,7 @@
 # of the availability of the CrossingFrame in the Event
 #
 #     include "SimGeneral/TrackingAnalysis/data/trackingtruth.cfi"
-     include "SimGeneragl/Configuration/data/SimGeneral.cff"
+     include "SimGeneral/Configuration/data/SimGeneral.cff"
 
    # Digitization (electronics response modeling)
    # (all necessary geometry and other records included in the cff's)
