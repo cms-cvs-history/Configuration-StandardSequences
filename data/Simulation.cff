@@ -77,6 +77,6 @@
 
 
    sequence psim  = { VtxSmeared, g4SimHits }
-   sequence pdigi = { mix,doAllDigi,trackingtruth }
+   sequence pdigi = { mix,doAllDigi, trackingParticles}
    sequence simulation = {psim,pdigi,genParticleCandidates}
 #
