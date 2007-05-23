@@ -39,8 +39,8 @@ include "RecoParticleFlow/Configuration/data/RecoParticleFlow.cff"
 include "Configuration/StandardSequences/data/RecoSim.cff"
 #
 
-#sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco} # whatever
-sequence highlevelreco = { vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco, particleFlowReco} # whatever
+sequence highlevelreco = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco,particleFlowReco} # whatever
+#sequence highlevelreco = { vertexreco, jetTracksAssociator, btagging, coneIsolationTauJetTags, egammareco, particleFlowReco} # whatever
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 
 #
