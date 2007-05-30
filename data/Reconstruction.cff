@@ -17,12 +17,13 @@ include "RecoTracker/Configuration/data/RecoTracker.cff"
 include "TrackingTools/Configuration/data/TrackingTools.cff"
 include "RecoEcal/Configuration/data/RecoEcal.cff"
 include "RecoJets/Configuration/data/RecoJets.cff"
+include "RecoJets/Configuration/data/CaloTowersRec.cff"
 include "RecoMET/Configuration/data/RecoMET.cff"
 include "RecoMuon/Configuration/data/RecoMuon.cff"
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-sequence globalreco = {ckftracks, muonreco, ecalClusters, caloTowersRec, recoJets, metreco }
+sequence globalreco = {ckftracks, ecalClusters, caloTowersRec, recoJets, metreco,muonreco }
 sequence globalreco_plusRS = {globalreco, rstracks }
 sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
 sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
