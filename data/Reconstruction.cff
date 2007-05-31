@@ -49,8 +49,7 @@ sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #
 
 # Default - change: now RS is in the default schedule
-#sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS,RecoSim}
-sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS}
+sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS,RecoSim}
 #other possibilities
 sequence reconstruction_plusRS = {reconstruction}
 sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronSequence}
