@@ -23,7 +23,7 @@ include "RecoMuon/Configuration/data/RecoMuon.cff"
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-sequence globalreco = {ckftracks, ecalClusters, caloTowersRec, recoJets, metreco,muonreco }
+sequence globalreco = {ckftracks, ecalClusters, caloTowersRec, recoJets, metreco,muonreco_plus_isolation }
 sequence globalreco_plusRS = {globalreco, rstracks }
 sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
 sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
