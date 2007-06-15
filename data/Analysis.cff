@@ -1,0 +1,9 @@
+#
+# Analysis sequences
+#
+
+# Electroweak Analysis
+
+include "ElectroWeakAnalysis/Configuration/data/ElectroWeakAnalysis.cff"
+
+sequence analysis = { zReco }
