@@ -1,3 +1,4 @@
 
 include "L1Trigger/Configuration/data/L1Emulator.cff"
 
+sequence L1Emulator = { l1emulator }
