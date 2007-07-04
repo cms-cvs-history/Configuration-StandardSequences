@@ -22,6 +22,7 @@ include "CalibTracker/Configuration/data/SiStrip_FakeGain.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakeNoise.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakeLorentzAngle.cff"
 # these need to be there for no DB (default is db usage)
+include "SimTracker/SiStripDigitizer/data/SiStripDigi.cfi"
 replace siStripDigis.UseCalibDataFromDB  = false
 replace siStripClusters.UseCalibDataFromDB  = false
 #
