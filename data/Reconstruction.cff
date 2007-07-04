@@ -61,9 +61,6 @@ sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 #
 sequence reconstruction_woRS = {localreco, globalreco, highlevelreco, RecoSim}
 #
-# define a standard candle. please note I am picking up individual
-# modules instead of sequences
-#
-sequence reconstruction_standard_candle = {localreco,globalreco, vertexreco, 
-    jetTracksAssociator, btagging, coneIsolationTauJetTags, electronSequence,photonSequence}
-#
+
+
+
