@@ -107,7 +107,7 @@ replace cscConditions.toGet = {
 #
 # HCAL Fake Conditions (need to wait for decisions)
 #
-include "CalibCalorimetry/Configuration/data/Hcal_FakeConditions.cff"
+include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
 ###########################################################################################
 #
 # ECAL Frontier Conditions
