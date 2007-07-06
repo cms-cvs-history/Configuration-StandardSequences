@@ -7,7 +7,35 @@ include "CalibTracker/Configuration/data/Tracker_FakeAlignment.cff"
 #
 include "CalibMuon/Configuration/data/Muon_FakeAlignment.cff"
 #
-# HCAL Fake Conditions
+###################################################################
+#
+# Pixel calib
+#
+include "CalibTracker/Configuration/data/SiPixel_FakeGain.cff"
+# the following is in reality not needed because the default is false,
+# need to put the "true" replace in Frontier.....
+replace siPixelClusters.UseCalibDataFromDB = false
+#
+# Strip calib
+#
+include "CalibTracker/Configuration/data/SiStrip_FakeGain.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakeNoise.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakeLorentzAngle.cff"
+# these need to be there for no DB (default is db usage)
+include "SimTracker/SiStripDigitizer/data/SiStripDigi.cfi"
+replace siStripDigis.UseCalibDataFromDB  = false
+replace siStripClusters.UseCalibDataFromDB  = false
+#
+# DT calib
+include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
+# the following is set to false as default
+replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = false
+#
+# CSC Calib
+#
+include "CalibMuon/Configuration/data/CSC_FakeConditions.cff"
+#
+# HCAL Fake Conditions 
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FakeConditions.cff"
 #
