@@ -45,7 +45,6 @@ replace siPixelClusters.UseCalibDataFromDB = true
 #
 # Strip calib OK
 #
-
 include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
@@ -66,25 +65,23 @@ replace siStripNoise.toGet = {{ string record = "SiStripNoisesRcd"
 
 
 # these need to be there for no DB (default is db usage)
-include "SimTracker/SiStripDigitizer/data/SiStripDigi.cfi"
 replace siStripDigis.UseCalibDataFromDB  = true
 replace siStripClusters.UseCalibDataFromDB  = true
 #############################################################################
 #
 # DT calib
 
-
+# the fake  is NEEDED to provide TTRIG (not in DB for now). Only object in db is T0
+# for the moment
+include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
 include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
+
+# the following is to get only t0 from db
+replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
+                                string tag = "t0Fake" }}
 
 # these need to be there for DB (default is false)
 replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
-
-#(already correct in new DT cfi, no need to have it here)
-#replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
-#                                string tag = "t0Fake" }}
-#                               {string record = "DTTtrigRcd"
-#                                string tag ="ttrigCSA07_July6"}}
-
 
 ###########################################################################################
 #
@@ -108,7 +105,7 @@ replace cscConditions.toGet = {
 
 ###########################################################################################
 #
-# HCAL Frontier Conditions 
+# HCAL Fake Conditions (need to wait for decisions)
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
 ###########################################################################################
