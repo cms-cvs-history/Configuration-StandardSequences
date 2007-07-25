@@ -119,3 +119,7 @@ include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
 replace ecalConditions.connect = "frontier://FrontierDev/CMS_COND_ECAL"
 ###########################################################################################
 #
+
+## B tagging conditions
+#
+include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"

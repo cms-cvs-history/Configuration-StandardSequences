@@ -41,3 +41,8 @@ include "CalibCalorimetry/Configuration/data/Hcal_FakeConditions.cff"
 #
 include "CalibCalorimetry/Configuration/data/Ecal_FakeConditions.cff"
 #
+
+## B tagging conditions
+#
+include "RecoBTau/Configuration/data/RecoBTau_FakeConditions.cff"
+
