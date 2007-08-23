@@ -38,9 +38,6 @@ include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
 # needed for frontier access on new dev servlet
 replace siPixelGainCalibration.connect = "frontier://FrontierDev/CMS_COND_PIXEL"
 
-# the following is needed because the default is false,
-replace siPixelClusters.UseCalibDataFromDB = true
-
 ###################################################################
 #
 # Strip calib OK
