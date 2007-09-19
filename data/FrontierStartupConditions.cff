@@ -1,3 +1,4 @@
+#
 # Tracker alignment
 #
 include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
@@ -7,11 +8,10 @@ include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 # needed for frontier access on new dev servlet
 replace trackerAlignment.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ALIGNMENT"
 replace trackerAlignment.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
-
-
+## 10pb scenario
 replace trackerAlignment.toGet = {
-        { string record = "TrackerAlignmentRcd"      string tag = "TrackerIdealGeometry150" },
-        { string record = "TrackerAlignmentErrorRcd" string tag = "TrackerIdealGeometryErrors150" }
+  { string record = "TrackerAlignmentRcd"      string tag = "Tracker10pbScenario150" },
+  { string record = "TrackerAlignmentErrorRcd" string tag = "Tracker10pbScenarioErrors150" }
        }
 ####################################################################################
 #
@@ -25,12 +25,11 @@ include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 # needed for frontier access on new dev servlet
 replace muonAlignment.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ALIGNMENT"
 replace muonAlignment.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
-
 replace muonAlignment.toGet = {
-         { string record = "DTAlignmentRcd"           string tag = "DTIdealGeometry150" },
-         { string record = "DTAlignmentErrorRcd"      string tag = "DTIdealGeometryErrors150" },
-         { string record = "CSCAlignmentRcd"          string tag = "CSCIdealGeometry150" },
-         { string record = "CSCAlignmentErrorRcd"     string tag = "CSCIdealGeometryErrors150" }
+         { string record = "DTAlignmentRcd"           string tag = "DT10InversepbScenario150" },
+         { string record = "DTAlignmentErrorRcd"      string tag = "DT10InversepbScenarioErrors150" },
+         { string record = "CSCAlignmentRcd"          string tag = "CSC10InversepbScenario150" },
+         { string record = "CSCAlignmentErrorRcd"     string tag = "CSC10InversepbScenarioErrors150" }
        }
 #
 ###################################################################
@@ -42,6 +41,9 @@ include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
 # needed for frontier access on new dev servlet
 replace siPixelGainCalibration.connect="frontier://FrontierCSA07/CMS_COND_CSA07_PIXEL"
 replace siPixelGainCalibration.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
+
+# the following is needed because the default is false,
+replace siPixelClusters.UseCalibDataFromDB = true
 
 ###################################################################
 #
@@ -62,12 +64,13 @@ include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 replace siStripApvGain.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
 replace siStripApvGain.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
 replace siStripApvGain.toGet = {{ string record = "SiStripApvGainRcd"
-                                  string tag = "CSA07_SiStrip_Ideal_Gain" }}
+                                  string tag = "CSA07_SiStrip_10invpb_Gain" }}
 
 replace siStripLorentzAngle.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
 replace siStripLorentzAngle.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
 replace siStripLorentzAngle.toGet = {{ string record = "SiStripLorentzAngleRcd" 
-                                       string tag = "CSA07_SiStrip_Ideal_LAngle" }}
+                                       string tag = "CSA07_SiStrip_100invpb_LAngle" }}
+
 
 replace siStripNoise.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
 replace siStripNoise.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
@@ -101,12 +104,11 @@ replace maps_frontier.catalog="relationalcatalog_frontier://cms_conditions_data/
 replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
                                 string tag = "t0FakeCSA07_Sept15" },
                                {string record = "DTTtrigRcd"
-                                string tag ="ttrigFakeCSA07_July17"}}
-
+                                string tag ="ttrigCSA07_Sept12"}}
 
 ###########################################################################################
 #
-# CSC Calib OK (used also for digis)
+# CSC Calib OK (used also for digis) - unique scenario
 #
 include "CalibMuon/Configuration/data/CSC_FrontierConditions.cff"
 
@@ -126,20 +128,46 @@ replace cscConditions.toGet = {
      }
 
 ###########################################################################################
-#
-# HCAL Frontier Conditions 
+##
+# HCAL Frontier Conditions (same scenario 10 and 100)
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
 replace es_pool.connect="frontier://FrontierCSA07/CMS_COND_CSA07_HCAL"
 replace es_pool.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
-
+replace  es_pool.toGet = {
+                    {string record = "HcalPedestalsRcd"
+                     string tag    = "hcal_pedestals_fC_v1"
+                    },
+                    {string record = "HcalGainsRcd"
+                     string tag =    "hcal_gains_miscalib_v1_10pb"
+                    },
+                    {string record = "HcalQIEDataRcd"
+                     string tag =    "qie_normalmode_v3"
+                    },
+                    {string record = "HcalElectronicsMapRcd"
+                     string tag =    "emapTest15"
+                    },
+                    {string record = "HcalPedestalWidthsRcd"
+                     string tag =    "hcal_widths_fC_v1"
+                    }
+                  }
 ###########################################################################################
 #
-# ECAL Frontier Conditions
+# ECAL Frontier Conditions (same scenario 10 and 100)
 #
 include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
 replace ecalConditions.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ECAL"				 
 replace ecalConditions.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_CSA07_FRONTIER"
+replace ecalConditions.toGet = {
+	{ string record = "EcalIntercalibConstantsRcd"
+	    string tag = "miscalibcsa07_startup" },
+	{ string record = "EcalPedestalsRcd"
+	    string tag = "EcalPedestals_trivial" },
+	{ string record = "EcalADCToGeVConstantRcd"
+	    string tag = "EcalADCToGeVConstant_trivial" },
+	{ string record = "EcalGainRatiosRcd"
+	    string tag = "EcalGainRatios_trivial" }
+    }
 ###########################################################################################
 #
 
