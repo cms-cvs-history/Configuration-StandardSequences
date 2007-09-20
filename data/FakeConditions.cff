@@ -43,3 +43,5 @@ include "CalibCalorimetry/Configuration/data/Ecal_FakeConditions.cff"
 #
 include "RecoBTau/Configuration/data/RecoBTau_FakeConditions.cff"
 
+## BeamSpot Conditions
+include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditions.cff" 
