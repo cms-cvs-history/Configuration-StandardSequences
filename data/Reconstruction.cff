@@ -43,11 +43,13 @@ include "Configuration/StandardSequences/data/RecoSim.cff"
 #
 include "RecoTauTag/Configuration/data/RecoPFTauTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
-#
-sequence high_fragment = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, tautagging}
-sequence highlevelreco_woconv = {high_fragment,egammareco_woConvPhotons,particleFlowReco,PFTau}
-sequence highlevelreco = {high_fragment,egammareco,particleFlowReco,PFTau}
+# Also BeamSpot
+include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
+
+sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, jetTracksAssociator, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
+#emergency sequence wo conversions
+sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, jetTracksAssociator, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
@@ -65,6 +67,7 @@ sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 # for completeness
 #
 sequence reconstruction_woRS = {localreco, globalreco, highlevelreco, RecoSim}
+sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv, RecoSim} 
 #
 # define a standard candle. please note I am picking up individual
 # modules instead of sequences
