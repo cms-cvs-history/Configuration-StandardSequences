@@ -32,7 +32,9 @@ sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSeq
 include "RecoVertex/Configuration/data/RecoVertex.cff"
 include "RecoEgamma/Configuration/data/RecoEgamma.cff"
 include "RecoPixelVertexing/Configuration/data/RecoPixelVertexing.cff"
-include "RecoBTau/Configuration/data/RecoBTau.cff"
+#not needed anymore - the jet to track associations are in the next one
+#include "RecoBTau/Configuration/data/RecoBTau.cff"
+include "RecoJets/Configuration/data/RecoJetAssociations.cff"
 include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
@@ -43,11 +45,14 @@ include "Configuration/StandardSequences/data/RecoSim.cff"
 #
 include "RecoTauTag/Configuration/data/RecoPFTauTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
-#
-sequence high_fragment = {recopixelvertexing, vertexreco, jetTracksAssociator, btagging, tautagging}
-sequence highlevelreco_woconv = {high_fragment,egammareco_woConvPhotons,particleFlowReco,PFTau}
-sequence highlevelreco = {high_fragment,egammareco,particleFlowReco,PFTau}
+# Also BeamSpot
+include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
+
+# turn of broken sequence... (conv. photons)
+sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
+#emergency sequence wo conversions
+sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
@@ -65,10 +70,11 @@ sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 # for completeness
 #
 sequence reconstruction_woRS = {localreco, globalreco, highlevelreco, RecoSim}
+sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv, RecoSim} 
 #
 # define a standard candle. please note I am picking up individual
 # modules instead of sequences
 #
 sequence reconstruction_standard_candle = {localreco,globalreco, vertexreco, 
-    jetTracksAssociator, btagging, coneIsolationTauJetTags, electronSequence,photonSequence}
+    recoJetAssociations, btagging, coneIsolationTauJetTags, electronSequence,photonSequence}
 #
