@@ -76,5 +76,5 @@ sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woCo
 # modules instead of sequences
 #
 sequence reconstruction_standard_candle = {localreco,globalreco, vertexreco, 
-    jetTracksAssociator, btagging, coneIsolationTauJetTags, electronSequence,photonSequence}
+    recoJetAssociations, btagging, coneIsolationTauJetTags, electronSequence,photonSequence}
 #
