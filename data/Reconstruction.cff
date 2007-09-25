@@ -32,7 +32,9 @@ sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSeq
 include "RecoVertex/Configuration/data/RecoVertex.cff"
 include "RecoEgamma/Configuration/data/RecoEgamma.cff"
 include "RecoPixelVertexing/Configuration/data/RecoPixelVertexing.cff"
-include "RecoBTau/Configuration/data/RecoBTau.cff"
+#not needed anymore - the jet to track associations are in the next one
+#include "RecoBTau/Configuration/data/RecoBTau.cff"
+include "RecoJets/Configuration/data/RecoJetAssociations.cff"
 include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
@@ -47,10 +49,10 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
 # turn of broken sequence... (conv. photons)
-sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recobtau, btagging, tautagging, egammareco,particleFlowReco,PFTau}
+sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #emergency sequence wo conversions
-sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, recobtau, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
