@@ -48,8 +48,7 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 # Also BeamSpot
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
-# turn of broken sequence... (conv. photons)
-sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #emergency sequence wo conversions
 sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
