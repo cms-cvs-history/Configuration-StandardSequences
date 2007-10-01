@@ -73,12 +73,13 @@
    include "Configuration/StandardSequences/data/RecoSim.cff"
 
    include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+
    include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
    include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
    include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
+   sequence generator = { genParticleCandidates, genEventWeight, genEventScale }
 
-
-   sequence psim  = { VtxSmeared, g4SimHits }
+   sequence psim  = { VtxSmeared, g4SimHits, generator }
    sequence pdigi = { mix,doAllDigi, trackingParticles}
-   sequence simulation = {psim,pdigi,genParticleCandidates,genEventWeight,genEventScale}
+   sequence simulation = {psim,pdigi}
 #
