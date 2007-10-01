@@ -70,7 +70,6 @@
    # returns sequence "doAllDigi"
    #
    include "Configuration/StandardSequences/data/Digi.cff"
-   include "Configuration/StandardSequences/data/RecoSim.cff"
 
    include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
 
@@ -80,6 +79,6 @@
    sequence generator = { genParticleCandidates, genEventWeight, genEventScale }
 
    sequence psim  = { VtxSmeared, g4SimHits, generator }
-   sequence pdigi = { mix,doAllDigi, trackingParticles}
-   sequence simulation = {psim,pdigi}
+   sequence pdigi = { mix, doAllDigi, trackingParticles }
+   sequence simulation = { psim, pdigi }
 #
