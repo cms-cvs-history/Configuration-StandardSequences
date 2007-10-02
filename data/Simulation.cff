@@ -76,9 +76,9 @@
    include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
    include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
    include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
-   sequence generator = { genParticleCandidates, genEventWeight, genEventScale }
+   sequence generator = { genParticleCandidates & genEventWeight & genEventScale }
 
-   sequence psim  = { VtxSmeared, g4SimHits, generator }
+   sequence psim  = { VtxSmeared & g4SimHits & generator }
    sequence pdigi = { mix, doAllDigi, trackingParticles }
    sequence simulation = { psim, pdigi }
 #
