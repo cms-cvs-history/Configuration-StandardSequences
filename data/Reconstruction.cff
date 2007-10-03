@@ -39,7 +39,6 @@ include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
 include "RecoParticleFlow/Configuration/data/RecoParticleFlow.cff"
-include "Configuration/StandardSequences/data/RecoSim.cff"
 #
 # new tau configuration
 #
@@ -58,7 +57,7 @@ sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco,
 #
 
 # Default - change: now RS is in the default schedule
-sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS,RecoSim}
+sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS}
 #other possibilities
 sequence reconstruction_plusRS = {reconstruction}
 sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronSequence}
@@ -68,8 +67,8 @@ sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 #
 # for completeness
 #
-sequence reconstruction_woRS = {localreco, globalreco, highlevelreco, RecoSim}
-sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv, RecoSim} 
+sequence reconstruction_woRS = {localreco, globalreco, highlevelreco}
+sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv} 
 #
 # define a standard candle. please note I am picking up individual
 # modules instead of sequences

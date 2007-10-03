@@ -1,0 +1,19 @@
+#
+# generator level info
+#
+
+include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
+include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
+include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
+
+sequence generator = { genParticleCandidates & genEventWeight & genEventScale } 
+
+include "RecoJets/Configuration/data/RecoGenJets.cff"
+include "RecoMET/Configuration/data/RecoGenMET.cff"
+include "RecoJets/Configuration/data/GenJetParticles.cff"
+include "RecoMET/Configuration/data/GenMETParticles.cff"
+
+sequence genJetMET = { (genJetParticles, recoGenJets) & (genMETParticles, recoGenMET) }
+
+sequence pgen = { generator & genJetMET }
+ 
