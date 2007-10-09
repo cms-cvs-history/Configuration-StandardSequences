@@ -165,4 +165,3 @@ replace ecalConditions.toGet = {
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
 replace BTauMVAJetTagComputerRecord.connect ="frontier://FrontierDev/CMS_COND_BTAU"				 
 
-replace CombinedTauTagRecord.connect ="frontier://FrontierDev/CMS_COND_BTAU"				 
