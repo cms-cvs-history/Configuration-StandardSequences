@@ -70,10 +70,13 @@
    # returns sequence "doAllDigi"
    #
    include "Configuration/StandardSequences/data/Digi.cff"
+   include "Configuration/StandardSequences/data/RecoSim.cff"
 
    include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+   include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidatesFast.cfi"
 
-   sequence psim  = { VtxSmeared & g4SimHits }
-   sequence pdigi = { mix, doAllDigi, trackingParticles }
-   sequence simulation = { psim, pdigi }
+
+   sequence psim  = { VtxSmeared, g4SimHits }
+   sequence pdigi = { mix,doAllDigi, trackingParticles}
+   sequence simulation = {psim,pdigi,genParticleCandidates}
 #
