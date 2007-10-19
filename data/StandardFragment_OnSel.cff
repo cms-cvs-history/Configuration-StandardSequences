@@ -1,0 +1,36 @@
+#
+# common part between all the HLT/OnSel cfg files for PU samples. Does only Vertex Smearing and Simulation (GEANT). Workaround needed to keep edmHepMCProduct_source in the FEVT output so that RECO (GenMET) can be run afterwards - needed only for 1_2_0.  
+#
+
+ include "Configuration/StandardSequences/data/Simulation.cff"
+ include "Configuration/StandardSequences/data/VtxSmearedGauss.cff" 
+
+ path ps = {psim}
+
+ # Event output
+ include "Configuration/EventContent/data/EventContent.cff"
+ block FEVTPlusSourceEventContent = {
+        untracked vstring outputCommands = {
+                "drop *"
+        }
+  }
+
+  replace FEVTPlusSourceEventContent.outputCommands += FEVTSIMEventContent.outputCommands
+  replace FEVTPlusSourceEventContent.outputCommands += "keep edmHepMCProduct_*_*_*"
+
+ module FEVT = PoolOutputModule 
+ { 
+    using FEVTPlusSourceEventContent
+    untracked string fileName = "file:c_jets.root"
+    untracked PSet datasets ={
+	untracked PSet dataset1 = {
+	    untracked string dataTier = "GEN"
+	}
+        untracked PSet dataset2 = {
+            untracked string dataTier = "SIM"
+     	}
+    }
+ }
+
+ endpath outpath = {FEVT}
+
