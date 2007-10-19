@@ -12,6 +12,9 @@ include "CalibMuon/Configuration/data/Muon_FakeAlignment.cff"
 # Pixel calib
 #
 include "CalibTracker/Configuration/data/SiPixel_FakeGain.cff"
+# the following is in reality not needed because the default is false,
+# need to put the "true" replace in Frontier.....
+replace siPixelClusters.UseCalibDataFromDB = false
 #
 # Strip calib
 #
@@ -43,5 +46,3 @@ include "CalibCalorimetry/Configuration/data/Ecal_FakeConditions.cff"
 #
 include "RecoBTau/Configuration/data/RecoBTau_FakeConditions.cff"
 
-## BeamSpot Conditions
-include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditions.cff" 
