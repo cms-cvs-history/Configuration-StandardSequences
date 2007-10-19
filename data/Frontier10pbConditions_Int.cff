@@ -6,7 +6,7 @@ include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 # Tracker alignment: from Frontier
 # it contains replaces
 # needed for frontier access on new dev servlet
-replace trackerAlignment.connect="frontier://cms_conditions_data/CMS_COND_CSA07_ALIGNMENT"
+replace trackerAlignment.connect="frontier://cms_conditions_data/CMS_COND_16X_ALIGNMENT"
 replace trackerAlignment.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 ## 10pb scenario
 replace trackerAlignment.toGet = {
@@ -23,7 +23,7 @@ include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 # it contain replaces
 #
 # needed for frontier access on new dev servlet
-replace muonAlignment.connect="frontier://cms_conditions_data/CMS_COND_CSA07_ALIGNMENT"
+replace muonAlignment.connect="frontier://cms_conditions_data/CMS_COND_16X_ALIGNMENT"
 replace muonAlignment.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace muonAlignment.toGet = {
          { string record = "DTAlignmentRcd"           string tag = "DT10InversepbScenario150" },
@@ -39,7 +39,7 @@ replace muonAlignment.toGet = {
 include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
 
 # needed for frontier access on new dev servlet
-replace siPixelGainCalibration.connect="frontier://cms_conditions_data/CMS_COND_CSA07_PIXEL"
+replace siPixelGainCalibration.connect="frontier://cms_conditions_data/CMS_COND_16X_PIXEL"
 replace siPixelGainCalibration.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 
 # the following is needed because the default is false,
@@ -60,23 +60,23 @@ include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 
 # needed for frontier access on new dev servlet
-replace siStripApvGain.connect="frontier://cms_conditions_data/CMS_COND_CSA07_STRIP"
+replace siStripApvGain.connect="frontier://cms_conditions_data/CMS_COND_16X_STRIP"
 replace siStripApvGain.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace siStripApvGain.toGet = {{ string record = "SiStripApvGainRcd"
                                   string tag = "CSA07_SiStrip_10invpb_Gain" }}
 
-replace siStripLorentzAngle.connect="frontier://cms_conditions_data/CMS_COND_CSA07_STRIP"
+replace siStripLorentzAngle.connect="frontier://cms_conditions_data/CMS_COND_16X_STRIP"
 replace siStripLorentzAngle.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace siStripLorentzAngle.toGet = {{ string record = "SiStripLorentzAngleRcd" 
                                        string tag = "CSA07_SiStrip_100invpb_LAngle" }}
 
 
-replace siStripNoise.connect="frontier://cms_conditions_data/CMS_COND_CSA07_STRIP"
+replace siStripNoise.connect="frontier://cms_conditions_data/CMS_COND_16X_STRIP"
 replace siStripNoise.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace siStripNoise.toGet = {{ string record = "SiStripNoisesRcd" 
                                        string tag = "CSA07_SiStrip_Noise" }}
 
-#replace siStripPedestals.connect="frontier://cms_conditions_data/CMS_COND_CSA07_STRIP"
+#replace siStripPedestals.connect="frontier://cms_conditions_data/CMS_COND_16X_STRIP"
 #replace siStripPedestals.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 #replace siStripPedestals.toGet = {{ string record = "SiStripPedestalsRcd" 
 #                                   string tag = "SiStripFakePedestals" }}
@@ -98,7 +98,7 @@ include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
 replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
 
 
-replace maps_frontier.connect="frontier://cms_conditions_data/CMS_COND_CSA07_DT"
+replace maps_frontier.connect="frontier://cms_conditions_data/CMS_COND_16X_DT"
 replace maps_frontier.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
                                 string tag = "t0FakeCSA07_Sept15" },
@@ -113,7 +113,7 @@ include "CalibMuon/Configuration/data/CSC_FrontierConditions.cff"
 
 # needed for frontier access on new dev servlet
 
-replace cscConditions.connect="frontier://cms_conditions_data/CMS_COND_CSA07_CSC"
+replace cscConditions.connect="frontier://cms_conditions_data/CMS_COND_16X_CSC"
 replace cscConditions.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace cscConditions.toGet = {
 	{ string record = "CSCGainsRcd"
@@ -131,7 +131,7 @@ replace cscConditions.toGet = {
 # HCAL Frontier Conditions (same scenario 10 and 100)
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
-replace es_pool.connect="frontier://cms_conditions_data/CMS_COND_CSA07_HCAL"
+replace es_pool.connect="frontier://cms_conditions_data/CMS_COND_16X_HCAL"
 replace es_pool.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace  es_pool.toGet = {
                     {string record = "HcalPedestalsRcd"
@@ -155,7 +155,7 @@ replace  es_pool.toGet = {
 # ECAL Frontier Conditions (same scenario 10 and 100)
 #
 include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
-replace ecalConditions.connect="frontier://cms_conditions_data/CMS_COND_CSA07_ECAL"				 
+replace ecalConditions.connect="frontier://cms_conditions_data/CMS_COND_16X_ECAL"				 
 replace ecalConditions.catalog="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 replace ecalConditions.toGet = {
 	{ string record = "EcalIntercalibConstantsRcd"
@@ -173,8 +173,8 @@ replace ecalConditions.toGet = {
 ## B tagging conditions
 #
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
-replace BTauMVAJetTagComputerRecord.connect ="frontier://cms_conditions_data/CMS_COND_CSA07_BTAU"				 
+replace BTauMVAJetTagComputerRecord.connect ="frontier://cms_conditions_data/CMS_COND_16X_BTAU"				 
 replace BTauMVAJetTagComputerRecord.catalog ="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
 
-replace CombinedTauTagRecord.connect ="frontier://cms_conditions_data/CMS_COND_CSA07_BTAU"				 
+replace CombinedTauTagRecord.connect ="frontier://cms_conditions_data/CMS_COND_16X_BTAU"				 
 replace CombinedTauTagRecord.catalog ="relationalcatalog_frontier://cms_conditions_data/CMS_COND_16X_FRONTIER"
