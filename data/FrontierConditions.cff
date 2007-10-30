@@ -1,7 +1,7 @@
-# Tracker alignment and calibrations
-# include pixels and strip conditions
 #
-include "CalibTracker/Configuration/data/Tracker_FrontierConditions.cff"
+# Tracker alignment
+#
+include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 #
 ####################################################################################
 #
@@ -10,6 +10,19 @@ include "CalibTracker/Configuration/data/Tracker_FrontierConditions.cff"
 include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 #
 ###################################################################
+#
+# Pixel calib
+#
+include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
+#
+###################################################################
+#
+# Strip calib
+#
+include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
+include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
+include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 
 #############################################################################
 #

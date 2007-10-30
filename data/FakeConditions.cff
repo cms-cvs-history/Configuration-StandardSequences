@@ -1,13 +1,23 @@
+# Tracker alignment
 #
-# Tracker alignment and calibrations
-# include pixel and strips
-include "CalibTracker/Configuration/data/Tracker_FakeConditions.cff"
+include "CalibTracker/Configuration/data/Tracker_FakeAlignment.cff"
 #
 # Muon alignment
 #
 include "CalibMuon/Configuration/data/Muon_FakeAlignment.cff"
 #
 ###################################################################
+#
+# Pixel calib
+#
+include "CalibTracker/Configuration/data/SiPixel_FakeGain.cff"
+#
+# Strip calib
+#
+include "CalibTracker/Configuration/data/SiStrip_FakeGain.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakeNoise.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
+include "CalibTracker/Configuration/data/SiStrip_FakeLorentzAngle.cff"
 
 #
 # DT calib
