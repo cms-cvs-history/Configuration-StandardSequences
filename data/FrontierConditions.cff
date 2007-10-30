@@ -1,92 +1,24 @@
-# Tracker alignment
+# Tracker alignment and calibrations
+# include pixels and strip conditions
 #
-include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
+include "CalibTracker/Configuration/data/Tracker_FrontierConditions.cff"
 #
-# Tracker alignment: from Frontier
-replace trackerAlignment.connect="frontier://FrontierDev/CMS_COND_ALIGNMENT"
-
-# LM: these should be changed
-replace trackerAlignment.toGet = {
-        { string record = "TrackerAlignmentRcd"      string tag = "TrackerIdealGeometry150" },
-        { string record = "TrackerAlignmentErrorRcd" string tag = "TrackerIdealGeometryErrors150" }
-       }
 ####################################################################################
 #
 # Muon alignment
 #
 include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 #
-# Muon alignment: from Frontier 
-replace muonAlignment.connect="frontier://FrontierDev/CMS_COND_ALIGNMENT"
-
-#LM: this should be changed in direct cff
-#LM: the orginal cff contains sitelocalconfig (and commented catalog) 
-replace muonAlignment.toGet = {
-         { string record = "DTAlignmentRcd"           string tag = "DTIdealGeometry150" },
-         { string record = "DTAlignmentErrorRcd"      string tag = "DTIdealGeometryErrors150" },
-         { string record = "CSCAlignmentRcd"          string tag = "CSCIdealGeometry150" },
-         { string record = "CSCAlignmentErrorRcd"     string tag = "CSCIdealGeometryErrors150" }
-       }
-#
 ###################################################################
-#
-# Pixel calib OK!!!
-#
-include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
-replace siPixelGainCalibration.connect="frontier://FrontierDev/CMS_COND_PIXEL"
-replace siPixelGainCalibration.toGet= {{ string record = "SiPixelGainCalibrationRcd" 
-                                         string tag = "V2_trivial" }}
-
-
-###################################################################
-#
-# Strip calib OK
-#
-
-include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
-
-# LM: should be there, ask Giacomo
-# not yet in int2r
-#include "CalibTracker/Configuration/data/SiStrip_FrontierPedestals.cff"
-include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
-
-# needed for frontier access on new dev servlet
-replace siStripApvGain.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripApvGain.toGet = {{ string record = "SiStripApvGainRcd"
-                                  string tag = "CSA07_SiStrip_Ideal_Gain" }}
-
-replace siStripLorentzAngle.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripLorentzAngle.toGet = {{ string record = "SiStripLorentzAngleRcd" 
-                                       string tag = "CSA07_SiStrip_Ideal_LAngle" }}
-
-replace siStripNoise.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripNoise.toGet = {{ string record = "SiStripNoisesRcd" 
-                                       string tag = "CSA07_SiStrip_Noise" }}
-
-#replace siStripPedestals.connect="frontier://FrontierDev/CMS_COND_STRIP"
-#replace siStripPedestals.toGet = {{ string record = "SiStripPedestalsRcd" 
-#                                   string tag = "SiStripFakePedestals" }}
-
 
 #############################################################################
 #
 # DT calib
 
-
 include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
 
-# these need to be there for DB (default is false)
+# LM: keeping here to remember!!!!!
 replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
-
-
-replace maps_frontier.connect="frontier://FrontierDev/CMS_COND_DT"
-replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
-                                string tag = "t0FakeCSA07_Sept15" },
-                               {string record = "DTTtrigRcd"
-                                string tag ="ttrigFakeCSA07_July17"}}
-
 
 ###########################################################################################
 #
@@ -95,85 +27,36 @@ replace maps_frontier.toGet = {{string record = "DTT0Rcd"
 # DBCOnditions use the new DB objects (linearized vectors)
 include "CalibMuon/Configuration/data/CSC_FrontierDBConditions.cff"
 
-# needed for frontier access on new dev servlet
-
-replace cscConditions.connect="frontier://FrontierDev/CMS_COND_CSC"
-replace cscConditions.toGet = {
-	{ string record = "CSCDBGainsRcd"
-          string tag = "CSCDBGains_ideal"},
-        {string record = "CSCDBNoiseMatrixRcd"
-          string tag = "CSCDBNoiseMatrix_ideal"},
-        {string record = "CSCDBCrosstalkRcd"
-          string tag = "CSCDBCrosstalk_ideal"},
-        {string record = "CSCDBPedestalsRcd"
-	 string tag = "CSCDBPedestals_ideal"} 
-     }
 
 ###########################################################################################
 #
 # HCAL Frontier Conditions 
 #
-#LM: need to remove sitelocalconfig (HcalPlugins
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
-replace es_pool.connect="frontier://FrontierDev/CMS_COND_HCAL"
 
 ###########################################################################################
 #
 # ECAL Frontier Conditions
 #
-#LM: need to remove sitelocalconfig 
 include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
-replace ecalConditions.connect="frontier://FrontierDev/CMS_COND_ECAL"				 
-# the following is needed to solve a temporary problem in intercalibcontants
-replace ecalConditions.toGet = {
-	{ string record = "EcalPedestalsRcd"
-	    string tag = "EcalPedestals_trivial" },
-	{ string record = "EcalADCToGeVConstantRcd"
-	    string tag = "EcalADCToGeVConstant_trivial" },
-	{ string record = "EcalGainRatiosRcd"
-	    string tag = "EcalGainRatios_trivial" }
-     }
-replace src2.producedEcalIntercalibConstants = true
 
 ############################################################################################
 #
 ## Btag conditions
-# LM: (in reality it is fake....., ask andrea)
-#LM the fake is also present in 
-include "RecoBTag/Configuration/data/RecoBTag_FakeConditions.cff"
+include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions.cff"
 
 ## Btau
 #
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
-replace BTauMVAJetTagComputerRecord.connect ="frontier://FrontierDev/CMS_COND_BTAU"				 
-
 
 ## BeamSpot Conditions
-#LM: ask to include "CondCore/DBCommon/data/CondDBSetup.cfi" and add using CondDBSetup
-#    to name the pooldbessource!! (not working for the moment)
-#include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditions.cff" 
-include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditions.cff" 
-
-
+include "RecoVertex/BeamSpotProducer/data/BeamSpotNominalCollision.cff"
 
 
 ## HLT conditions
-# this includes:
-# include "HLTrigger/Configuration/data/rawToDigi/SiPixelFrontierCabling.cfi"
-# include "EventFilter/SiStripRawToDigi/data/SiStripFrontierCabling.cfi"
-# include "HLTrigger/Configuration/data/rawToDigi/DTFrontierCabling.cfi"
-# include "HLTrigger/Configuration/data/rawToDigi/RPCFrontierCabling.cfi"
 
 include "HLTrigger/Configuration/data/rawToDigi/FrontierConditions.cff"
 
-#LM: remove sitelocalconfig
-replace siPixelCabling.connect ="frontier://FrontierDev/CMS_COND_PIXEL"	
-			 
-replace SiStripDBCabling.connect ="frontier://FrontierDev/CMS_COND_STRIP"				 
-replace DTCabling.connect ="frontier://FrontierDev/CMS_COND_DT"				 
-
-#LM: remove sitelocalconfig
-replace RPCCabling.connect ="frontier://FrontierDev/CMS_COND_RPC"				 
 
 
 
