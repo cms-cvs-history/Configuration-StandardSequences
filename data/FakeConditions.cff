@@ -22,9 +22,6 @@ include "CalibTracker/Configuration/data/SiStrip_FakeLorentzAngle.cff"
 #
 # DT calib
 include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
-# the following is set to false as default
-# didn't go into 17x......(split geomentry record needed)
-replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = false
 
 #
 # CSC Calib

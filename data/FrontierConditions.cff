@@ -30,9 +30,6 @@ include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 
 include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
 
-# LM: keeping here to remember!!!!!
-replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
-
 ###########################################################################################
 #
 # CSC Calib OK (used also for digis)
