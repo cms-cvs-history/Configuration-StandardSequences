@@ -1,139 +1,73 @@
+#
 # Tracker alignment
 #
 include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 #
-# Tracker alignment: from Frontier
-# it contains replaces
-# needed for frontier access on new dev servlet
-replace trackerAlignment.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ALIGNMENT"
-
-
-replace trackerAlignment.toGet = {
-        { string record = "TrackerAlignmentRcd"      string tag = "TrackerIdealGeometry150" },
-        { string record = "TrackerAlignmentErrorRcd" string tag = "TrackerIdealGeometryErrors150" }
-       }
 ####################################################################################
 #
 # Muon alignment
 #
 include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 #
-# Muon alignment: from Frontier 
-# it contain replaces
-#
-# needed for frontier access on new dev servlet
-replace muonAlignment.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ALIGNMENT"
-
-replace muonAlignment.toGet = {
-         { string record = "DTAlignmentRcd"           string tag = "DTIdealGeometry150" },
-         { string record = "DTAlignmentErrorRcd"      string tag = "DTIdealGeometryErrors150" },
-         { string record = "CSCAlignmentRcd"          string tag = "CSCIdealGeometry150" },
-         { string record = "CSCAlignmentErrorRcd"     string tag = "CSCIdealGeometryErrors150" }
-       }
-#
 ###################################################################
 #
-# Pixel calib OK!!!
+# Pixel calib
 #
 include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
-
-# needed for frontier access on new dev servlet
-replace siPixelGainCalibration.connect="frontier://FrontierCSA07/CMS_COND_CSA07_PIXEL"
-
+#
 ###################################################################
 #
-# Strip calib OK
+# Strip calib
 #
-
 include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
-
-# not yet in int2r
-#include "CalibTracker/Configuration/data/SiStrip_FrontierPedestals.cff"
-
 include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
-
 include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 
-# needed for frontier access on new dev servlet
-replace siStripApvGain.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
-replace siStripApvGain.toGet = {{ string record = "SiStripApvGainRcd"
-                                  string tag = "CSA07_SiStrip_Ideal_Gain" }}
-
-replace siStripLorentzAngle.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
-replace siStripLorentzAngle.toGet = {{ string record = "SiStripLorentzAngleRcd" 
-                                       string tag = "CSA07_SiStrip_Ideal_LAngle" }}
-
-replace siStripNoise.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
-replace siStripNoise.toGet = {{ string record = "SiStripNoisesRcd" 
-                                       string tag = "CSA07_SiStrip_Noise" }}
-
-#replace siStripPedestals.connect="frontier://FrontierCSA07/CMS_COND_CSA07_STRIP"
-#replace siStripPedestals.toGet = {{ string record = "SiStripPedestalsRcd" 
-#                                   string tag = "SiStripFakePedestals" }}
-
-
-# these need to be there for no DB (default is db usage)
-# obsolete since 160
-#include "SimTracker/SiStripDigitizer/data/SiStripDigi.cfi"
-#replace siStripDigis.UseCalibDataFromDB  = true
-#replace siStripClusters.UseCalibDataFromDB  = true
 #############################################################################
 #
 # DT calib
 
-
 include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
-
-# these need to be there for DB (default is false)
-replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
-
-
-replace maps_frontier.connect="frontier://FrontierCSA07/CMS_COND_CSA07_DT"
-replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
-                                string tag = "t0FakeCSA07_Sept15" },
-                               {string record = "DTTtrigRcd"
-                                string tag ="ttrigFakeCSA07_July17"}}
 
 
 ###########################################################################################
 #
 # CSC Calib OK (used also for digis)
 #
-include "CalibMuon/Configuration/data/CSC_FrontierConditions.cff"
+# DBCOnditions use the new DB objects (linearized vectors)
+include "CalibMuon/Configuration/data/CSC_FrontierDBConditions.cff"
 
-# needed for frontier access on new dev servlet
-
-replace cscConditions.connect="frontier://FrontierCSA07/CMS_COND_CSA07_CSC"
-replace cscConditions.toGet = {
-	{ string record = "CSCGainsRcd"
-          string tag = "CSCGains_ideal"},
-        {string record = "CSCNoiseMatrixRcd"
-          string tag = "CSCNoiseMatrix_ideal"},
-        {string record = "CSCcrosstalkRcd"
-          string tag = "CSCCrosstalk_ideal"},
-        {string record = "CSCPedestalsRcd"
-	 string tag = "CSCPedestals_ideal"} 
-     }
 
 ###########################################################################################
 #
 # HCAL Frontier Conditions 
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
-replace es_pool.connect="frontier://FrontierCSA07/CMS_COND_CSA07_HCAL"
 
 ###########################################################################################
 #
 # ECAL Frontier Conditions
 #
 include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
-replace ecalConditions.connect="frontier://FrontierCSA07/CMS_COND_CSA07_ECAL"				 
-###########################################################################################
-#
 
-## B tagging conditions
+############################################################################################
+#
+## Btag conditions
+include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions.cff"
+
+## Btau
 #
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
-replace BTauMVAJetTagComputerRecord.connect ="frontier://FrontierCSA07/CMS_COND_CSA07_BTAU"				 
+
+## BeamSpot Conditions
+include "RecoVertex/BeamSpotProducer/data/BeamSpotSimpleGaussian.cff"
+
+
+## HLT conditions
+
+include "HLTrigger/Configuration/data/rawToDigi/FrontierConditions.cff"
+
+
+
 
