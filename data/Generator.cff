@@ -6,7 +6,7 @@ include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
 
-sequence generator = { genParticleCandidates & genEventWeight & genEventScale } 
+sequence GeneInfo = { genParticleCandidates & genEventWeight & genEventScale } 
 
 include "RecoJets/Configuration/data/RecoGenJets.cff"
 include "RecoMET/Configuration/data/RecoGenMET.cff"
@@ -15,5 +15,5 @@ include "RecoMET/Configuration/data/GenMETParticles.cff"
 
 sequence genJetMET = { (genJetParticles, recoGenJets) & (genMETParticles, recoGenMET) }
 
-sequence pgen = { generator & genJetMET }
+sequence pgen = { GeneInfo & genJetMET }
  
