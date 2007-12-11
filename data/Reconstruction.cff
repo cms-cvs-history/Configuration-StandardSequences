@@ -25,8 +25,8 @@ include "RecoMuon/Configuration/data/RecoMuon.cff"
 #
 sequence globalreco = {ckftracks & ecalClusters & (caloTowersRec, recoJets) &  metreco & muonreco_plus_isolation }
 sequence globalreco_plusRS = {globalreco, rstracks }
-sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
-sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
+sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronTestSequence}
+sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronTestSequence }
 
 # Higher level objects
 include "RecoVertex/Configuration/data/RecoVertex.cff"
