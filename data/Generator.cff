@@ -2,16 +2,11 @@
 # generator level info
 #
 
-#
-# Create both collections genParticleCandiates and genParticles
-# for a smooth transition 
-#
 include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
-include "PhysicsTools/HepMCCandAlgos/data/genParticles.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
 
-sequence GeneInfo = { (genParticleCandidates, genParticles) & genEventWeight & genEventScale } 
+sequence GeneInfo = { genParticleCandidates & genEventWeight & genEventScale } 
 
 include "RecoJets/Configuration/data/RecoGenJets.cff"
 include "RecoMET/Configuration/data/RecoGenMET.cff"
