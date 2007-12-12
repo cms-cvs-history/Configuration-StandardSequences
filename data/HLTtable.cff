@@ -1,5 +1,5 @@
 #
 # HLTrigger table
 #
-include "Configuration/HLTrigger/data/HLTtable.cff"
+include "Configuration/HLT/data/HLTtable.cff"
 #
