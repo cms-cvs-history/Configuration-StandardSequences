@@ -60,7 +60,7 @@ sequence highlevelreco_woConv = {offlineBeamSpot & recopixelvertexing, vertexrec
 sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS}
 #other possibilities
 sequence reconstruction_plusRS = {reconstruction}
-sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronSequence}
+sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronTestSequence}
 # the added _ is clearly a typo. for the moment I define both the correct and the wrong one!
 sequence reconstruction_plusRS_plus_GSF = {reconstruction_plusGSF}
 sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
