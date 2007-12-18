@@ -7,7 +7,6 @@ include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 # it contains replaces
 # needed for frontier access on new dev servlet
 replace trackerAlignment.connect="frontier://FrontierDev/CMS_COND_ALIGNMENT"
-replace trackerAlignment.catalog=""
 ## 10pb scenario
 replace trackerAlignment.toGet = {
   { string record = "TrackerAlignmentRcd"      string tag = "Tracker100pbScenario150" },
@@ -24,7 +23,6 @@ include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 #
 # needed for frontier access on new dev servlet
 replace muonAlignment.connect="frontier://FrontierDev/CMS_COND_ALIGNMENT"
-replace muonAlignment.catalog=""
 replace muonAlignment.toGet = {
          { string record = "DTAlignmentRcd"           string tag = "DT100InversepbScenario150" },
          { string record = "DTAlignmentErrorRcd"      string tag = "DT100InversepbScenarioErrors150" },
@@ -40,7 +38,6 @@ include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
 
 # needed for frontier access on new dev servlet
 replace siPixelGainCalibration.connect="frontier://FrontierDev/CMS_COND_PIXEL"
-replace siPixelGainCalibration.catalog=""
 
 # the following is needed because the default is false,
 replace siPixelClusters.UseCalibDataFromDB = true
@@ -62,23 +59,19 @@ include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 
 # needed for frontier access on new dev servlet
 replace siStripApvGain.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripApvGain.catalog=""
 replace siStripApvGain.toGet = {{ string record = "SiStripApvGainRcd"
                                   string tag = "CSA07_SiStrip_10invpb_Gain" }}
 
 replace siStripLorentzAngle.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripLorentzAngle.catalog=""
 replace siStripLorentzAngle.toGet = {{ string record = "SiStripLorentzAngleRcd" 
                                        string tag = "CSA07_SiStrip_100invpb_LAngle" }}
 
 
 replace siStripNoise.connect="frontier://FrontierDev/CMS_COND_STRIP"
-replace siStripNoise.catalog=""
 replace siStripNoise.toGet = {{ string record = "SiStripNoisesRcd" 
                                        string tag = "CSA07_SiStrip_Noise" }}
 
 #replace siStripPedestals.connect="frontier://FrontierDev/CMS_COND_STRIP"
-#replace siStripPedestals.catalog=""
 #replace siStripPedestals.toGet = {{ string record = "SiStripPedestalsRcd" 
 #                                   string tag = "SiStripFakePedestals" }}
 
@@ -100,7 +93,6 @@ replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correct
 
 
 replace maps_frontier.connect="frontier://FrontierDev/CMS_COND_DT"
-replace maps_frontier.catalog=""
 replace maps_frontier.toGet = {{string record = "DTT0Rcd" 
                                 string tag = "t0FakeCSA07_Sept15" },
                                {string record = "DTTtrigRcd"
@@ -115,7 +107,6 @@ include "CalibMuon/Configuration/data/CSC_FrontierConditions.cff"
 # needed for frontier access on new dev servlet
 
 replace cscConditions.connect="frontier://FrontierDev/CMS_COND_CSC"
-replace cscConditions.catalog=""
 replace cscConditions.toGet = {
 	{ string record = "CSCGainsRcd"
           string tag = "CSCGains_ideal"},
@@ -133,13 +124,12 @@ replace cscConditions.toGet = {
 #
 include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
 replace es_pool.connect="frontier://FrontierDev/CMS_COND_HCAL"
-replace es_pool.catalog=""
 replace  es_pool.toGet = {
                     {string record = "HcalPedestalsRcd"
                      string tag    = "hcal_pedestals_fC_v1"
                     },
                     {string record = "HcalGainsRcd"
-                     string tag =    "hcal_gain_miscalib_v2_100pb"
+                     string tag =    "hcal_gains_miscalib_v1"
                     },
                     {string record = "HcalQIEDataRcd"
                      string tag =    "qie_normalmode_v3"
@@ -157,7 +147,6 @@ replace  es_pool.toGet = {
 #
 include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
 replace ecalConditions.connect="frontier://FrontierDev/CMS_COND_ECAL"				 
-replace ecalConditions.catalog=""
 replace ecalConditions.toGet = {
 	{ string record = "EcalIntercalibConstantsRcd"
 	    string tag = "EcalIntercalibConstants_miscalibcsa07" },
@@ -175,7 +164,4 @@ replace ecalConditions.toGet = {
 #
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
 replace BTauMVAJetTagComputerRecord.connect ="frontier://FrontierDev/CMS_COND_BTAU"				 
-replace BTauMVAJetTagComputerRecord.catalog =""
 
-replace CombinedTauTagRecord.connect ="frontier://FrontierDev/CMS_COND_BTAU"				 
-replace CombinedTauTagRecord.catalog =""
