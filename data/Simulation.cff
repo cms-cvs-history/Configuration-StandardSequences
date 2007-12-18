@@ -17,11 +17,13 @@
 
    # Vertex smearing
    #
-   # There're 3 types of Vertex smearing module (Gauss, Flat, BeamProfile);
+   # There're several types of Vertex smearing module (Gauss, Flat, BeamProfile, Betafunc, BetafuncEarlyCollisions);
    # the cff's are available for each one :
    # Configuration/StandardSequences/data/VtxSmearedGauss.cff
    # Configuration/StandardSequences/data/VtxSmearedFlat.cff
-   # Configuration/StandardSequences/data/VtxSmearedBeamPreofile.cff
+   # Configuration/StandardSequences/data/VtxSmearedBeamProfile.cff
+   # Configuration/StandardSequences/data/VtxSmearedBetafunc.cff
+   # Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollisions.cff
    #
    # Either of the above returns label "VtxSmeared" that is already in the path below
    # (but not included here!!!)
@@ -34,7 +36,7 @@
    #          in other words, if you put in 2 or all 3 of the available cfi's, 
    #          the Fwk will throw
    #
-   # Currently, we suggest using Gaussian vertex smearing
+   # Currently, we suggest using Betafunc vertex smearing in the desired LHC configuration 
    #
    
    # Geant4-based detector simulation
