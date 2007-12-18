@@ -1,0 +1,54 @@
+# David Lange, Bryan Dahmes LLNL 
+# February 26, 2007
+#
+# Definition of DigiToRaw sequence
+#
+# The DigiToRaw outputs from each subsystem are assembled into one collection
+# (as is the case for data) to be read later by each subsystem's RawToDigi module.  
+
+#-------------------------#
+#--- DigiToRaw modules ---#
+#-------------------------#
+#--- GCT ---#
+include "EventFilter/GctRawToDigi/data/gctDigiToRaw.cfi"
+#--- GT ---#
+include "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtPack.cfi"
+#--- SiPixel ---#
+include "EventFilter/SiPixelRawToDigi/data/SiPixelDigiToRaw.cfi"
+#--- SiStrip ---#
+include "EventFilter/SiStripRawToDigi/data/SiStripDigiToRaw.cfi"
+#--- Ecal ---#
+include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTriggerPrimitiveDigis.cff"
+module ecalPacker = ecaldigitorawzerosup from "EventFilter/EcalDigiToRaw/data/ecalDigiToRaw.cfi"
+replace ecalPacker.Label = "ecalDigis"
+replace ecalPacker.InstanceEB = "ebDigis"
+replace ecalPacker.InstanceEE = "eeDigis"
+replace ecalPacker.labelEBSRFlags = ecalDigis:ebSrFlags
+replace ecalPacker.labelEESRFlags = ecalDigis:eeSrFlags
+#--- Ecal Preshower ---#
+include "EventFilter/ESDigiToRaw/data/esDigiToRaw.cfi"
+#--- Hcal ---#
+include "EventFilter/HcalRawToDigi/data/HcalDigiToRaw.cfi"
+#--- CSC ---#
+include "EventFilter/CSCRawToDigi/data/cscPacker.cfi"
+#--- DT ---#
+include "EventFilter/DTRawToDigi/data/dtPacker.cfi"
+#--- RPC ---#
+include "EventFilter/RPCRawToDigi/data/rpcPacker.cfi"
+
+#--- Collect everything together ---#
+module rawDataCollector = RawDataCollectorModule {}
+  
+sequence DigiToRaw = {
+                        gctDigiToRaw,
+                        l1GtPack,
+                        siPixelRawData,
+                        SiStripDigiToRaw,
+                        ecalPacker,
+                        esDigiToRaw,
+                        hcalRawData,
+                        cscpacker,
+                        dtpacker,
+                        rpcpacker,
+                        rawDataCollector
+                     }
