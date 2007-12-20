@@ -30,9 +30,6 @@ include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle_IntDB.cff"
 
 include "CalibMuon/Configuration/data/DT_FrontierConditions_IntDB.cff"
 
-# LM: keeping here to remember!!!!!
-replace  DTParametrizedDriftAlgo_CSA07.recAlgoConfig.tTrigModeConfig.doT0Correction = true
-
 ###########################################################################################
 #
 # CSC Calib OK (used also for digis)
@@ -63,8 +60,7 @@ include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions_IntDB.cff"
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions_IntDB.cff"
 
 ## BeamSpot Conditions
-include "RecoVertex/BeamSpotProducer/data/BeamSpotSimpleGaussian_IntDB.cff"
-
+include "RecoVertex/BeamSpotProducer/data/BeamSpotEarlyCollision_IntDB.cff"
 
 ## HLT conditions
 

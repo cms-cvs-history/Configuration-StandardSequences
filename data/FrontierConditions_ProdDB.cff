@@ -62,7 +62,6 @@ include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
 ## BeamSpot Conditions
 include "RecoVertex/BeamSpotProducer/data/BeamSpotEarlyCollision.cff"
 
-
 ## HLT conditions
 
 include "HLTrigger/Configuration/data/rawToDigi/FrontierConditions.cff"
