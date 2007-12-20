@@ -60,7 +60,7 @@ include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions_DevDB.cff"
 include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions_DevDB.cff"
 
 ## BeamSpot Conditions
-include "RecoVertex/BeamSpotProducer/data/BeamSpotSimpleGaussian_DevDB.cff"
+include "RecoVertex/BeamSpotProducer/data/BeamSpotEarlyCollision_DevDB.cff"
 
 
 ## HLT conditions
