@@ -1,0 +1,4 @@
+#
+# Master configuration for the magnetic field
+
+    include "MagneticField/Engine/data/volumeBasedMagneticField.cfi" 
