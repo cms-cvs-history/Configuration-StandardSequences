@@ -19,6 +19,10 @@ include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
 #-------------------------#
 #--- RawToDigi modules ---#
 #-------------------------#
+#--- CSC TF ---#
+module l1CscTfEmulDigis = csctfunpacker from "EventFilter/CSCTFRawToDigi/data/csctfunpacker.cfi"
+#--- DT TF ---#
+module l1DtTfEmulDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
 #--- GCT/GMT ---#
 include "L1TriggerConfig/L1ScalesProducers/data/L1MuTriggerScalesConfig.cff"
 include "L1TriggerConfig/L1ScalesProducers/data/L1MuGMTScalesConfig.cff"
