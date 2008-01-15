@@ -9,6 +9,10 @@
 #-------------------------#
 #--- DigiToRaw modules ---#
 #-------------------------#
+#--- CSCTF ---#
+include "EventFilter/CSCTFRawToDigi/data/csctfpacker.cfi"
+#--- DTTF ---#
+include "EventFilter/DTTFRawToDigi/data/dttfpacker.cfi"
 #--- GCT ---#
 include "EventFilter/GctRawToDigi/data/gctDigiToRaw.cfi"
 #--- GT ---#
@@ -40,6 +44,8 @@ include "EventFilter/RPCRawToDigi/data/rpcPacker.cfi"
 module rawDataCollector = RawDataCollectorModule {}
   
 sequence DigiToRaw = {
+                        csctfpacker,
+                        dttfpacker,
                         gctDigiToRaw,
                         l1GtPack,
                         siPixelRawData,
