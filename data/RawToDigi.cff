@@ -29,8 +29,8 @@ include "L1TriggerConfig/GMTConfigProducers/data/L1MuGMTParametersConfig.cff"
 module l1CscTfEmulDigis = csctfunpacker from "EventFilter/CSCTFRawToDigi/data/csctfunpacker.cfi"
 replace l1CscTfEmulDigis.producer = rawDataCollector
 #--- DT TF ---#
-module l1DtTfEmulDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
-#replace l1DtTfEmulDigis.producer = rawDataCollector
+module l1DttfEmulDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
+#replace l1DttfEmulDigis.producer = rawDataCollector
 #--- GCT/GMT ---#
 module l1GctEmulDigis = l1GctHwDigis from "EventFilter/GctRawToDigi/data/l1GctHwDigis.cfi"
 replace l1GctEmulDigis.inputLabel = rawDataCollector
@@ -64,6 +64,8 @@ module muonRPCDigis = rpcunpacker from "EventFilter/RPCRawToDigi/data/rpcUnpacke
 replace muonRPCDigis.InputLabel = rawDataCollector
 
 sequence RawToDigi = { 
+                        l1CscTfEmulDigis &
+                        l1DttfEmulDigis &
                         l1GctEmulDigis &
                         l1GmtEmulDigis &
                         siPixelDigis &
