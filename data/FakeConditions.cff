@@ -48,8 +48,7 @@ include "RecoBTag/Configuration/data/RecoBTag_FakeConditions.cff"
 include "RecoBTau/Configuration/data/RecoBTau_FakeConditions.cff"
 
 ## BeamSpot Conditions
-include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditionsSimpleGaussian.cff" 
-
+include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditionsEarlyCollision.cff"
 
 ## HLT conditions
 include "HLTrigger/Configuration/data/rawToDigi/FakeConditions.cff"
