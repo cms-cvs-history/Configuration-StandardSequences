@@ -19,7 +19,7 @@ include "CalibTracker/Configuration/data/SiStrip_FakeGain.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakeNoise.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakeLorentzAngle.cff"
-
+include "CalibTracker/SiStripESProducers/data/SiStripQualityFakeESSource.cfi"
 #
 # DT calib
 include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
