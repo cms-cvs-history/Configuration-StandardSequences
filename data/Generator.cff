@@ -1,3 +1,43 @@
+# Vertex smearing
+#
+# There're several types of Vertex smearing module (Gauss, Flat, BeamProfile, Betafunc, BetafuncEarlyCollisions);
+# the cff's are available for each one :
+# Configuration/StandardSequences/data/VtxSmearedGauss.cff
+# Configuration/StandardSequences/data/VtxSmearedFlat.cff
+# Configuration/StandardSequences/data/VtxSmearedBeamProfile.cff
+# Configuration/StandardSequences/data/VtxSmearedBetafunc.cff
+# Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollisions.cff
+#
+# Either of the above returns label "VtxSmeared" that is already in the path below
+# (but not included here!!!)
+#   
+# Note 1 : one and only label is allowed for either of these modules,
+#          that is VtxSmeared (the reason is not to allow multiple smearing); 
+#          an attempt to use any other label will cause the Fwk to throw
+# Note 2 : because only one label is allowed, a user can have only one
+#          instance of the Vertex smearing module in a given configuration;
+#          in other words, if you put in 2 or all 3 of the available cfi's, 
+#          the Fwk will throw
+#
+# Currently, we suggest using Betafunc vertex smearing in the desired LHC configuration 
+#
+# The vertex smearing needs to be called before the particle candidate generation
+#
+# REMINDER : vertex smearing need a startup seed;
+# in your cfg, do NOT forget to give seeds via RandomNumberGeneratorService !!!
+# 
+# Example configuration of the RandomNumberGeneratorService to appear in cfg:
+# service = RandomNumberGeneratorService
+# {
+#   untracked uint32 sourceSeed = 123456789
+#   PSet moduleSeeds =
+#   {
+#      untracked uint32 VtxSmeared = 98765432
+#   }
+# }
+
+sequence VertexSmearing = { VtxSmeared } 
+
 #
 # generator level info
 #
@@ -20,5 +60,5 @@ include "RecoMET/Configuration/data/GenMETParticles.cff"
 
 sequence genJetMET = { (genJetParticles, recoGenJets) & (genMETParticles, recoGenMET) }
 
-sequence pgen = { GeneInfo & genJetMET }
+sequence pgen = { VertexSmearing & GeneInfo & genJetMET }
  

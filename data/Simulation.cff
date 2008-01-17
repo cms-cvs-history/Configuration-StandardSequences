@@ -1,5 +1,5 @@
 
-   # REMINDER : vertex smearing and det.simulation need a startup seed;
+   # REMINDER : det.simulation need a startup seed;
    # in your cfg, do NOT forget to give seeds via RandomNumberGeneratorService !!!
    # 
    # Example configuration of the RandomNumberGeneratorService to appear in cfg:
@@ -14,30 +14,7 @@
    #   }
    # }
    
-
-   # Vertex smearing
-   #
-   # There're several types of Vertex smearing module (Gauss, Flat, BeamProfile, Betafunc, BetafuncEarlyCollisions);
-   # the cff's are available for each one :
-   # Configuration/StandardSequences/data/VtxSmearedGauss.cff
-   # Configuration/StandardSequences/data/VtxSmearedFlat.cff
-   # Configuration/StandardSequences/data/VtxSmearedBeamProfile.cff
-   # Configuration/StandardSequences/data/VtxSmearedBetafunc.cff
-   # Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollisions.cff
-   #
-   # Either of the above returns label "VtxSmeared" that is already in the path below
-   # (but not included here!!!)
-   #   
-   # Note 1 : one and only label is allowed for either of these modules,
-   #          that is VtxSmeared (the reason is not to allow multiple smearing); 
-   #          an attempt to use any other label will cause the Fwk to throw
-   # Note 2 : because only one label is allowed, a user can have only one
-   #          instance of the Vertex smearing module in a given configuration;
-   #          in other words, if you put in 2 or all 3 of the available cfi's, 
-   #          the Fwk will throw
-   #
-   # Currently, we suggest using Betafunc vertex smearing in the desired LHC configuration 
-   #
+   # Vertex smearing is exectuted in the pgen sequence
    
    # Geant4-based detector simulation
    # (necessary geometry and mag.field records included)
@@ -58,13 +35,12 @@
    # several other useful parameters are listed in the WorkBook:
    # https://twiki.cern.ch/twiki/bin/view/CMS/WorkBookSimDigi
 
-#
-# include TrackingParticle Producer
-# NOTA BENE: it MUST be run here at the moment, since it depends 
-# of the availability of the CrossingFrame in the Event
-#
-#     include "SimGeneral/TrackingAnalysis/data/trackingtruth.cfi"
-     include "SimGeneral/Configuration/data/SimGeneral.cff"
+   #
+   # include TrackingParticle Producer
+   # NOTA BENE: it MUST be run here at the moment, since it depends 
+   # of the availability of the CrossingFrame in the Event
+   #
+   include "SimGeneral/Configuration/data/SimGeneral.cff"
 
    # Digitization (electronics response modeling)
    # (all necessary geometry and other records included in the cff's)
@@ -75,7 +51,7 @@
 
    include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
 
-   sequence psim  = { VtxSmeared & g4SimHits }
+   sequence psim  = { g4SimHits }
    sequence pdigi = { mix, doAllDigi, trackingParticles }
    sequence simulation = { psim, pdigi }
 #
