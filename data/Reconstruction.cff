@@ -8,7 +8,7 @@ include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
 include "RecoLocalMuon/Configuration/data/RecoLocalMuon.cff"
 include "RecoLocalCalo/Configuration/data/RecoLocalCalo.cff"
 
-sequence localreco =  {trackerlocalreco, muonlocalreco, calolocalreco }
+sequence localreco =  {trackerlocalreco & muonlocalreco & calolocalreco }
 
 # Global  reco
 
@@ -23,10 +23,10 @@ include "RecoMuon/Configuration/data/RecoMuon.cff"
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-sequence globalreco = {ckftracks, ecalClusters, caloTowersRec, recoJets, metreco,muonreco_plus_isolation }
+sequence globalreco = {ckftracks & ecalClusters & (caloTowersRec, recoJets) &  metreco & muonreco_plus_isolation }
 sequence globalreco_plusRS = {globalreco, rstracks }
-sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronSequence}
-sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronSequence }
+sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronTestSequence}
+sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronTestSequence }
 
 # Higher level objects
 include "RecoVertex/Configuration/data/RecoVertex.cff"
@@ -47,10 +47,10 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 # Also BeamSpot
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
-sequence highlevelreco = {offlineBeamSpot, recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
+sequence highlevelreco = {offlineBeamSpot&  recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #emergency sequence wo conversions
-sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco_woConv = {offlineBeamSpot & recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
@@ -60,14 +60,14 @@ sequence highlevelreco_woConv = {offlineBeamSpot,recopixelvertexing, vertexreco,
 sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco_plusRS}
 #other possibilities
 sequence reconstruction_plusRS = {reconstruction}
-sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronSequence}
+sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronTestSequence}
 # the added _ is clearly a typo. for the moment I define both the correct and the wrong one!
 sequence reconstruction_plusRS_plus_GSF = {reconstruction_plusGSF}
 sequence reconstruction_plusRS_plusGSF = {reconstruction_plusRS_plus_GSF}
 #
 # for completeness
 #
-sequence reconstruction_woRS = {localreco, globalreco, highlevelreco}
+sequence reconstruction_woRS = {localreco &  globalreco & highlevelreco}
 sequence reconstruction_woRS_woConv = {localreco, globalreco, highlevelreco_woConv} 
 #
 # define a standard candle. please note I am picking up individual
