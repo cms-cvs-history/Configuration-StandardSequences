@@ -5,6 +5,15 @@
 #--- Allow for multiple calls to the database ---#
 include "CondCore/DBCommon/data/CondDBSetup.cfi" 
 
+#--- Geometry Setup ---#
+include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
+include "Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi"
+include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
+include "HLTrigger/Configuration/data/rawToDigi/EcalGeometrySetup.cff"
+include "Geometry/DTGeometry/data/dtGeometry.cfi"
+include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
+
 #-------------------------#
 #--- RawToDigi modules ---#
 #-------------------------#
