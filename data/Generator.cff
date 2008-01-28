@@ -6,7 +6,7 @@
 # Configuration/StandardSequences/data/VtxSmearedFlat.cff
 # Configuration/StandardSequences/data/VtxSmearedBeamProfile.cff
 # Configuration/StandardSequences/data/VtxSmearedBetafunc.cff
-# Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollisions.cff
+# Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollision.cff
 #
 # Either of the above returns label "VtxSmeared" that is already in the path below
 # (but not included here!!!)
