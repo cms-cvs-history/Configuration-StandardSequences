@@ -36,3 +36,5 @@
    include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
 
    include "Geometry/EcalMapping/data/EcalMapping.cfi"
+
+   include "Geometry/EcalMapping/data/EcalMappingRecord.cfi"
