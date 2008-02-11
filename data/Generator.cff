@@ -5,7 +5,7 @@
 # Configuration/StandardSequences/data/VtxSmearedGauss.cff
 # Configuration/StandardSequences/data/VtxSmearedFlat.cff
 # Configuration/StandardSequences/data/VtxSmearedBeamProfile.cff
-# Configuration/StandardSequences/data/VtxSmearedBetafunc.cff
+# Configuration/StandardSequences/data/VtxSmearedBetafuncNominalCollision.cff
 # Configuration/StandardSequences/data/VtxSmearedBetafuncEarlyCollision.cff
 #
 # Either of the above returns label "VtxSmeared" that is already in the path below
@@ -47,10 +47,11 @@ sequence VertexSmearing = { VtxSmeared }
 # for a smooth transition 
 #
 include "PhysicsTools/HepMCCandAlgos/data/genParticleCandidates.cfi"
+include "PhysicsTools/HepMCCandAlgos/data/genParticles.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi"
 include "PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi"
 
-sequence GeneInfo = { genParticleCandidates & genEventWeight & genEventScale } 
+sequence GeneInfo = { (genParticleCandidates, genParticles) & genEventWeight & genEventScale }
 
 include "RecoJets/Configuration/data/RecoGenJets.cff"
 include "RecoMET/Configuration/data/RecoGenMET.cff"
