@@ -48,7 +48,7 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
 sequence highlevelreco = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
-sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
+sequence highlevelreco_plusRS = {highlevelreco} # whatever
 #emergency sequence wo conversions
 sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
