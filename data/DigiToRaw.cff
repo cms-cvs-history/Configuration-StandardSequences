@@ -41,7 +41,7 @@ include "EventFilter/DTRawToDigi/data/dtPacker.cfi"
 include "EventFilter/RPCRawToDigi/data/rpcPacker.cfi"
 
 #--- Collect everything together ---#
-module rawDataCollector = RawDataCollectorModule {}
+include "EventFilter/RawDataCollector/data/rawDataCollector.cfi"
   
 sequence DigiToRaw = {
                         csctfpacker,
