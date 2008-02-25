@@ -24,16 +24,17 @@ include "L1TriggerConfig/GctConfigProducers/data/L1GctConfig.cff"
 include "L1TriggerConfig/L1GtConfigProducers/data/L1GtConfig.cff"
 include "L1TriggerConfig/GMTConfigProducers/data/L1MuGMTParametersConfig.cff"
 #--- CSC TF ---#
-module l1CscTfEmulDigis = csctfunpacker from "EventFilter/CSCTFRawToDigi/data/csctfunpacker.cfi"
-replace l1CscTfEmulDigis.producer = rawDataCollector
+module csctfDigis = csctfunpacker from "EventFilter/CSCTFRawToDigi/data/csctfunpacker.cfi"
+replace csctfDigis.producer = rawDataCollector
 #--- DT TF ---#
-module l1DttfEmulDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
-#replace l1DttfEmulDigis.producer = rawDataCollector
-#--- GCT/GMT ---#
-module l1GctEmulDigis = l1GctHwDigis from "EventFilter/GctRawToDigi/data/l1GctHwDigis.cfi"
-replace l1GctEmulDigis.inputLabel = rawDataCollector
-module l1GmtEmulDigis = l1GtUnpack from "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtUnpack.cfi"
-replace l1GmtEmulDigis.DaqGtInputTag = rawDataCollector
+module dttfDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
+#replace dttfDigis.producer = rawDataCollector
+#--- GCT ---#
+module gctDigis = l1GctHwDigis from "EventFilter/GctRawToDigi/data/l1GctHwDigis.cfi"
+replace gctDigis.inputLabel = rawDataCollector
+#--- GT ---#
+module gtDigis = l1GtUnpack from "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtUnpack.cfi"
+replace gtDigis.DaqGtInputTag = rawDataCollector
 #--- SiPixel ---#
 include "EventFilter/SiPixelRawToDigi/data/SiPixelRawToDigi.cfi"
 replace siPixelDigis.InputLabel = "rawDataCollector"
@@ -62,10 +63,10 @@ module muonRPCDigis = rpcunpacker from "EventFilter/RPCRawToDigi/data/rpcUnpacke
 replace muonRPCDigis.InputLabel = rawDataCollector
 
 sequence RawToDigi = { 
-                        l1CscTfEmulDigis &
-                        l1DttfEmulDigis &
-                        l1GctEmulDigis &
-                        l1GmtEmulDigis &
+                        csctfDigis &
+                        dttfDigis &
+                        gctDigis &
+                        gtDigis &
                         siPixelDigis &
                         SiStripRawToDigis &
                         ecalDigis &
