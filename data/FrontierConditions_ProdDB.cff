@@ -23,6 +23,7 @@ include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
 include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
+include "CalibTracker/SiStripESProducers/data/SiStripQualityFakeESSource.cfi"
 
 #############################################################################
 #
