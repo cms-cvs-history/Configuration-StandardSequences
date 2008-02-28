@@ -28,7 +28,7 @@ module csctfDigis = csctfunpacker from "EventFilter/CSCTFRawToDigi/data/csctfunp
 replace csctfDigis.producer = rawDataCollector
 #--- DT TF ---#
 module dttfDigis = dttfunpacker from "EventFilter/DTTFRawToDigi/data/dttfunpacker.cfi"
-#replace dttfDigis.producer = rawDataCollector
+replace dttfDigis.DTTF_FED_Source = rawDataCollector
 #--- GCT ---#
 module gctDigis = l1GctHwDigis from "EventFilter/GctRawToDigi/data/l1GctHwDigis.cfi"
 replace gctDigis.inputLabel = rawDataCollector
