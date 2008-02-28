@@ -23,7 +23,7 @@ include "RecoMuon/Configuration/data/RecoMuon.cff"
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-sequence globalreco = {ckftracks & ecalClusters & (caloTowersRec, recoJets) &  metreco & muonreco_plus_isolation }
+sequence globalreco = {offlineBeamSpot&  recopixelvertexing,ckftracks & ecalClusters & (caloTowersRec, recoJets) &  metreco & muonreco_plus_isolation }
 sequence globalreco_plusRS = {globalreco, rstracks }
 sequence globalreco_plusGSF = {globalreco,  GsfGlobalElectronTestSequence}
 sequence globalreco_plusRS_plusGSF = {globalreco, rstracks, GsfGlobalElectronTestSequence }
@@ -47,10 +47,10 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 # Also BeamSpot
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
-sequence highlevelreco = {offlineBeamSpot&  recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
+sequence highlevelreco = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
 sequence highlevelreco_plusRS = {highlevelreco,vertexreco_rs} # whatever
 #emergency sequence wo conversions
-sequence highlevelreco_woConv = {offlineBeamSpot & recopixelvertexing, vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
 
 #
 # "Export" Section
