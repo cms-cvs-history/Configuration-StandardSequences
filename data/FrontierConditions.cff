@@ -1,71 +1,71 @@
 #
 # Tracker alignment
 #
-include "CalibTracker/Configuration/data/Tracker_FrontierAlignment_IntDB.cff"
+include "CalibTracker/Configuration/data/Tracker_FrontierAlignment.cff"
 #
 ####################################################################################
 #
 # Muon alignment
 #
-include "CalibMuon/Configuration/data/Muon_FrontierAlignment_IntDB.cff"
+include "CalibMuon/Configuration/data/Muon_FrontierAlignment.cff"
 #
 ###################################################################
 #
 # Pixel calib
 #
-include "CalibTracker/Configuration/data/SiPixel_FrontierGain_IntDB.cff"
+include "CalibTracker/Configuration/data/SiPixel_FrontierGain.cff"
 #
 ###################################################################
 #
 # Strip calib
 #
-include "CalibTracker/Configuration/data/SiStrip_FrontierGain_IntDB.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierNoise_IntDB.cff"
+include "CalibTracker/Configuration/data/SiStrip_FrontierGain.cff"
+include "CalibTracker/Configuration/data/SiStrip_FrontierNoise.cff"
 include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle_IntDB.cff"
+include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle.cff"
 include "CalibTracker/SiStripESProducers/data/SiStripQualityFakeESSource.cfi"
 
 #############################################################################
 #
 # DT calib
 
-include "CalibMuon/Configuration/data/DT_FrontierConditions_IntDB.cff"
+include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
 
 ###########################################################################################
 #
 # CSC Calib OK (used also for digis)
 #
 # DBCOnditions use the new DB objects (linearized vectors)
-include "CalibMuon/Configuration/data/CSC_FrontierDBConditions_IntDB.cff"
+include "CalibMuon/Configuration/data/CSC_FrontierDBConditions.cff"
 
 
 ###########################################################################################
 #
 # HCAL Frontier Conditions 
 #
-include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions_IntDB.cff"
+include "CalibCalorimetry/Configuration/data/Hcal_FrontierConditions.cff"
 
 ###########################################################################################
 #
 # ECAL Frontier Conditions
 #
-include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions_IntDB.cff"
+include "CalibCalorimetry/Configuration/data/Ecal_FrontierConditions.cff"
 
 ############################################################################################
 #
 ## Btag conditions
-include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions_IntDB.cff"
+include "RecoBTag/Configuration/data/RecoBTag_FrontierConditions.cff"
 
 ## Btau
 #
-include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions_IntDB.cff"
+include "RecoBTau/Configuration/data/RecoBTau_FrontierConditions.cff"
 
 ## BeamSpot Conditions
-include "RecoVertex/BeamSpotProducer/data/BeamSpotEarlyCollision_IntDB.cff"
+include "RecoVertex/BeamSpotProducer/data/BeamSpotEarlyCollision.cff"
 
 ## HLT conditions
 
-include "HLTrigger/Configuration/data/rawToDigi/FrontierConditions_IntDB.cff"
+include "HLTrigger/Configuration/data/rawToDigi/FrontierConditions.cff"
 
 
 
