@@ -1,29 +1,13 @@
 #
-# Tracker alignment
-#
-include "CalibTracker/Configuration/data/Tracker_FrontierAlignment_IntDB.cff"
-#
-####################################################################################
-#
 # Muon alignment
 #
 include "CalibMuon/Configuration/data/Muon_FrontierAlignment_IntDB.cff"
 #
 ###################################################################
 #
-# Pixel calib
+# Pixel and Strip Tracker alignment and calib conditions
 #
-include "CalibTracker/Configuration/data/SiPixel_FrontierGain_IntDB.cff"
-#
-###################################################################
-#
-# Strip calib
-#
-include "CalibTracker/Configuration/data/SiStrip_FrontierGain_IntDB.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierNoise_IntDB.cff"
-include "CalibTracker/Configuration/data/SiStrip_FakePedestals.cff"
-include "CalibTracker/Configuration/data/SiStrip_FrontierLorentzAngle_IntDB.cff"
-include "CalibTracker/SiStripESProducers/data/SiStripQualityFakeESSource.cfi"
+include "CalibTracker/Configuration/data/Tracker_FrontierConditions_IntDB.cff"
 
 #############################################################################
 #
