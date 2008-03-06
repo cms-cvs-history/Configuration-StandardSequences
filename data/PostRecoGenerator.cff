@@ -1,13 +1,8 @@
 #track match
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
-include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
-include "Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi"
-include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
 include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 include "SimGeneral/TrackingAnalysis/data/trackingParticles.cfi"
 include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
 include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
-
 include "SimTracker/TrackAssociation/data/trackMCMatchSequence.cff"
 
 # define post-reco generator sequence
