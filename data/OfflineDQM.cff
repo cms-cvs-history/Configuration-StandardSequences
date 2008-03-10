@@ -1,0 +1,6 @@
+service = DQMStore{}
+include "Validation/GlobalDigis/data/globaldigis_analyze.cfi"
+include "Validation/GlobalRecHits/data/globalrechits_analyze.cfi"
+include "Validation/GlobalHits/data/globalhits_analyze.cfi"
+
+sequence offlinedqm={globaldigisanalyze, globalrechitsanalyze, globalhitsanalyze}
