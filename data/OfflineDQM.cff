@@ -2,5 +2,6 @@ service = DQMStore{}
 include "Validation/GlobalDigis/data/globaldigis_analyze.cfi"
 include "Validation/GlobalRecHits/data/globalrechits_analyze.cfi"
 include "Validation/GlobalHits/data/globalhits_analyze.cfi"
+include "DQMServices/Components/data/MEtoEDMConverter.cfi"
 
-sequence offlinedqm={globaldigisanalyze, globalrechitsanalyze, globalhitsanalyze}
+sequence offlinedqm={globaldigisanalyze, globalrechitsanalyze, globalhitsanalyze, MEtoEDMConverter}
