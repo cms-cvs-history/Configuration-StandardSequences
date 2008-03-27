@@ -55,8 +55,8 @@ sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, taut
 # "Export" Section
 #
 
-# Default - change: now RS is in the default schedule
-sequence reconstruction = {localreco, globalreco_plusRS, highlevelreco}
+# Default - change: remove  RS again
+sequence reconstruction = {localreco, globalreco, highlevelreco}
 #other possibilities
 sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronTestSequence}
 #
