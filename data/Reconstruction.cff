@@ -57,6 +57,7 @@ sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, taut
 
 # Default - change: remove  RS again
 sequence reconstruction = {localreco, globalreco, highlevelreco}
+sequence reconstruction_withRS = {localreco, globalreco_plusRS, highlevelreco}
 #other possibilities
 sequence reconstruction_plusGSF = {reconstruction,GsfGlobalElectronTestSequence}
 #
