@@ -15,7 +15,7 @@ es_module hcal_db_producer = HcalDbProducer {
          untracked vstring dump = {""}
          untracked string file = ""
 }
-es_source es_hardcode = HcalHardcodeCalibrations {untracked vstring toGet = {"GainWidths", "channelQuality", "ZSThresholds", "RespCorrs"}}
+es_source es_hardcode = HcalHardcodeCalibrations {untracked vstring toGet = {"GainWidths", "channelQuality", "ZSThresholds"}}
 
 include "CalibTracker/SiStripESProducers/data/SiStripGainESProducer.cfi"
 #es_module sistripconn = SiStripConnectivity {}
