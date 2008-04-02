@@ -1,4 +1,4 @@
-# last update: $Date: 2008/03/27 21:29:31 $ by $Author: futyand $
+# last update: $Date: 2008/04/01 15:04:03 $ by $Author: dlange $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -8,11 +8,20 @@
 # AlCaReco for track based alignment using ZMuMu events
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlZMuMu.cff"
 
-# AlCaReco for track based alignment using MinBias events
-  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlMinBias.cff"
-
 # AlCaReco for track based alignment using Cosmic muon events
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics.cff"
+
+# AlCaReco for track based alignment using isoMu events
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlMuonIsolated.cff"
+
+# AlCaReco for track based alignment using J/Psi events
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlJpsiMuMu.cff"
+
+# AlCaReco for track based alignment using Upsilon events
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlUpsilonMuMu.cff"
+
+# AlCaReco for track based alignment using MinBias events
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlMinBias.cff"
 
 # AlCaReco for tracker calibration using MinBias events
   include "Calibration/TkAlCaRecoProducers/data/ALCARECOSiStripCalMinBias.cff"
@@ -48,6 +57,7 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 
 # HCAL calibration with isolated tracks
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalIsoTrk.cff"
+  include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalIsoTrkNoHLT.cff"
 
 # HCAl calibration with min.bias
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalMinBias.cff"
@@ -68,8 +78,13 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   include "CalibMuon/RPCCalibration/data/ALCARECORpcCalHLT.cff"
 
   path pathALCARECOTkAlZMuMu           = { seqALCARECOTkAlZMuMu }
+  path pathALCARECOTkAlMuonIsolated    = { seqALCARECOTkAlMuonIsolated }
+  path pathALCARECOTkAlJpsiMuMu        = { seqALCARECOTkAlJpsiMuMu }
+  path pathALCARECOTkAlUpsilonMuMu     = { seqALCARECOTkAlUpsilonMuMu }
   path pathALCARECOTkAlMinBias         = { seqALCARECOTkAlMinBias }
   path pathALCARECOSiStripCalMinBias   = { seqALCARECOSiStripCalMinBias }
+  path pathALCARECOTkAlCosmicsCTF      = { seqALCARECOTkAlCosmicsCTF }
+  path pathALCARECOTkAlCosmicsCosmicTF = { seqALCARECOTkAlCosmicsCosmicTF }
   path pathALCARECOEcalCalElectron     = { seqALCARECOEcalCalElectron }
   path pathALCARECOEcalCalPhiSym       = { seqALCARECOEcalCalPhiSym }
   path pathALCARECOEcalCalPi0Calib     = { seqALCARECOEcalCalPi0Calib }
@@ -77,8 +92,8 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOHcalCalDijets       = { seqALCARECOHcalCalDijets }
   path pathALCARECOHcalCalGammaJet     = { seqALCARECOHcalCalGammaJet }
   path pathALCARECOHcalCalIsoTrk       = { seqALCARECOHcalCalIsoTrk }
+  path pathALCARECOHcalCalIsoTrkNoHLT  = { seqALCARECOHcalCalIsoTrkNoHLT }
   path pathALCARECOHcalCalHO           = { seqALCARECOHcalCalHO }
   path pathALCARECOMuAlZMuMu           = { seqALCARECOMuAlZMuMu }
   path pathALCARECOMuAlOverlaps        = { seqALCARECOMuAlOverlaps }
-
-
+  path pathALCARECORpcCalHLT           = { seqALCARECORpcCalHLT }
