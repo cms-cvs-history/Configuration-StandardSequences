@@ -35,6 +35,7 @@ include "RecoPixelVertexing/Configuration/data/RecoPixelVertexing.cff"
 #not needed anymore - the jet to track associations are in the next one
 #include "RecoBTau/Configuration/data/RecoBTau.cff"
 include "RecoJets/Configuration/data/RecoJetAssociations.cff"
+include "RecoJets/Configuration/data/RecoPFJets.cff"
 include "RecoBTag/Configuration/data/RecoBTag.cff"
 include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 include "RecoLocalTracker/Configuration/data/RecoLocalTracker.cff"
@@ -47,9 +48,9 @@ include "RecoTauTag/Configuration/data/RecoTauTag.cff"
 # Also BeamSpot
 include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
-sequence highlevelreco = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,PFTau}
+sequence highlevelreco = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco,particleFlowReco,recoPFJets,PFTau}
 #emergency sequence wo conversions
-sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,PFTau}
+sequence highlevelreco_woConv = {vertexreco, recoJetAssociations, btagging, tautagging, egammareco_woConvPhotons,particleFlowReco,recoPFJets,PFTau}
 
 #
 # "Export" Section
