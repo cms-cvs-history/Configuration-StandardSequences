@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/01 15:04:03 $ by $Author: dlange $
+# last update: $Date: 2008/04/02 23:44:09 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -22,6 +22,9 @@
 
 # AlCaReco for track based alignment using MinBias events
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlMinBias.cff"
+
+# AlCaReco for pixel calibration using muons
+  include "Calibration/TkAlCaRecoProducers/data/ALCARECOSiPixelLorentzAngle.cff"
 
 # AlCaReco for tracker calibration using MinBias events
   include "Calibration/TkAlCaRecoProducers/data/ALCARECOSiStripCalMinBias.cff"
@@ -82,6 +85,7 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOTkAlJpsiMuMu        = { seqALCARECOTkAlJpsiMuMu }
   path pathALCARECOTkAlUpsilonMuMu     = { seqALCARECOTkAlUpsilonMuMu }
   path pathALCARECOTkAlMinBias         = { seqALCARECOTkAlMinBias }
+  path pathALCARECOSiPixelLorentzAngle = { seqALCARECOSiPixelLorentzAngle }
   path pathALCARECOSiStripCalMinBias   = { seqALCARECOSiStripCalMinBias }
   path pathALCARECOTkAlCosmicsCTF      = { seqALCARECOTkAlCosmicsCTF }
   path pathALCARECOTkAlCosmicsCosmicTF = { seqALCARECOTkAlCosmicsCosmicTF }
