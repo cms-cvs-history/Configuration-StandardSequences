@@ -1,4 +1,4 @@
-include "CondCore/DBCommon/data/CondDBCommon.cfi"
+include "CondCore/DBCommon/data/CondDBSetup.cfi"
 
 
 # the following is needed for non PoolDBESSources (fake calibrations)
@@ -28,8 +28,10 @@ include "RecoLocalTracker/SiStripRecHitConverter/data/SiStripRecHitMatcher.cfi"
 
 
 es_source GlobalTag = PoolDBESSource {
-    using CondDBCommon
-    untracked string globaltag = "dummy"
+    using CondDBSetup
+    string connect = "frontier://FrontierProd/CMS_COND_20X_GLOBALTAG"
+    untracked string globaltag = "IDEAL::All"
     untracked string BlobStreamerName = "TBufferBlobStreamingService"
 }
 
+# Other values for globaltag are "STARTUP::All", "1PB::All", "10PB::All"
