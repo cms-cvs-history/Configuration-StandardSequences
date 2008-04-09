@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/02 23:44:09 $ by $Author: futyand $
+# last update: $Date: 2008/04/07 21:57:48 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -87,15 +87,12 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOTkAlMinBias         = { seqALCARECOTkAlMinBias }
   path pathALCARECOSiPixelLorentzAngle = { seqALCARECOSiPixelLorentzAngle }
   path pathALCARECOSiStripCalMinBias   = { seqALCARECOSiStripCalMinBias }
-  path pathALCARECOTkAlCosmicsCTF      = { seqALCARECOTkAlCosmicsCTF }
-  path pathALCARECOTkAlCosmicsCosmicTF = { seqALCARECOTkAlCosmicsCosmicTF }
   path pathALCARECOEcalCalElectron     = { seqALCARECOEcalCalElectron }
   path pathALCARECOEcalCalPhiSym       = { seqALCARECOEcalCalPhiSym }
   path pathALCARECOEcalCalPi0Calib     = { seqALCARECOEcalCalPi0Calib }
   path pathALCARECOHcalCalMinBias      = { seqALCARECOHcalCalMinBias }
   path pathALCARECOHcalCalDijets       = { seqALCARECOHcalCalDijets }
   path pathALCARECOHcalCalGammaJet     = { seqALCARECOHcalCalGammaJet }
-  path pathALCARECOHcalCalIsoTrk       = { seqALCARECOHcalCalIsoTrk }
   path pathALCARECOHcalCalIsoTrkNoHLT  = { seqALCARECOHcalCalIsoTrkNoHLT }
   path pathALCARECOHcalCalHO           = { seqALCARECOHcalCalHO }
   path pathALCARECOMuAlZMuMu           = { seqALCARECOMuAlZMuMu }
