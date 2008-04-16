@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/07 21:57:48 $ by $Author: futyand $
+# last update: $Date: 2008/04/09 21:02:44 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -80,11 +80,15 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 # RPC calibration
   include "CalibMuon/RPCCalibration/data/ALCARECORpcCalHLT.cff"
 
-  path pathALCARECOTkAlZMuMu           = { seqALCARECOTkAlZMuMu }
-  path pathALCARECOTkAlMuonIsolated    = { seqALCARECOTkAlMuonIsolated }
-  path pathALCARECOTkAlJpsiMuMu        = { seqALCARECOTkAlJpsiMuMu }
-  path pathALCARECOTkAlUpsilonMuMu     = { seqALCARECOTkAlUpsilonMuMu }
-  path pathALCARECOTkAlMinBias         = { seqALCARECOTkAlMinBias }
+# NOTE: the ALCARECO DQM modules can not be placed together in a single path 
+# because they act as filters. They are therefore inserted per ALCARECO path.
+  include "DQMOffline/Configuration/data/AlCaRecoDQM.cff"
+
+  path pathALCARECOTkAlZMuMu           = { seqALCARECOTkAlZMuMu        ,ALCARECOTkAlZMuMuDQM} 
+  path pathALCARECOTkAlMuonIsolated    = { seqALCARECOTkAlMuonIsolated ,ALCARECOTkAlMuonIsolatedDQM}
+  path pathALCARECOTkAlJpsiMuMu        = { seqALCARECOTkAlJpsiMuMu     ,ALCARECOTkAlJpsiMuMuDQM}
+  path pathALCARECOTkAlUpsilonMuMu     = { seqALCARECOTkAlUpsilonMuMu  ,ALCARECOTkAlUpsilonMuMuDQM}
+  path pathALCARECOTkAlMinBias         = { seqALCARECOTkAlMinBias      ,ALCARECOTkAlMinBiasDQM}
   path pathALCARECOSiPixelLorentzAngle = { seqALCARECOSiPixelLorentzAngle }
   path pathALCARECOSiStripCalMinBias   = { seqALCARECOSiStripCalMinBias }
   path pathALCARECOEcalCalElectron     = { seqALCARECOEcalCalElectron }
