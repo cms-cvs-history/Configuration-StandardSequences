@@ -34,4 +34,5 @@ es_source GlobalTag = PoolDBESSource {
     untracked string BlobStreamerName = "TBufferBlobStreamingService"
 }
 
-# Other values for globaltag are "STARTUP::All", "1PB::All", "10PB::All"
+# For other valid global tags, see:
+# https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideFrontierConditions
