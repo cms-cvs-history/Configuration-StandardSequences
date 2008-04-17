@@ -1,7 +1,5 @@
 service = RandomNumberGeneratorService
 {
-   untracked string saveFileName = "StashState.data"      
-        
    untracked uint32 sourceSeed = 123456789
    PSet moduleSeeds =
    {
@@ -19,6 +17,3 @@ service = RandomNumberGeneratorService
 
    }
 }            
-
-module randomEngineStateProducer = RandomEngineStateProducer { }
-
