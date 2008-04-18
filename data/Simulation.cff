@@ -50,8 +50,9 @@
    include "Configuration/StandardSequences/data/Digi.cff"
 
    include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+   include "Configuration/StandardSequences/data/SimulationRandomNumberGeneratorSeeds.cff"
 
-   sequence psim  = { g4SimHits }
-   sequence pdigi = { mix, doAllDigi, trackingParticles }
+   sequence psim  = { randomEngineStateProducer, g4SimHits }
+   sequence pdigi = { randomEngineStateProducer, mix, doAllDigi, trackingParticles }
    sequence simulation = { psim, pdigi }
 #
