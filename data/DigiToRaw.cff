@@ -24,11 +24,11 @@ include "EventFilter/SiStripRawToDigi/data/SiStripDigiToRaw.cfi"
 #--- Ecal ---#
 include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTriggerPrimitiveDigis.cff"
 module ecalPacker = ecaldigitorawzerosup from "EventFilter/EcalDigiToRaw/data/ecalDigiToRaw.cfi"
-replace ecalPacker.Label = "ecalDigis"
+replace ecalPacker.Label = "simEcalDigis"
 replace ecalPacker.InstanceEB = "ebDigis"
 replace ecalPacker.InstanceEE = "eeDigis"
-replace ecalPacker.labelEBSRFlags = ecalDigis:ebSrFlags
-replace ecalPacker.labelEESRFlags = ecalDigis:eeSrFlags
+replace ecalPacker.labelEBSRFlags = simEcalDigis:ebSrFlags
+replace ecalPacker.labelEESRFlags = simEcalDigis:eeSrFlags
 #--- Ecal Preshower ---#
 include "EventFilter/ESDigiToRaw/data/esDigiToRaw.cfi"
 #--- Hcal ---#
