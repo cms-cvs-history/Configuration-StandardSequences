@@ -9,10 +9,12 @@ include "L1Trigger/Configuration/data/L1Config.cff"
 module simRctDigis = rctDigis from "L1Trigger/RegionalCaloTrigger/data/rctDigis.cfi"
 #replace simRctDigis.ecalDigisLabel = simEcalTriggerPrimitiveDigis
 #replace simRctDigis.hcalDigisLabel = simHcalTriggerPrimitiveDigis
+
  
 # GCT emulator
 module simGctDigis = gctDigis from "L1Trigger/GlobalCaloTrigger/data/gctDigis.cfi"
-module simGctDigis.inputLabel = simRctDigis
+replace simGctDigis.inputLabel = simRctDigis
+
 
 # DT Trigger emulator
 include "Geometry/DTGeometry/data/dtGeometry.cfi"
@@ -40,7 +42,7 @@ replace simCsctfTrackDigis.SectorReceiverInput = simCscTriggerPrimitiveDigis:MPC
 replace simCsctfTrackDigis.DTproducer = simDtTriggerPrimitiveDigis
 
 module simCsctfDigis = csctfDigis from "L1Trigger/CSCTrackFinder/data/csctfDigis.cfi"
-
+replace simCsctfDigis.CSCTrackProducer = simCsctfTrackDigis
 
 # RPC Trigger emulator
 include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
@@ -51,9 +53,9 @@ replace simRpcTriggerDigis.label = "simMuonRPCDigis"
 # Global Muon Trigger emulator
 module simGmtDigis = gmtDigis from "L1Trigger/GlobalMuonTrigger/data/gmtDigis.cfi"
 replace simGmtDigis.DTCandidates = simDttfDigis:DT
-replace simGmtDigisCSCCandidates = simCsctfDigis:CSC
-replace simGmtDigisRPCbCandidates = simRpcTriggerDigis:RPCb
-replace simGmtDigisRPCfCandidates = simRpcTriggerDigis:RPCf
+replace simGmtDigis.CSCCandidates = simCsctfDigis:CSC
+replace simGmtDigis.RPCbCandidates = simRpcTriggerDigis:RPCb
+replace simGmtDigis.RPCfCandidates = simRpcTriggerDigis:RPCf
 
 # Global Trigger emulator
 module simGtDigis = gtDigis from "L1Trigger/GlobalTrigger/data/gtDigis.cfi"
