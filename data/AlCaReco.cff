@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/16 22:03:44 $ by $Author: futyand $
+# last update: $Date: 2008/04/26 04:50:57 $ by $Author: dlange $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -111,7 +111,7 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOMuAlZMuMu           = { seqALCARECOMuAlZMuMu }
   path pathALCARECOMuAlOverlaps        = { seqALCARECOMuAlOverlaps }
   path pathALCARECORpcCalHLT           = { seqALCARECORpcCalHLT }
-  path pathALCRECOTkAlBeamHalo         = { seqALCARECOTkAlBeamHalo }
+  path pathALCARECOTkAlBeamHalo         = { seqALCARECOTkAlBeamHalo }
 #  path pathALCRECOMuAlBeamHaloOverlaps = { seqALCARECOMuAlBeamHaloOverlaps }
 #  path pathALCRECOMuAlBeamHalo         = { seqALCARECOMuAlBeamHalo }
 #  path pathALCRECOTkLAS                = { seqALCARECOTkAlLAS }
