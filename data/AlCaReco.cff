@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/09 21:02:44 $ by $Author: futyand $
+# last update: $Date: 2008/04/16 22:03:44 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -80,6 +80,15 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 # RPC calibration
   include "CalibMuon/RPCCalibration/data/ALCARECORpcCalHLT.cff"
 
+# nonbeam alcas
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlBeamHalo.cff"
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics.cff"
+#not functioning
+#  include "Alignment/LaserAlignment/data/AlCaRECOLaserAlignmentT0Producer.cff"
+#  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHalo.cff"
+#  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHaloOverlaps.cff"
+
+
 # NOTE: the ALCARECO DQM modules can not be placed together in a single path 
 # because they act as filters. They are therefore inserted per ALCARECO path.
   include "DQMOffline/Configuration/data/AlCaRecoDQM.cff"
@@ -102,3 +111,8 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOMuAlZMuMu           = { seqALCARECOMuAlZMuMu }
   path pathALCARECOMuAlOverlaps        = { seqALCARECOMuAlOverlaps }
   path pathALCARECORpcCalHLT           = { seqALCARECORpcCalHLT }
+  path pathALCRECOTkAlBeamHalo         = { seqALCARECOTkAlBeamHalo }
+#  path pathALCRECOMuAlBeamHaloOverlaps = { seqALCARECOMuAlBeamHaloOverlaps }
+#  path pathALCRECOMuAlBeamHalo         = { seqALCARECOMuAlBeamHalo }
+#  path pathALCRECOTkLAS                = { seqALCARECOTkAlLAS }
+  path pathALCRECOTkAlCosmics          = { seqALCARECOTkAlCosmicsCTF }
