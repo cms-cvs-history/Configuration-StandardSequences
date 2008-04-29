@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/26 04:52:08 $ by $Author: dlange $
+# last update: $Date: 2008/04/29 11:11:47 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -83,7 +83,6 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 # nonbeam alcas
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlBeamHalo.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics.cff"
-#not functioning
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlLAS.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHalo.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHaloOverlaps.cff"
