@@ -7,8 +7,8 @@ include "L1Trigger/Configuration/data/L1Config.cff"
 
 # RCT emulator
 module simRctDigis = rctDigis from "L1Trigger/RegionalCaloTrigger/data/rctDigis.cfi"
-#replace simRctDigis.ecalDigisLabel = simEcalTriggerPrimitiveDigis
-#replace simRctDigis.hcalDigisLabel = simHcalTriggerPrimitiveDigis
+replace simRctDigis.ecalDigisLabel = simEcalTriggerPrimitiveDigis
+replace simRctDigis.hcalDigisLabel = simHcalTriggerPrimitiveDigis
 
  
 # GCT emulator
@@ -19,7 +19,7 @@ replace simGctDigis.inputLabel = simRctDigis
 # DT Trigger emulator
 include "Geometry/DTGeometry/data/dtGeometry.cfi"
 module simDtTriggerPrimitiveDigis = dtTriggerPrimitiveDigis from "L1Trigger/DTTrigger/data/dtTriggerPrimitiveDigis.cfi"
-#replace simDtTriggerPrimitiveDigis.  // needs fix from Carlo Battilana
+replace simDtTriggerPrimitiveDigis.digiTag = simMuonDTDigis
 
 
 # DT Track Finder emulator
@@ -32,8 +32,8 @@ replace simDttfDigis.CSCStub_Source = simCsctfTrackDigis
 include "Geometry/CSCGeometry/data/cscGeometry.cfi"
 include "L1Trigger/CSCCommonTrigger/data/CSCCommonTrigger.cfi"
 module simCscTriggerPrimitiveDigis = cscTriggerPrimitiveDigis from "L1Trigger/CSCTriggerPrimitives/data/cscTriggerPrimitiveDigis.cfi"
-#replace simCscTriggerPrimitiveDigis.CSCComparatorDigiProducer = simMuonCSCDigis:MuonCSCComparatorDigi
-#replace simCscTriggerPrimitiveDigis.CSCWireDigiProducer = simMuonCSCDigis:MuonCSCWireDigi
+replace simCscTriggerPrimitiveDigis.CSCComparatorDigiProducer = simMuonCSCDigis:MuonCSCComparatorDigi
+replace simCscTriggerPrimitiveDigis.CSCWireDigiProducer = simMuonCSCDigis:MuonCSCWireDigi
 
 
 # CSC Track Finder emulator
