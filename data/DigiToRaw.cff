@@ -11,12 +11,19 @@
 #-------------------------#
 #--- CSCTF ---#
 include "EventFilter/CSCTFRawToDigi/data/csctfpacker.cfi"
+replace csctfpacker.lctProducer   = simCscTriggerPrimitiveDigis:MPCSORTED
+replace csctfpacker.trackProducer = simCsctfTrackDigis
 #--- DTTF ---#
 include "EventFilter/DTTFRawToDigi/data/dttfpacker.cfi"
+replace dttfpacker.DTDigi_Source   = simDtTriggerPrimitiveDigis
+replace dttfpacker.DTTracks_Source = simDttfDigis:DTTF
 #--- GCT ---#
 include "EventFilter/GctRawToDigi/data/gctDigiToRaw.cfi"
+replace gctDigiToRaw.rctInputLabel = simRctDigis 
+replace gctDigiToRaw.gctInputLabel = simGctDigis
 #--- GT ---#
 include "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtPack.cfi"
+replace l1GtPack.DaqGtInputTag = simGtDigis
 #--- SiPixel ---#
 include "EventFilter/SiPixelRawToDigi/data/SiPixelDigiToRaw.cfi"
 #--- SiStrip ---#
