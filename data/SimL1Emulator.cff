@@ -14,7 +14,8 @@ replace simRctDigis.hcalDigisLabel = simHcalTriggerPrimitiveDigis
 # GCT emulator
 module simGctDigis = gctDigis from "L1Trigger/GlobalCaloTrigger/data/gctDigis.cfi"
 replace simGctDigis.inputLabel = simRctDigis
-
+replace simGctDigis.preSamples = 1
+replace simGctDigis.postSamples = 1
 
 # DT Trigger emulator
 include "Geometry/DTGeometry/data/dtGeometry.cfi"
@@ -72,11 +73,14 @@ replace simL1GtRecord.L1GtReadoutRecordTag = simGtDigis
 sequence SimL1MuTriggerPrimitives = { simCscTriggerPrimitiveDigis & simDtTriggerPrimitiveDigis }
 sequence SimL1MuTrackFinders = { simCsctfTrackDigis, simCsctfDigis, simDttfDigis }
 
-sequence SimL1Emulator = { 
-	simRctDigis,
-	simGctDigis,
-	SimL1MuTriggerPrimitives,
-	SimL1MuTrackFinders,
-	simGtDigis,
-	simL1GtRecord
+sequence SimL1Emulator = {
+         simRctDigis,
+         simGctDigis,
+         SimL1MuTriggerPrimitives,
+         SimL1MuTrackFinders,
+         simRpcTriggerDigis,
+         simGmtDigis,
+         simGtDigis,
+         simL1GtRecord
 }
+
