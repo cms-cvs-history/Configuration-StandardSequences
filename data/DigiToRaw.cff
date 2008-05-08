@@ -24,6 +24,7 @@ replace gctDigiToRaw.gctInputLabel = simGctDigis
 #--- GT ---#
 include "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtPack.cfi"
 replace l1GtPack.DaqGtInputTag = simGtDigis
+replace l1GtPack.MuGmtInputTag = simGmtDigis
 #--- SiPixel ---#
 include "EventFilter/SiPixelRawToDigi/data/SiPixelDigiToRaw.cfi"
 #--- SiStrip ---#
