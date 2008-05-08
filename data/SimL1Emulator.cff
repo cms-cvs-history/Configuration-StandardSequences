@@ -55,6 +55,7 @@ replace simGmtDigis.DTCandidates = simDttfDigis:DT
 replace simGmtDigis.CSCCandidates = simCsctfDigis:CSC
 replace simGmtDigis.RPCbCandidates = simRpcTriggerDigis:RPCb
 replace simGmtDigis.RPCfCandidates = simRpcTriggerDigis:RPCf
+replace simGmtDigis.MipIsoData = simRctDigis
 
 # Global Trigger emulator
 module simGtDigis = gtDigis from "L1Trigger/GlobalTrigger/data/gtDigis.cfi"
