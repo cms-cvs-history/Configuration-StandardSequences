@@ -38,5 +38,8 @@ include "RecoBTau/Configuration/data/RecoBTau_FakeConditions.cff"
 ## BeamSpot Conditions
 include "RecoVertex/BeamSpotProducer/data/BeamSpotFakeConditionsEarlyCollision.cff"
 
-## HLT conditions
-include "HLTrigger/Configuration/data/rawToDigi/FakeConditions.cff"
+## Cabling maps
+include "EventFilter/DTRawToDigi/data/DTSQLiteCabling.cfi"
+include "EventFilter/RPCRawToDigi/data/RPCSQLiteCabling.cfi"
+include "EventFilter/CSCRawToDigi/data/cscSQLiteCablingPack.cff"
+include "EventFilter/CSCRawToDigi/data/cscSQLiteCablingUnpck.cff"
