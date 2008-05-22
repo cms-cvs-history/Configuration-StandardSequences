@@ -1,0 +1,17 @@
+#
+# Geometry master configuration
+# for ECAL+HCAL
+#
+# Ideal geometry, needed for simulation
+
+   include "Geometry/CMSCommonData/data/ecalhcalOnlyGeometryXML.cfi"
+
+#  Calorimeters
+
+   include "Geometry/CaloEventSetup/data/CaloGeometry.cff"
+
+   include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
+
+   include "Geometry/EcalMapping/data/EcalMapping.cfi"
+
+   include "Geometry/EcalMapping/data/EcalMappingRecord.cfi"
