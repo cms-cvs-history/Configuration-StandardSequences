@@ -13,10 +13,15 @@ include "CalibMuon/Configuration/data/Muon_FakeAlignment.cff"
 include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
 
 #
+# RPC noise
+include "CalibMuon/Configuration/data/RPC_FakeConditions.cff"
+
+#
 # CSC Calib
 #
 # DBCOnditions use the new DB objects (linearized vectors)
 include "CalibMuon/Configuration/data/CSC_FakeDBConditions.cff"
+
 #
 # HCAL Fake Conditions 
 #
