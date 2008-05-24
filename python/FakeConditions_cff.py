@@ -12,9 +12,6 @@ from CalibMuon.Configuration.Muon_FakeAlignment_cff import *
 # DT calib
 from CalibMuon.Configuration.DT_FakeConditions_cff import *
 #
-# RPC noise
-from CalibMuon.Configuration.RPC_FakeConditions_cff import *
-#
 # CSC Calib
 #
 # DBCOnditions use the new DB objects (linearized vectors)
@@ -41,5 +38,3 @@ from EventFilter.DTRawToDigi.DTSQLiteCabling_cfi import *
 from EventFilter.RPCRawToDigi.RPCSQLiteCabling_cfi import *
 from EventFilter.CSCRawToDigi.cscSQLiteCablingPack_cff import *
 from EventFilter.CSCRawToDigi.cscSQLiteCablingUnpck_cff import *
-
-
