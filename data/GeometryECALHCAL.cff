@@ -4,7 +4,7 @@
 #
 # Ideal geometry, needed for simulation
 
-   include "Geometry/CMSCommonData/data/ecalhcalOnlyGeometryXML.cfi"
+   include "Geometry/CMSCommonData/data/ecalhcalGeometryXML.cfi"
 
 #  Calorimeters
 
