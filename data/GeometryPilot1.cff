@@ -3,7 +3,7 @@
 #
 # Ideal geometry, needed for simulation
 
-   include "Geometry/CMSCommonData/data/cmsPilotIdealGeometryXML.cfi"
+   include "Geometry/CMSCommonData/data/cmsPilot1IdealGeometryXML.cfi"
 
    include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
 
