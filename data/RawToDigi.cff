@@ -36,6 +36,8 @@ replace gctDigis.inputLabel = rawDataCollector
 #--- GT ---#
 module gtDigis = l1GtUnpack from "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtUnpack.cfi"
 replace gtDigis.DaqGtInputTag = rawDataCollector
+module gtEvmDigis = l1GtEvmUnpack from "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtEvmUnpack.cfi"
+replace gtEvmDigis.EvmGtInputTag = rawDataCollector
 #--- SiPixel ---#
 include "EventFilter/SiPixelRawToDigi/data/SiPixelRawToDigi.cfi"
 replace siPixelDigis.InputLabel = "rawDataCollector"
@@ -68,6 +70,7 @@ sequence RawToDigi = {
                         dttfDigis &
                         gctDigis &
                         gtDigis &
+                        gtEvmDigis &
                         siPixelDigis &
                         SiStripRawToDigis &
                         ecalDigis &
