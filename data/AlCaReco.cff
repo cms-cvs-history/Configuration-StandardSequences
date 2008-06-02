@@ -1,4 +1,4 @@
-# last update: $Date: 2008/04/29 20:53:45 $ by $Author: futyand $
+# last update: $Date: 2008/05/02 21:31:17 $ by $Author: dlange $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -59,7 +59,6 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalGammaJet.cff"
 
 # HCAL calibration with isolated tracks
-  include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalIsoTrk.cff"
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalIsoTrkNoHLT.cff"
 
 # HCAl calibration with min.bias
