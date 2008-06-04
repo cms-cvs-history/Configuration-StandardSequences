@@ -2,7 +2,7 @@ include "CondCore/DBCommon/data/CondDBSetup.cfi"
 es_source GlobalTag = PoolDBESSource {
     using CondDBSetup
     string connect = "frontier://FrontierInt/CMS_COND_21X_GLOBALTAG"
-    untracked string globaltag = "IDEAL_V1::All"
+    string globaltag = "IDEAL_V1::All"
     untracked string BlobStreamerName = "TBufferBlobStreamingService"
 }
 
