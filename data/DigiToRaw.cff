@@ -25,8 +25,6 @@ replace gctDigiToRaw.gctInputLabel = simGctDigis
 include "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtPack.cfi"
 replace l1GtPack.DaqGtInputTag = simGtDigis
 replace l1GtPack.MuGmtInputTag = simGmtDigis
-include "EventFilter/L1GlobalTriggerRawToDigi/data/l1GtEvmPack.cfi"
-replace l1GtEvmPack.EvmGtInputTag = simGtDigis
 #--- SiPixel ---#
 include "EventFilter/SiPixelRawToDigi/data/SiPixelDigiToRaw.cfi"
 #--- SiStrip ---#
@@ -58,7 +56,6 @@ sequence DigiToRaw = {
                         dttfpacker,
                         gctDigiToRaw,
                         l1GtPack,
-                        l1GtEvmPack,
                         siPixelRawData,
                         SiStripDigiToRaw,
                         ecalPacker,
