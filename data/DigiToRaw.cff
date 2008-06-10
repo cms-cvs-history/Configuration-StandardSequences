@@ -9,6 +9,10 @@
 #-------------------------#
 #--- DigiToRaw modules ---#
 #-------------------------#
+
+# temporary addition until L1 included in Frontier
+include "L1Trigger/Configuration/data/L1DummyConfig.cff"
+
 #--- CSCTF ---#
 include "EventFilter/CSCTFRawToDigi/data/csctfpacker.cfi"
 replace csctfpacker.lctProducer   = simCscTriggerPrimitiveDigis:MPCSORTED
