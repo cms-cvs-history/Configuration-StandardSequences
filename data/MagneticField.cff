@@ -1,4 +1,11 @@
 #
 # Master configuration for the magnetic field
 
-    include "MagneticField/Engine/data/volumeBasedMagneticField.cfi" 
+# old mapping with 4T
+include "Configuration/StandardSequences/data/MagneticField_40T_851.cff" 
+
+# new  mapping with 4T
+#include "Configuration/StandardSequences/data/MagneticField_40T.cff" 
+
+# new  mapping with 3.8T
+#include "Configuration/StandardSequences/data/MagneticField_38T.cff" 
