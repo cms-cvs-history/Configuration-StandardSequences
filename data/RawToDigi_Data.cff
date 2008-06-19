@@ -37,8 +37,7 @@ replace gtDigis.DaqGtInputTag = source
 include "EventFilter/SiPixelRawToDigi/data/SiPixelRawToDigi.cfi"
 replace siPixelDigis.InputLabel = "source"
 #--- SiStrip ---#
-#workaround for still wrong label names 
-module siStripDigis = SiStripDigis from  "EventFilter/SiStripRawToDigi/data/SiStripDigis.cfi"
+include "EventFilter/SiStripRawToDigi/data/SiStripDigis.cfi"
 replace siStripDigis.ProductLabel = "source"
 #--- Ecal ---#
 include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTriggerPrimitiveDigis.cff"
