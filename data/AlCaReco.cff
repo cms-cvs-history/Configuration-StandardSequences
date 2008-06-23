@@ -1,4 +1,4 @@
-# last update: $Date: 2008/05/02 21:31:17 $ by $Author: dlange $
+# last update: $Date: 2008/06/02 11:54:11 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -9,7 +9,9 @@
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlZMuMu.cff"
 
 # AlCaReco for track based alignment using Cosmic muon events
-  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics.cff"
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmicsHLT.cff"
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics0T.cff"
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics0THLT.cff"
 
 # AlCaReco for track based alignment using isoMu events
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlMuonIsolated.cff"
@@ -61,17 +63,21 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 # HCAL calibration with isolated tracks
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalIsoTrkNoHLT.cff"
 
-# HCAl calibration with min.bias
+# HCAL calibration with min.bias
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalMinBias.cff"
 
-# Hcal calibration from HO (muons) 
+# HCAL calibration from HO (muons) 
 #  include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalZMuMu.cff"
   include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalHO.cff"
 
+# Muon Alignment with cosmics
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlZeroFieldGlobalCosmics.cff"
 
+# Muon calibration with minbias
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuCaliMinBias.cff"
 
-# Muon Alignment with Zmumu
-  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlZMuMu.cff"
+# Muon Alignment with isolated muons
+  include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlCalIsolatedMu.cff"
 
 # Muon Alignment using CSC overlaps
   include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlOverlaps.cff"
@@ -81,7 +87,6 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
 
 # nonbeam alcas
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlBeamHalo.cff"
-  include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlCosmics.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOTkAlLAS.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHalo.cff"
   include "Alignment/CommonAlignmentProducer/data/ALCARECOMuAlBeamHaloOverlaps.cff"
@@ -106,11 +111,24 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOHcalCalGammaJet     = { seqALCARECOHcalCalGammaJet }
   path pathALCARECOHcalCalIsoTrkNoHLT  = { seqALCARECOHcalCalIsoTrkNoHLT }
   path pathALCARECOHcalCalHO           = { seqALCARECOHcalCalHO }
-  path pathALCARECOMuAlZMuMu           = { seqALCARECOMuAlZMuMu }
+  path pathALCARECOMuCaliMinBias       = { seqALCARECOMuCaliMinBias }
+  path pathALCARECOMuAlCalIsolatedMu   = { seqALCARECOMuAlCalIsolatedMu }
   path pathALCARECOMuAlOverlaps        = { seqALCARECOMuAlOverlaps }
   path pathALCARECORpcCalHLT           = { seqALCARECORpcCalHLT }
   path pathALCARECOTkAlBeamHalo         = { seqALCARECOTkAlBeamHalo }
   path pathALCARECOMuAlBeamHaloOverlaps = { seqALCARECOMuAlBeamHaloOverlaps }
   path pathALCARECOMuAlBeamHalo         = { seqALCARECOMuAlBeamHalo }
   path pathALCARECOTkAlLAS                = { seqALCARECOTkAlLAS }
-  path pathALCARECOTkAlCosmics          = { seqALCARECOTkAlCosmicsCTF }
+  path pathALCARECOTkAlCosmicsCTF       = { seqALCARECOTkAlCosmicsCTF }
+  path pathALCARECOTkAlCosmicsCosmicTF  = { seqALCARECOTkAlCosmicsCosmicTF }
+  path pathALCARECOTkAlCosmicsRS        = { seqALCARECOTkAlCosmicsRS }
+  path pathALCARECOTkAlCosmicsCTF0T      = { seqALCARECOTkAlCosmicsCTF0T }
+  path pathALCARECOTkAlCosmicsCosmicTF0T = { seqALCARECOTkAlCosmicsCosmicTF0T }
+  path pathALCARECOTkAlCosmicsRS0T       = { seqALCARECOTkAlCosmicsRS0T } 
+  path pathALCARECOTkAlCosmicsCTFHLT       = { seqALCARECOTkAlCosmicsCTFHLT }
+  path pathALCARECOTkAlCosmicsCosmicTFHLT  = { seqALCARECOTkAlCosmicsCosmicTFHLT }
+  path pathALCARECOTkAlCosmicsRSHLT        = { seqALCARECOTkAlCosmicsRSHLT }
+  path pathALCARECOTkAlCosmicsCTF0THLT      = { seqALCARECOTkAlCosmicsCTF0THLT }
+  path pathALCARECOTkAlCosmicsCosmicTF0THLT = { seqALCARECOTkAlCosmicsCosmicTF0THLT }
+  path pathALCARECOTkAlCosmicsRS0THLT       = { seqALCARECOTkAlCosmicsRS0THLT }
+  path pathALCARECOMuAlZeroFieldGlobalCosmics  = { seqALCARECOMuAlZeroFieldGlobalCosmics }
