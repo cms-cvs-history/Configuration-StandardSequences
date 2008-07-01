@@ -29,6 +29,12 @@
 
    include "Geometry/RPCGeometry/data/rpcGeometry.cfi" 
 
+#  Alignment
+   
+   include "Geometry/TrackerGeometryBuilder/data/idealForDigiTrackerGeometry.cff"
+   include "Geometry/CSCGeometryBuilder/data/idealForDigiCscGeometry.cff"
+   include "Geometry/DTGeometryBuilder/data/idealForDigiDtGeometry.cff"
+
 #  Calorimeters
 
    include "Geometry/CaloEventSetup/data/CaloGeometry.cff"
