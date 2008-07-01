@@ -1,4 +1,4 @@
-# last update: $Date: 2008/06/02 11:54:11 $ by $Author: futyand $
+# last update: $Date: 2008/06/23 12:42:09 $ by $Author: futyand $
 
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
@@ -104,7 +104,7 @@ include "Calibration/EcalAlCaRecoProducers/data/ALCARECOEcalCalPi0Calib.cff"
   path pathALCARECOSiPixelLorentzAngle = { seqALCARECOSiPixelLorentzAngle }
   path pathALCARECOSiStripCalMinBias   = { seqALCARECOSiStripCalMinBias }
   path pathALCARECOEcalCalElectron     = { seqALCARECOEcalCalElectron }
-  path pathALCARECOEcalCalPhiSym       = { seqALCARECOEcalCalPhiSym }
+  path pathALCARECOEcalCalPhiSym       = { seqALCARECOEcalCalPhiSym, ALCARECOEcalCalPhisymDQM }
   path pathALCARECOEcalCalPi0Calib     = { seqALCARECOEcalCalPi0Calib }
   path pathALCARECOHcalCalMinBias      = { seqALCARECOHcalCalMinBias }
   path pathALCARECOHcalCalDijets       = { seqALCARECOHcalCalDijets }
