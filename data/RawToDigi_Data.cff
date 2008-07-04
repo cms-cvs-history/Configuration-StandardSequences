@@ -7,7 +7,6 @@ include "CondCore/DBCommon/data/CondDBSetup.cfi"
 
 #--- Geometry Setup ---#
 include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 include "Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi"
 include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
 include "HLTrigger/Configuration/data/rawToDigi/EcalGeometrySetup.cff"
@@ -37,8 +36,7 @@ replace gtDigis.DaqGtInputTag = source
 include "EventFilter/SiPixelRawToDigi/data/SiPixelRawToDigi.cfi"
 replace siPixelDigis.InputLabel = "source"
 #--- SiStrip ---#
-#workaround for still wrong label names 
-module siStripDigis = SiStripDigis from  "EventFilter/SiStripRawToDigi/data/SiStripDigis.cfi"
+include "EventFilter/SiStripRawToDigi/data/SiStripDigis.cfi"
 replace siStripDigis.ProductLabel = "source"
 #--- Ecal ---#
 include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTriggerPrimitiveDigis.cff"
@@ -63,6 +61,7 @@ sequence RawToDigi = {
  			dttfDigis &
 			gctDigis &
 			gtDigis &
+                     
                         siPixelDigis &
                         siStripDigis &
                         ecalDigis &
@@ -72,13 +71,13 @@ sequence RawToDigi = {
                         muonDTDigis &
                         muonRPCDigis
                      }
-sequence RawToDigi_woPixels = {
+sequence RawToDigi_woTracker = {
                         csctfDigis &
                         dttfDigis &
                         gctDigis &
                         gtDigis &
 #                        siPixelDigis &
-                        siStripDigis &
+#                        siStripDigis &
                         ecalDigis &
                         ecalPreshowerDigis &
                         hcalDigis &
