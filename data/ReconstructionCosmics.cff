@@ -42,6 +42,8 @@ sequence metrecoCosmics= {metreco}
 
 
 sequence localReconstructionCosmics = {trackerCosmics, caloCosmics, muonsLocalRecoCosmics}
+sequence localReconstructionCosmics_woPixels = {trackerCosmics_woPixels, caloCosmics, muonsLocalRecoCosmics}
+
 
 sequence reconstructionCosmics = { localReconstructionCosmics, muonsCosmics ,  jetsCosmics, metrecoCosmics}
-
+sequence reconstructionCosmics_woPixels = { localReconstructionCosmics_woPixels, muonsCosmics ,  jetsCosmics, metrecoCosmics}
