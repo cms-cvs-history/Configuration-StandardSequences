@@ -9,6 +9,7 @@ include "RecoVertex/BeamSpotProducer/data/BeamSpot.cff"
 
 
 sequence trackerCosmics = {offlineBeamSpot,  trackerlocalreco, tracksP5}
+sequence trackerCosmics_woPixels = {offlineBeamSpot,striptrackerlocalreco, tracksP5}
 
 
 #
