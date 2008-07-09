@@ -8,6 +8,12 @@
 # not for the moment
 #include "FWCore/Services/data/EnableFloatingPointExceptions.cfi"
 
+# Particle properties service
+
+include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+
+# Random numbers initialization service
+
 include "Configuration/StandardSequences/data/SimulationRandomNumberGeneratorSeeds.cff"
 ##
 #  comment out DQMStore since conflicts when using service together with Dqm OFFLINE
