@@ -40,10 +40,17 @@ include "RecoMET/Configuration/data/RecoMET.cff"
 sequence jetsCosmics = {recoCaloTowersGR, recoJetsGR}
 sequence metrecoCosmics= {metreco}
 
+#
+### Egamma in cosmics: sequence defined in the cff
+#
+include "RecoEgamma/Configuration/data/RecoEgammaCosmics.cff"
+
 
 sequence localReconstructionCosmics = {trackerCosmics, caloCosmics, muonsLocalRecoCosmics}
 sequence localReconstructionCosmics_woPixels = {trackerCosmics_woPixels, caloCosmics, muonsLocalRecoCosmics}
 
 
-sequence reconstructionCosmics = { localReconstructionCosmics, muonsCosmics ,  jetsCosmics, metrecoCosmics}
-sequence reconstructionCosmics_woPixels = { localReconstructionCosmics_woPixels, muonsCosmics ,  jetsCosmics, metrecoCosmics}
+sequence reconstructionCosmics = { localReconstructionCosmics, muonsCosmics ,  jetsCosmics, metrecoCosmics, egammarecoCosmics_woConv}
+sequence reconstructionCosmics_woPixels = { localReconstructionCosmics_woPixels, muonsCosmics ,  jetsCosmics, metrecoCosmics, egammarecoCosmics_woConv}
+sequence reconstructionCosmics_woEgamma = { localReconstructionCosmics, muonsCosmics ,  jetsCosmics, metrecoCosmics}
+sequence reconstructionCosmics_woPixels_woEgamma = { localReconstructionCosmics_woPixels, muonsCosmics ,  jetsCosmics, metrecoCosmics}
