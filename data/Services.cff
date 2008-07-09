@@ -10,5 +10,6 @@
 
 include "Configuration/StandardSequences/data/SimulationRandomNumberGeneratorSeeds.cff"
 ##
-service = DQMStore{}
+#  comment out DQMStore since conflicts when using service together with Dqm OFFLINE
+#service = DQMStore{}
 
