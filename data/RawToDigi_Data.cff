@@ -48,7 +48,6 @@ module ecalPreshowerDigis = esRawToDigi from "EventFilter/ESRawToDigi/data/esRaw
 module hcalDigis = hcalDigis from "EventFilter/HcalRawToDigi/data/HcalRawToDigi.cfi"
 #--- CSC ---#
 module muonCSCDigis = muonCSCDigis from "EventFilter/CSCRawToDigi/data/cscUnpacker.cfi"
-replace muonCSCDigis.UseExaminer = false
 #--- DT ---#
 #module dtunpacker = muonDTDigis from "EventFilter/DTRawToDigi/data/dtunpacker.cfi"
 include "EventFilter/DTRawToDigi/data/dtunpacker.cfi"

@@ -56,7 +56,6 @@ replace hcalDigis.InputLabel = rawDataCollector
 #--- CSC ---#
 module muonCSCDigis = muonCSCDigis from "EventFilter/CSCRawToDigi/data/cscUnpacker.cfi"
 replace muonCSCDigis.InputObjects = rawDataCollector
-replace muonCSCDigis.UseExaminer = false
 #--- DT ---#
 module muonDTDigis = muonDTDigis from "EventFilter/DTRawToDigi/data/dtunpacker.cfi"
 replace muonDTDigis.fedColl = "rawDataCollector"
