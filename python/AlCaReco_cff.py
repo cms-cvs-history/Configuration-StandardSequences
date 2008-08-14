@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-# last update: $Date: 2008/07/01 13:32:35 $ by $Author: argiro $
+# last update: $Date: 2008/08/14 08:28:12 $ by $Author: futyand $
 # Please update the sequence defined at the very end of this file
 # with any new/changed sequences
 # Tracker Alignment
@@ -42,7 +42,7 @@ from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalDijets_cff import *
 # HCAL calibration with gamma+jet
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalGammaJet_cff import *
 # HCAL calibration with isolated tracks
-from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalIsoTrkNoHLT_cff import *
+from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalIsoTrk_cff import *
 # HCAL calibration with min.bias
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalMinBias_cff import *
 # HCAL calibration from HO (muons) 
@@ -77,11 +77,11 @@ pathALCARECOSiPixelLorentzAngle = cms.Path(seqALCARECOSiPixelLorentzAngle)
 pathALCARECOSiStripCalMinBias = cms.Path(seqALCARECOSiStripCalMinBias)
 pathALCARECOEcalCalElectron = cms.Path(seqALCARECOEcalCalElectron)
 pathALCARECOEcalCalPhiSym = cms.Path(seqALCARECOEcalCalPhiSym*ALCARECOEcalCalPhisymDQM)
-pathALCARECOEcalCalPi0Calib = cms.Path(seqALCARECOEcalCalPi0Calib)
+pathALCARECOEcalCalPi0Calib = cms.Path(seqALCARECOEcalCalPi0Calib*ALCARECOEcalCalPi0CalibDQM)
 pathALCARECOHcalCalMinBias = cms.Path(seqALCARECOHcalCalMinBias)
 pathALCARECOHcalCalDijets = cms.Path(seqALCARECOHcalCalDijets)
 pathALCARECOHcalCalGammaJet = cms.Path(seqALCARECOHcalCalGammaJet)
-pathALCARECOHcalCalIsoTrkNoHLT = cms.Path(seqALCARECOHcalCalIsoTrkNoHLT)
+pathALCARECOHcalCalIsoTrk = cms.Path(seqALCARECOHcalCalIsoTrk)
 pathALCARECOHcalCalHO = cms.Path(seqALCARECOHcalCalHO)
 pathALCARECOMuCaliMinBias = cms.Path(seqALCARECOMuCaliMinBias)
 pathALCARECOMuAlCalIsolatedMu = cms.Path(seqALCARECOMuAlCalIsolatedMu)
