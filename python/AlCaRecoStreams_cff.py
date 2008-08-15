@@ -135,12 +135,12 @@ ALCARECOStreamHcalCalMinBias = cms.FilteredStream(
 	dataTier = cms.untracked.string('ALCARECO')
 	)
 
-ALCARECOStreamHcalCalIsoTrkNoHLT = cms.FilteredStream(
+ALCARECOStreamHcalCalIsoTrk = cms.FilteredStream(
 	responsible = 'Grigory Safronov',
-	name = 'ALCARECOHcalCalIsoTrkNoHLT',
-	paths  = (pathALCARECOHcalCalIsoTrkNoHLT),
-	content = OutALCARECOHcalCalIsoTrkNoHLT.outputCommands,
-	selectEvents = OutALCARECOHcalCalIsoTrkNoHLT.SelectEvents,
+	name = 'ALCARECOHcalCalIsoTrk',
+	paths  = (pathALCARECOHcalCalIsoTrk),
+	content = OutALCARECOHcalCalIsoTrk.outputCommands,
+	selectEvents = OutALCARECOHcalCalIsoTrk.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
 	)
 
@@ -240,6 +240,24 @@ ALCARECOStreamTkAlCosmics0THLT = cms.FilteredStream(
 	paths  = (pathALCARECOTkAlCosmicsCTF0THLT,pathALCARECOTkAlCosmicsCosmicTF0THLT,pathALCARECOTkAlCosmicsRS0THLT),
 	content = OutALCARECOTkAlCosmics0THLT.outputCommands,
 	selectEvents = OutALCARECOTkAlCosmics0THLT.SelectEvents,
+	dataTier = cms.untracked.string('ALCARECO')
+	)
+
+ALCARECOStreamMuAlStandAloneCosmics = cms.FilteredStream(
+	responsible = 'Jim Pivarski',
+	name = 'ALCARECOMuAlStandAloneCosmics',
+	paths  = (pathALCARECOMuAlStandAloneCosmics),
+	content = OutALCARECOMuAlStandAloneCosmics.outputCommands,
+	selectEvents = OutALCARECOMuAlStandAloneCosmics.SelectEvents,
+	dataTier = cms.untracked.string('ALCARECO')
+	)
+
+ALCARECOStreamMuAlGlobalCosmics = cms.FilteredStream(
+	responsible = 'Jim Pivarski',
+	name = 'ALCARECOMuAlGlobalCosmics',
+	paths  = (pathALCARECOMuAlGlobalCosmics),
+	content = OutALCARECOMuAlGlobalCosmics.outputCommands,
+	selectEvents = OutALCARECOMuAlGlobalCosmics.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
 	)
 
