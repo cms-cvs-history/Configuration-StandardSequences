@@ -1,4 +1,0 @@
-
-include "Configuration/StandardSequences/data/SimL1Emulator.cff"
-
-sequence L1Emulator = { SimL1Emulator }

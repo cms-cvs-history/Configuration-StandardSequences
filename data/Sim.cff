@@ -1,7 +1,0 @@
-
-   # CMSSW/Geant4 interface
-
-   include "SimG4Core/Configuration/data/SimG4Core.cff"
-
-   sequence psim  = { randomEngineStateProducer, g4SimHits }
-
