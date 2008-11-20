@@ -7,6 +7,11 @@ from PhysicsTools.HepMCCandAlgos.genParticles_cfi import *
 from PhysicsTools.HepMCCandAlgos.genEventWeight_cfi import *
 from PhysicsTools.HepMCCandAlgos.genEventScale_cfi import *
 from PhysicsTools.HepMCCandAlgos.genEventPdfInfo_cfi import *
+<<<<<<< Generator_cff.py
+from PhysicsTools.HepMCCandAlgos.genEventProcID_cfi import *
+=======
+from PhysicsTools.HepMCCandAlgos.genEventProcID_cfi import * 
+>>>>>>> 1.4
 from RecoJets.Configuration.RecoGenJets_cff import *
 from RecoMET.Configuration.RecoGenMET_cff import *
 from RecoJets.Configuration.GenJetParticles_cff import *
@@ -49,7 +54,7 @@ from RecoMET.Configuration.GenMETParticles_cff import *
 #   }
 # }
 VertexSmearing = cms.Sequence(cms.SequencePlaceholder("VtxSmeared"))
-GeneInfo = cms.Sequence(genParticles+genEventWeight+genEventScale+genEventPdfInfo)
+GeneInfo = cms.Sequence(genParticles+genEventWeight+genEventScale+genEventPdfInfo+genEventProcID)
 genJetMET = cms.Sequence(genJetParticles*recoGenJets+genMETParticles*recoGenMET)
 pgen = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+VertexSmearing+GeneInfo+genJetMET)
 
