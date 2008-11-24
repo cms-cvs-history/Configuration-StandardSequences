@@ -7,7 +7,7 @@ from Configuration.StandardSequences.FrontierConditions_GlobalTag_cfi import *
 from CalibMuon.DTCalibration.DTFakeVDriftESProducer_cfi import *
 from CalibMuon.CSCCalibration.CSC_BadChambers_cfi import *
 from CalibCalorimetry.EcalLaserCorrection.ecalLaserCorrectionService_cfi import *
-from CalibTracker.Configuration.Tracker_DependentRecords_forGlobalTag_cff import *
+from CalibTracker.Configuration.Tracker_DependentRecords_forGlobalTag_nofakes_cff import *
 
 hcal_db_producer = cms.ESProducer("HcalDbProducer",
     dump = cms.untracked.vstring(''),
