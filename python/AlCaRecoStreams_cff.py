@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-# last update: $Date: 2009/03/24 18:14:13 $ by $Author: flucke $
+# last update: $Date: 2009/03/27 15:55:57 $ by $Author: argiro $
 
 # AlCaReco sequence definitions:
 
@@ -43,12 +43,17 @@ from Calibration.EcalAlCaRecoProducers.ALCARECOEcalCalIsolElectron_cff import *
 ###############################################################
 # HCAL calibration with dijets
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalDijets_cff import *
-# HCAL calibration with gamma+jet
+# HCAL calibration with gamma+jet (obsolete)
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalGammaJet_cff import *
 # HCAL calibration from HO (muons) 
 #  include "Calibration/HcalAlCaRecoProducers/data/ALCARECOHcalCalZMuMu.cff"
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalHO_cff import *
 from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalHOCosmics_cff import *
+# HCAL isotrack
+from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalIsoTrk_cff import *
+# HCAL noise
+from Calibration.HcalAlCaRecoProducers.ALCARECOHcalCalNoise_cff import *
+
 ###############################################################
 # Muon alignment
 ###############################################################
@@ -95,15 +100,16 @@ pathALCARECOHcalCalDijets = cms.Path(seqALCARECOHcalCalDijets*ALCARECOHcalCalDiJ
 pathALCARECOHcalCalGammaJet = cms.Path(seqALCARECOHcalCalGammaJet)
 pathALCARECOHcalCalHO = cms.Path(seqALCARECOHcalCalHO*ALCARECOHcalCalHODQM)
 pathALCARECOHcalCalHOCosmics = cms.Path(seqALCARECOHcalCalHOCosmics)
+pathALCARECOHcalCalIsoTrk = cms.Path(seqALCARECOHcalCalIsoTrk*ALCARECOHcalCalIsoTrackDQM)
+pathALCARECOHcalCalNoise = cms.Path(seqALCARECOHcalCalNoise)
 pathALCARECOMuAlCalIsolatedMu = cms.Path(seqALCARECOMuAlCalIsolatedMu*ALCARECOMuAlCalIsolatedMuDQM*ALCARECODTCalibrationDQM)
-pathALCARECOMuAlCalIsolatedMu = cms.Path(seqALCARECOMuAlCalIsolatedMu*ALCARECOMuAlCalIsolatedMuDQM)
 pathALCARECOMuAlZMuMu = cms.Path(seqALCARECOMuAlZMuMu*ALCARECOMuAlZMuMuDQM)
 pathALCARECOMuAlOverlaps = cms.Path(seqALCARECOMuAlOverlaps*ALCARECOMuAlOverlapsDQM)
 pathALCARECORpcCalHLT = cms.Path(seqALCARECORpcCalHLT)
-pathALCARECOTkAlBeamHalo = cms.Path(seqALCARECOTkAlBeamHalo)
+pathALCARECOTkAlBeamHalo = cms.Path(seqALCARECOTkAlBeamHalo*ALCARECOTkAlBeamHaloDQM)
 pathALCARECOMuAlBeamHaloOverlaps = cms.Path(seqALCARECOMuAlBeamHaloOverlaps*ALCARECOMuAlBeamHaloOverlapsDQM)
 pathALCARECOMuAlBeamHalo = cms.Path(seqALCARECOMuAlBeamHalo*ALCARECOMuAlBeamHaloDQM)
-pathALCARECOTkAlLAS = cms.Path(seqALCARECOTkAlLAS)
+pathALCARECOTkAlLAS = cms.Path(seqALCARECOTkAlLAS*ALCARECOTkAlLASDQM)
 pathALCARECOTkAlCosmicsCTF = cms.Path(seqALCARECOTkAlCosmicsCTF*ALCARECOTkAlCosmicsCTFDQM)
 pathALCARECOTkAlCosmicsCosmicTF = cms.Path(seqALCARECOTkAlCosmicsCosmicTF*ALCARECOTkAlCosmicsCosmicTFDQM)
 pathALCARECOTkAlCosmicsRS = cms.Path(seqALCARECOTkAlCosmicsRS*ALCARECOTkAlCosmicsRSDQM)
@@ -241,6 +247,25 @@ ALCARECOStreamHcalCalHOCosmics = cms.FilteredStream(
 	selectEvents = OutALCARECOHcalCalHOCosmics.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
 	)
+
+ALCARECOStreamHcalCalIsoTrk = cms.FilteredStream(
+	responsible = 'Grigory Safronov',
+	name = 'ALCARECOHcalCalIsoTrk',
+	paths  = (pathALCARECOHcalCalIsoTrk),
+	content = OutALCARECOHcalCalIsoTrk.outputCommands,
+	selectEvents = OutALCARECOHcalCalIsoTrk.SelectEvents,
+	dataTier = cms.untracked.string('ALCARECO')
+	)
+
+ALCARECOStreamHcalCalNoise = cms.FilteredStream(
+	responsible = 'Grigory Safronov',
+	name = 'ALCARECOHcalCalNoise',
+	paths  = (pathALCARECOHcalCalNoise),
+	content = OutALCARECOHcalCalNoise.outputCommands,
+	selectEvents = OutALCARECOHcalCalNoise.SelectEvents,
+	dataTier = cms.untracked.string('ALCARECO')
+	)
+
 
 ALCARECOStreamMuAlCalIsolatedMu = cms.FilteredStream(
 	responsible = 'Javier Fernandez',
