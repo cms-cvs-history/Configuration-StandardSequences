@@ -1,8 +1,5 @@
 import FWCore.ParameterSet.Config as cms
-#
-# luminosity
-#
-from RecoLuminosity.LumiProducer.lumiProducer_cff import *
+
 #
 # tracker
 #
@@ -42,7 +39,7 @@ trackerCosmics = cms.Sequence(offlineBeamSpot*trackerlocalreco*tracksP5)
 caloCosmics = cms.Sequence(calolocalreco*ecalClusters)
 muonsLocalRecoCosmics = cms.Sequence(muonlocalreco+muonlocalrecoT0Seg)
 
-localReconstructionCosmics = cms.Sequence(trackerCosmics*caloCosmics*muonsLocalRecoCosmics*vertexrecoCosmics+lumiProducer)
+localReconstructionCosmics = cms.Sequence(trackerCosmics*caloCosmics*muonsLocalRecoCosmics*vertexrecoCosmics)
 
 
 # global reco
