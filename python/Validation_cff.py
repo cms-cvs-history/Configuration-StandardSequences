@@ -16,6 +16,7 @@ from Validation.Configuration.globalValidation_cff import *
 from HLTriggerOffline.Common.HLTValidation_cff import *
 
 
+# for ValidationProd
 from SimGeneral.TrackingAnalysis.trackingParticles_cfi import *
 from Validation.RecoMET.METRelValForDQM_cff import *
 from Validation.TrackingMCTruth.trackingTruthValidation_cfi import *
@@ -24,29 +25,13 @@ from Validation.RecoMuon.muonValidation_cff import *
 from Validation.MuonIsolation.MuIsoVal_cff import *
 from Validation.MuonIdentification.muonIdVal_cff import *
 from Validation.RecoMuon.muonValidationHLT_cff import *
-from Validation.Generator.BasicGenValidation_cff import *
 
-validation = cms.Sequence(cms.SequencePlaceholder("mix")
-                         +basicGenTest_seq
-                         *globaldigisanalyze
-                         *globalhitsanalyze
-                         *globalrechitsanalyze
-                         *globalValidation
-                         *hltvalidation)
-
-validation_preprod = cms.Sequence(
-                          basicGenTest_seq
-                          +trackingTruthValid
+validation = cms.Sequence(cms.SequencePlaceholder("mix")+globaldigisanalyze*globalhitsanalyze*globalrechitsanalyze*globalValidation*hltvalidation)
+validation_prod = cms.Sequence(trackingTruthValid
                           +tracksValidation
                           +METRelValSequence
                           +recoMuonValidation
                           +muIsoVal_seq
                           +muonIdValDQMSeq
-                          +hltvalidation_preprod
+                          +hltvalidation_prod
                           )
-
-validation_prod = cms.Sequence(
-             basicGenTest_seq
-            +hltvalidation_prod
-            )
-
