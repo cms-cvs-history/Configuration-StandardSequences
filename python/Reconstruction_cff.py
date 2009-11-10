@@ -9,7 +9,6 @@ from TrackingTools.Configuration.TrackingTools_cff import *
 # Global  reco
 from RecoEcal.Configuration.RecoEcal_cff import *
 from RecoJets.Configuration.RecoJets_cff import *
-from RecoJets.Configuration.JetIDProducers_cff import *
 from RecoJets.Configuration.CaloTowersRec_cff import *
 from RecoMET.Configuration.RecoMET_cff import *
 from RecoMuon.Configuration.RecoMuon_cff import *
@@ -37,34 +36,34 @@ from RecoTauTag.Configuration.RecoTauTag_cff import *
 # Also BeamSpot
 from RecoVertex.BeamSpotProducer.BeamSpot_cff import *
 localreco = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalreco+particleFlowCluster+lumiProducer)
-localreco_HcalNZS = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalrecoNZS+particleFlowCluster+lumiProducer)
-
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*recoJets*recoJetIds+muonrecoComplete+electronGsfTracking)
+globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*recoJets+muonrecoComplete+electronGsfTracking)
 globalreco_plusRS = cms.Sequence(globalreco*rstracks)
+globalreco_plusGSF = cms.Sequence(globalreco*GsfGlobalElectronTestSequence)
+globalreco_plusRS_plusGSF = cms.Sequence(globalreco*rstracks*GsfGlobalElectronTestSequence)
 highlevelreco = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammarecoFull*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
 #emergency sequence wo conversions
 highlevelreco_woConv = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammareco_woConvPhotons*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
 
 
+#
+# "Export" Section
+#
+# Default - change: remove  RS again
+
 from FWCore.Modules.logErrorHarvester_cfi import *
 
-# "Export" Section
-reconstruction         = cms.Sequence(localreco        *globalreco       *highlevelreco*muoncosmicreco*logErrorHarvester)
-
-#sequences with additional stuff
-#reconstruction_withPixellessTk  = cms.Sequence(localreco        *globalreco_plusPL*highlevelreco*muoncosmicreco*logErrorHarvester)
-reconstruction_withRS  = cms.Sequence(localreco        *globalreco_plusRS*highlevelreco*muoncosmicreco*logErrorHarvester)
-reconstruction_HcalNZS = cms.Sequence(localreco_HcalNZS*globalreco       *highlevelreco*muoncosmicreco*logErrorHarvester)
-
-#sequences without some stuffs
+reconstruction = cms.Sequence(localreco*globalreco*highlevelreco*logErrorHarvester)
+reconstruction_withRS = cms.Sequence(localreco*globalreco_plusRS*highlevelreco)
+#other possibilities
+reconstruction_plusGSF = cms.Sequence(reconstruction*GsfGlobalElectronTestSequence)
 #
-reconstruction_woConv        = cms.Sequence(localreco*globalreco*highlevelreco_woConv*muoncosmicreco*logErrorHarvester)
-reconstruction_woCosmicMuons = cms.Sequence(localreco*globalreco*highlevelreco       *logErrorHarvester)
-
-
+# for completeness
+#
+reconstruction_woConv = cms.Sequence(localreco*globalreco_plusRS*highlevelreco_woConv)
+#
 # define a standard candle. please note I am picking up individual
 # modules instead of sequences
 #
