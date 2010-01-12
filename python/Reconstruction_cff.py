@@ -11,6 +11,7 @@ from RecoEcal.Configuration.RecoEcal_cff import *
 from RecoJets.Configuration.RecoJets_cff import *
 from RecoJets.Configuration.JetIDProducers_cff import *
 from RecoJets.Configuration.CaloTowersRec_cff import *
+from RecoJets.Configuration.RecoTrackJets_cff import *
 from RecoMET.Configuration.RecoMET_cff import *
 from RecoMuon.Configuration.RecoMuon_cff import *
 # Higher level objects
@@ -42,8 +43,9 @@ localreco_HcalNZS = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalrecoNZS
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
-globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*recoJets*recoJetIds+muonrecoComplete+electronGsfTracking)
+globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*recoJets*recoJetIds+recoTrackJets+muonrecoComplete+electronGsfTracking)
 globalreco_plusRS = cms.Sequence(globalreco*rstracks)
+globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
 highlevelreco = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammarecoFull*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
 #emergency sequence wo conversions
 highlevelreco_woConv = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammareco_woConvPhotons*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
@@ -55,7 +57,7 @@ from FWCore.Modules.logErrorHarvester_cfi import *
 reconstruction         = cms.Sequence(localreco        *globalreco       *highlevelreco*muoncosmicreco*logErrorHarvester)
 
 #sequences with additional stuff
-#reconstruction_withPixellessTk  = cms.Sequence(localreco        *globalreco_plusPL*highlevelreco*muoncosmicreco*logErrorHarvester)
+reconstruction_withPixellessTk  = cms.Sequence(localreco        *globalreco_plusPL*highlevelreco*muoncosmicreco*logErrorHarvester)
 reconstruction_withRS  = cms.Sequence(localreco        *globalreco_plusRS*highlevelreco*muoncosmicreco*logErrorHarvester)
 reconstruction_HcalNZS = cms.Sequence(localreco_HcalNZS*globalreco       *highlevelreco*muoncosmicreco*logErrorHarvester)
 
