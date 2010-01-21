@@ -49,10 +49,6 @@ VertexSmearing = cms.Sequence(cms.SequencePlaceholder("VtxSmeared"))
 GeneInfo = cms.Sequence(genParticles)
 genJetMET = cms.Sequence(genJetParticles*recoGenJets+genMETParticles*recoGenMET)
 pgen = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+VertexSmearing+GeneInfo+genJetMET)
-
-hiGenJets = cms.Sequence(hiGenParticlesForJets*hiRecoGenJets)
-
-
 #
 # this sequence is intended for HI runs/studies;
 # it'll be modified, as HI-specific "genParts" will be included
@@ -60,8 +56,8 @@ hiGenJets = cms.Sequence(hiGenParticlesForJets*hiRecoGenJets)
 
 from PhysicsTools.HepMCCandAlgos.HiGenParticles_cfi import *
 
-pgen_hi = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+VertexSmearing+hiGenParticles+hiGenJets)
+pgen_hi = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+VertexSmearing+hiGenParticles)
 
 from SimGeneral.MixingModule.MatchVtx_cfi import *
 
-pgen_himix = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+matchVtx+hiGenParticles+hiGenJets)
+pgen_himix = cms.Sequence(cms.SequencePlaceholder("randomEngineStateProducer")+matchVtx+hiGenParticles)
