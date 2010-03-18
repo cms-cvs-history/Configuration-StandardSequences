@@ -22,6 +22,7 @@ from RecoPixelVertexing.Configuration.RecoPixelVertexing_cff import *
 #include "RecoBTau/Configuration/data/RecoBTau.cff"
 from RecoJets.Configuration.RecoJetAssociations_cff import *
 from RecoJets.Configuration.RecoPFJets_cff import *
+from RecoJets.Configuration.RecoJPTJets_cff import *
 from RecoMET.Configuration.RecoPFMET_cff import *
 from RecoBTag.Configuration.RecoBTag_cff import *
 #
@@ -52,7 +53,7 @@ from RecoLocalCalo.Castor.Castor_cff import *
 globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*recoJets*recoJetIds+recoTrackJets+muonrecoComplete+electronGsfTracking+CastorFullReco)
 globalreco_plusRS = cms.Sequence(globalreco*rstracks)
 globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
-highlevelreco = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammarecoFull*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
+highlevelreco = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammarecoFull*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoJPTJets*recoPFMET*PFTau)
 #emergency sequence wo conversions
 highlevelreco_woConv = cms.Sequence(recoJetAssociations*tautagging*particleFlowReco*egammareco_woConvPhotons*metrecoPlusHCALNoise*reducedRecHitsSequence*btagging*recoPFJets*recoPFMET*PFTau)
 
