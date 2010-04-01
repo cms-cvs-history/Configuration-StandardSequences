@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-# last update: $Date: 2010/03/10 10:12:56 $ by $Author: argiro $
+# last update: $Date: 2009/03/28 14:03:36 $ by $Author: argiro $
 
 # AlCaReco sequence definitions:
 
@@ -70,11 +70,6 @@ from Alignment.CommonAlignmentProducer.ALCARECOMuAlOverlaps_cff import *
 # RPC calibration
 ###############################################################
 from CalibMuon.RPCCalibration.ALCARECORpcCalHLT_cff import *
-###############################################################
-# DT calibration
-###############################################################
-from CalibMuon.DTCalibration.ALCARECODtCalib_cff import *
-
 
 ###############################################################
 # nonbeam alcas
@@ -98,7 +93,7 @@ pathALCARECOTkAlUpsilonMuMu = cms.Path(seqALCARECOTkAlUpsilonMuMu*ALCARECOTkAlUp
 pathALCARECOTkAlMinBias = cms.Path(seqALCARECOTkAlMinBias*ALCARECOTkAlMinBiasDQM)
 pathALCARECOTkAlMinBias = cms.Path(seqALCARECOTkAlMinBias*ALCARECOTkAlMinBiasDQM)
 pathALCARECOSiPixelLorentzAngle = cms.Path(seqALCARECOSiPixelLorentzAngle)
-pathALCARECOSiStripCalMinBias = cms.Path(seqALCARECOSiStripCalMinBias*ALCARECOSiStripCalMinBiasDQM)
+pathALCARECOSiStripCalMinBias = cms.Path(seqALCARECOSiStripCalMinBias)
 pathALCARECOSiStripCalZeroBias = cms.Path(seqALCARECOSiStripCalZeroBias*ALCARECOSiStripCalZeroBiasDQM)
 pathALCARECOEcalCalElectron = cms.Path(seqALCARECOEcalCalElectron*ALCARECOEcalCalElectronCalibDQM)
 pathALCARECOHcalCalDijets = cms.Path(seqALCARECOHcalCalDijets*ALCARECOHcalCalDiJetsDQM)
@@ -111,19 +106,22 @@ pathALCARECOMuAlCalIsolatedMu = cms.Path(seqALCARECOMuAlCalIsolatedMu*ALCARECOMu
 pathALCARECOMuAlZMuMu = cms.Path(seqALCARECOMuAlZMuMu*ALCARECOMuAlZMuMuDQM)
 pathALCARECOMuAlOverlaps = cms.Path(seqALCARECOMuAlOverlaps*ALCARECOMuAlOverlapsDQM)
 pathALCARECORpcCalHLT = cms.Path(seqALCARECORpcCalHLT)
-pathALCARECODtCalib = cms.Path(seqALCARECODtCalib*ALCARECODTCalibSynchDQM)
 pathALCARECOTkAlBeamHalo = cms.Path(seqALCARECOTkAlBeamHalo*ALCARECOTkAlBeamHaloDQM)
 pathALCARECOMuAlBeamHaloOverlaps = cms.Path(seqALCARECOMuAlBeamHaloOverlaps*ALCARECOMuAlBeamHaloOverlapsDQM)
 pathALCARECOMuAlBeamHalo = cms.Path(seqALCARECOMuAlBeamHalo*ALCARECOMuAlBeamHaloDQM)
 pathALCARECOTkAlLAS = cms.Path(seqALCARECOTkAlLAS*ALCARECOTkAlLASDQM)
 pathALCARECOTkAlCosmicsCTF = cms.Path(seqALCARECOTkAlCosmicsCTF*ALCARECOTkAlCosmicsCTFDQM)
 pathALCARECOTkAlCosmicsCosmicTF = cms.Path(seqALCARECOTkAlCosmicsCosmicTF*ALCARECOTkAlCosmicsCosmicTFDQM)
+pathALCARECOTkAlCosmicsRS = cms.Path(seqALCARECOTkAlCosmicsRS*ALCARECOTkAlCosmicsRSDQM)
 pathALCARECOTkAlCosmicsCTF0T = cms.Path(seqALCARECOTkAlCosmicsCTF0T*ALCARECOTkAlCosmicsCTF0TDQM)
 pathALCARECOTkAlCosmicsCosmicTF0T = cms.Path(seqALCARECOTkAlCosmicsCosmicTF0T*ALCARECOTkAlCosmicsCosmicTF0TDQM)
+pathALCARECOTkAlCosmicsRS0T = cms.Path(seqALCARECOTkAlCosmicsRS0T*ALCARECOTkAlCosmicsRS0TDQM)
 pathALCARECOTkAlCosmicsCTFHLT = cms.Path(seqALCARECOTkAlCosmicsCTFHLT*ALCARECOTkAlCosmicsCTFDQM)
 pathALCARECOTkAlCosmicsCosmicTFHLT = cms.Path(seqALCARECOTkAlCosmicsCosmicTFHLT*ALCARECOTkAlCosmicsCosmicTFDQM)
+pathALCARECOTkAlCosmicsRSHLT = cms.Path(seqALCARECOTkAlCosmicsRSHLT*ALCARECOTkAlCosmicsRSDQM)
 pathALCARECOTkAlCosmicsCTF0THLT = cms.Path(seqALCARECOTkAlCosmicsCTF0THLT*ALCARECOTkAlCosmicsCTF0TDQM)
 pathALCARECOTkAlCosmicsCosmicTF0THLT = cms.Path(seqALCARECOTkAlCosmicsCosmicTF0THLT*ALCARECOTkAlCosmicsCosmicTF0TDQM)
+pathALCARECOTkAlCosmicsRS0THLT = cms.Path(seqALCARECOTkAlCosmicsRS0THLT*ALCARECOTkAlCosmicsRS0TDQM)
 pathALCARECOMuAlStandAloneCosmics = cms.Path(seqALCARECOMuAlStandAloneCosmics*ALCARECOMuAlStandAloneCosmicsDQM)
 pathALCARECOMuAlGlobalCosmics = cms.Path(seqALCARECOMuAlGlobalCosmics*ALCARECOMuAlGlobalCosmicsDQM)
 
@@ -305,19 +303,10 @@ ALCARECOStreamRpcCalHLT = cms.FilteredStream(
 	dataTier = cms.untracked.string('ALCARECO')
 	)
 
-ALCARECOStreamDtCalib = cms.FilteredStream(
-	responsible = 'Mario Pelliccioni',
-	name = 'DtCalib',
-	paths  = (pathALCARECODtCalib),
-	content = OutALCARECODtCalib.outputCommands,
-	selectEvents = OutALCARECODtCalib.SelectEvents,
-	dataTier = cms.untracked.string('ALCARECO')
-	)
-
 ALCARECOStreamTkAlCosmics = cms.FilteredStream(
 	responsible = 'Gero Flucke',
 	name = 'TkAlCosmics',
-	paths  = (pathALCARECOTkAlCosmicsCTF,pathALCARECOTkAlCosmicsCosmicTF),
+	paths  = (pathALCARECOTkAlCosmicsCTF,pathALCARECOTkAlCosmicsCosmicTF,pathALCARECOTkAlCosmicsRS),
 	content = OutALCARECOTkAlCosmics.outputCommands,
 	selectEvents = OutALCARECOTkAlCosmics.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
@@ -326,7 +315,7 @@ ALCARECOStreamTkAlCosmics = cms.FilteredStream(
 ALCARECOStreamTkAlCosmicsHLT = cms.FilteredStream(
 	responsible = 'Gero Flucke',
 	name = 'TkAlCosmicsHLT',
-	paths  = (pathALCARECOTkAlCosmicsCTFHLT,pathALCARECOTkAlCosmicsCosmicTFHLT),
+	paths  = (pathALCARECOTkAlCosmicsCTFHLT,pathALCARECOTkAlCosmicsCosmicTFHLT,pathALCARECOTkAlCosmicsRSHLT),
 	content = OutALCARECOTkAlCosmicsHLT.outputCommands,
 	selectEvents = OutALCARECOTkAlCosmicsHLT.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
@@ -335,7 +324,7 @@ ALCARECOStreamTkAlCosmicsHLT = cms.FilteredStream(
 ALCARECOStreamTkAlCosmics0T = cms.FilteredStream(
 	responsible = 'Gero Flucke',
 	name = 'TkAlCosmics0T',
-	paths  = (pathALCARECOTkAlCosmicsCTF0T,pathALCARECOTkAlCosmicsCosmicTF0T),
+	paths  = (pathALCARECOTkAlCosmicsCTF0T,pathALCARECOTkAlCosmicsCosmicTF0T,pathALCARECOTkAlCosmicsRS0T),
 	content = OutALCARECOTkAlCosmics0T.outputCommands,
 	selectEvents = OutALCARECOTkAlCosmics0T.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
@@ -344,7 +333,7 @@ ALCARECOStreamTkAlCosmics0T = cms.FilteredStream(
 ALCARECOStreamTkAlCosmics0THLT = cms.FilteredStream(
 	responsible = 'Gero Flucke',
 	name = 'TkAlCosmics0THLT',
-	paths  = (pathALCARECOTkAlCosmicsCTF0THLT,pathALCARECOTkAlCosmicsCosmicTF0THLT),
+	paths  = (pathALCARECOTkAlCosmicsCTF0THLT,pathALCARECOTkAlCosmicsCosmicTF0THLT,pathALCARECOTkAlCosmicsRS0THLT),
 	content = OutALCARECOTkAlCosmics0THLT.outputCommands,
 	selectEvents = OutALCARECOTkAlCosmics0THLT.SelectEvents,
 	dataTier = cms.untracked.string('ALCARECO')
