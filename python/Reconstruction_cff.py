@@ -36,17 +36,16 @@ from RecoVertex.BeamSpotProducer.BeamSpot_cff import *
 
 from RecoLocalCalo.CastorReco.CastorSimpleReconstructor_cfi import *
 
-localreco = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalreco+castorreco+lumiProducer)
-localreco_HcalNZS = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalrecoNZS+castorreco+lumiProducer)
+localreco = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalreco+particleFlowCluster+castorreco+lumiProducer)
+localreco_HcalNZS = cms.Sequence(trackerlocalreco+muonlocalreco+calolocalrecoNZS+particleFlowCluster+castorreco+lumiProducer)
 
 #
 # temporarily switching off recoGenJets; since this are MC and wil be moved to a proper sequence
 #
 
 from RecoLocalCalo.Castor.Castor_cff import *
-from RecoLocalCalo.Configuration.hcalGlobalReco_cff import *
 
-globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing+trackingGlobalReco+hcalGlobalRecoSequence+particleFlowCluster+ecalClusters+caloTowersRec*vertexreco*egammarecoGlobal*jetGlobalReco+muonrecoComplete+electronGsfTracking+CastorFullReco)
+globalreco = cms.Sequence(offlineBeamSpot+recopixelvertexing*ckftracks+ecalClusters+caloTowersRec*vertexreco*egammarecoGlobal*jetGlobalReco+muonrecoComplete+electronGsfTracking+CastorFullReco)
 globalreco_plusRS = cms.Sequence(globalreco*rstracks)
 globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
 

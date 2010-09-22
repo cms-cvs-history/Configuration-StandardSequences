@@ -39,8 +39,6 @@ from RecoEgamma.Configuration.RecoEgammaCosmics_cff import *
 
 # local reco
 trackerCosmics = cms.Sequence(offlineBeamSpot*trackerlocalreco*tracksP5)
-hbhereco = hbheprereco.clone()
-calolocalreco.replace(hbheprereco,hbhereco)
 caloCosmics = cms.Sequence(calolocalreco*ecalClusters)
 caloCosmics_HcalNZS = cms.Sequence(calolocalrecoNZS*ecalClusters)
 muonsLocalRecoCosmics = cms.Sequence(muonlocalreco+muonlocalrecoT0Seg)
