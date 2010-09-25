@@ -212,6 +212,21 @@ SKIMStreamGoodVtx = cms.FilteredStream(
     dataTier = cms.untracked.string('RAW-RECO')
     )
 
+#############
+
+from DPGAnalysis.Skims.goodcollSkim_cff import *
+pathgoodcoll1 = cms.Path(goodcollL1requirement)
+pathgoodcolhf = cms.Path(goodcollHFrequirement)
+
+SKIMStreamGoodCol = cms.FilteredStream(
+    responsible = 'PVT',
+    name = 'GoodCol',
+    paths = (goodvertexSkimPath,pathgoodcoll1,pathgoodcolhf),
+    content = skimContent.outputCommands,
+    selectEvents = cms.untracked.PSet(),
+    dataTier = cms.untracked.string('RAW-RECO')
+    )
+
 #####################
 
 from DPGAnalysis.Skims.muonTracksSkim_cff import *
@@ -244,7 +259,7 @@ SKIMStreamValSkim = cms.FilteredStream(
 from DPGAnalysis.Skims.WZEGSkim_cff import *
 WZEGSkimPath = cms.Path ( WZfilterSkim )
 SKIMStreamWZEG = cms.FilteredStream(
-    responsible = 'ECAL DPG',
+    responsible = 'ECAL DPG & EGM POG',
     name = 'WZEG',
     paths = ( WZEGSkimPath ),
     content = skimContent.outputCommands,
@@ -310,3 +325,15 @@ SKIMStreamOnia = cms.FilteredStream(
     dataTier = cms.untracked.string('RAW-RECO')
     )
 
+#####################
+
+from Configuration.Skimming.PDWG_HT_SD_cff import *
+HTSDPath = cms.Path(HTSD)
+SKIMStreamHTSD = cms.FilteredStream(
+    responsible = 'PDWG',
+    name = 'HTSD',
+    paths = (HTSDPath),
+    content = skimContent.outputCommands,
+    selectEvents = cms.untracked.PSet(),
+    dataTier = cms.untracked.string('RAW-RECO')
+    )
