@@ -53,7 +53,20 @@ globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
 
 reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequence * reducedHcalRecHitsSequence )
 
-highlevelreco = cms.Sequence(particleFlowReco*reducedRecHits*egammarecoFull*jetHighLevelReco*tautagging*metrecoPlusHCALNoise*btagging*recoPFMET*PFTau*regionalCosmicTracksSeq*muoncosmichighlevelreco)
+from RecoEgamma.EgammaElectronProducers.electronSequence_cff import *
+from RecoEgamma.EgammaPhotonProducers.photonSequence_cff import *
+from RecoEgamma.EgammaPhotonProducers.conversionSequence_cff import *
+from RecoEgamma.EgammaPhotonProducers.conversionTrackSequence_cff import *
+from RecoEgamma.EgammaPhotonProducers.trackerOnlyConversionSequence_cff import *
+from RecoEgamma.EgammaIsolationAlgos.egammaIsolationSequence_cff import *
+from RecoEgamma.EgammaIsolationAlgos.interestingEgammaIsoDetIdsSequence_cff import *
+from RecoEgamma.PhotonIdentification.photonId_cff import *
+from RecoEgamma.ElectronIdentification.electronIdSequence_cff import *
+from RecoEgamma.EgammaHFProducers.hfEMClusteringSequence_cff import *
+  
+egammarecoFullNoConv=cms.Sequence(egammareco_woConvPhotons*interestingEgammaIsoDetIds*photonIDSequence*eIdSequence*hfEMClusteringSequence)
+ 
+highlevelreco = cms.Sequence(particleFlowReco*reducedRecHits*egammarecoFullNoConv*jetHighLevelReco*tautagging*metrecoPlusHCALNoise*btagging*recoPFMET*regionalCosmicTracksSeq*muoncosmichighlevelreco)
 
 
 from FWCore.Modules.logErrorHarvester_cfi import *
