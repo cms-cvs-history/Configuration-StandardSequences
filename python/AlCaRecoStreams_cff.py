@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-# last update: $Date: 2010/09/27 11:38:30 $ by $Author: argiro $
+# last update: $Date: 2010/07/19 11:15:14 $ by $Author: mussgill $
 
 # AlCaReco sequence definitions:
 
@@ -89,7 +89,6 @@ from Alignment.CommonAlignmentProducer.ALCARECOMuAlBeamHaloOverlaps_cff import *
 # stream for prompt-calibration @ Tier0
 ###############################################################
 from Calibration.TkAlCaRecoProducers.ALCARECOPromptCalibProd_cff import *
-from Calibration.TkAlCaRecoProducers.ALCARECOSiStripPCLHistos_cff import *
 
 
 
@@ -138,7 +137,6 @@ pathALCARECOTkAlCosmicsCosmicTF0THLT = cms.Path(seqALCARECOTkAlCosmicsCosmicTF0T
 pathALCARECOMuAlGlobalCosmicsInCollisions = cms.Path(seqALCARECOMuAlGlobalCosmicsInCollisions*ALCARECOMuAlGlobalCosmicsInCollisionsDQM)
 pathALCARECOMuAlGlobalCosmics = cms.Path(seqALCARECOMuAlGlobalCosmics*ALCARECOMuAlGlobalCosmicsDQM)
 pathALCARECOPromptCalibProd = cms.Path(seqALCARECOPromptCalibProd)
-pathALCARECOSiStripPCLHistos = cms.Path(seqALCARECOSiStripPCLHistos)
 
 # AlCaReco event content definitions:
 
@@ -436,14 +434,6 @@ ALCARECOStreamPromptCalibProd = cms.FilteredStream(
 	dataTier = cms.untracked.string('ALCARECO')
 	)
 
-ALCARECOStreamSiStripPCLHistos = cms.FilteredStream(
-	responsible = 'Gianluca Cerminara',
-	name = 'SiStripPCLHistos',
-	paths  = (pathALCARECOSiStripPCLHistos),
-	content = OutALCARECOSiStripPCLHistos.outputCommands,
-	selectEvents = OutALCARECOSiStripPCLHistos.SelectEvents,
-	dataTier = cms.untracked.string('ALCARECO')
-	)
 
 
 from Configuration.StandardSequences.AlCaRecoStream_Specials_cff import *
