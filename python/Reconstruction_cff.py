@@ -70,14 +70,15 @@ reducedRecHits = cms.Sequence ( reducedEcalRecHitsSequence * reducedHcalRecHitsS
 highlevelreco = cms.Sequence(egammaHighLevelRecoPrePF*
                              particleFlowReco*
                              egammaHighLevelRecoPostPF*
+                             particleFlowLinks*
                              jetHighLevelReco*
                              tautagging*
+                             regionalCosmicTracksSeq*
+                             muoncosmichighlevelreco*
                              metrecoPlusHCALNoise*
                              btagging*
                              recoPFMET*
                              PFTau*
-                             regionalCosmicTracksSeq*
-                             muoncosmichighlevelreco*
                              reducedRecHits
                              )
 
