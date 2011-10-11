@@ -66,7 +66,6 @@ addMixingScenario("E7TeV_Flat20_AllEarly_50ns",{'file': 'SimGeneral.MixingModule
 addMixingScenario("E7TeV_Flat20_AllLate_50ns",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Flat20_AllLate_50ns_cfi'})
 addMixingScenario("E7TeV_FlatDist10_2011EarlyData_50ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_FlatDist10_2011EarlyData_50ns_PoissonOOT'})
 addMixingScenario("E7TeV_FlatDist10_2011EarlyData_25ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_FlatDist10_2011EarlyData_25ns_PoissonOOT_cfi'})
-addMixingScenario("E7TeV_Ave18p4_50ns", {'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave18p4_50ns_cfi'})
 addMixingScenario("mix_E7TeV_Ave25_50ns_PoissonOOTPU_cfi",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_50ns_PoissonOOTPU_cfi'})
 addMixingScenario("mix_E7TeV_Ave25_25ns_PoissonOOTPU_cfi",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_25ns_PoissonOOTPU_cfi'})
 addMixingScenario("mix_E7TeV_Fall2011ReDigi_prelim_50ns_PoissonOOT_cfi",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Fall2011ReDigi_prelim_50ns_PoissonOOT_cfi'})
@@ -87,7 +86,6 @@ addMixingScenario("FS_HighLumiPileUp",{'file': 'FastSimulation.PileUpProducer.Pi
 addMixingScenario("FS_InitialPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_InitialPileUp_cff'})
 addMixingScenario("FS_LowLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_LowLumiPileUp_cff'})
 addMixingScenario("FS_FlatDist10_2011EarlyData_50ns",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_FlatDist10_2011EarlyData_50ns_cff'})
-addMixingScenario("FS_E7TeV_Fall2011_Reprocess_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_E7TeV_Fall2011_Reprocess_inTimeOnly_cff'})
 
 ##slch section
 addMixingScenario("SLHC_LowLumiPileUp_Phase1_R39F16",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R39F16_cff'})
