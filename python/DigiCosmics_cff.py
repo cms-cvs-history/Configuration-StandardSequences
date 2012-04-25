@@ -28,12 +28,12 @@ from SimMuon.Configuration.SimMuon_cff import *
 from SimGeneral.Configuration.SimGeneral_cff import *
 
 #Special parameterization for cosmics
-simSiPixelDigis.TofLowerCut = cms.double(18.5)
-simSiPixelDigis.TofUpperCut = cms.double(43.5)
-simSiStripDigis.CosmicDelayShift = cms.untracked.double(31)
+#FIXPU#simSiPixelDigis.TofLowerCut = cms.double(18.5)
+#FIXPU#simSiPixelDigis.TofUpperCut = cms.double(43.5)
+#FIXPU#simSiStripDigis.CosmicDelayShift = cms.untracked.double(31)
 
-simEcalUnsuppressedDigis.cosmicsPhase = cms.bool(True)
-simEcalUnsuppressedDigis.cosmicsShift = cms.double(1.)
+#FIXPU#simEcalUnsuppressedDigis.cosmicsPhase = cms.bool(True)
+#FIXPU#simEcalUnsuppressedDigis.cosmicsShift = cms.double(1.)
 
 simEcalDigis.ebDccAdcToGeV = cms.double(0.00875)
 simEcalDigis.srpBarrelLowInterestChannelZS = cms.double(0.0153125)

@@ -8,11 +8,11 @@ from Configuration.StandardSequences.Digi_cff import *
 # detector noise, turn this off for now:
 
 ##### #turn off noise in all subdetectors
-simHcalUnsuppressedDigis.doNoise = False
-simEcalUnsuppressedDigis.doNoise = False
+#FIXPU#simHcalUnsuppressedDigis.doNoise = False
+#FIXPU#simEcalUnsuppressedDigis.doNoise = False
 #simEcalUnsuppressedDigis.doESNoise = False
-simSiPixelDigis.AddNoise = False
-simSiStripDigis.Noise = False
+#FIXPU#simSiPixelDigis.AddNoise = False
+#FIXPU#simSiStripDigis.Noise = False
 simMuonCSCDigis.strips.doNoise = False
 simMuonCSCDigis.wires.doNoise = False
 #DTs are strange - no noise flag - only use true hits?
