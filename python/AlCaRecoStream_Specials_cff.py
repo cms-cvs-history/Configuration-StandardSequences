@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-# last update: $Date: 2009/03/26 12:03:01 $ by $Author: argiro $
+# last update: $Date: 2012/03/30 17:12:30 $ by $Author: cerminar $
 #
 # Special online streams
 #
@@ -80,3 +80,27 @@ ALCARECOStreamHcalCalMinBias = cms.FilteredStream(
         selectEvents = OutALCARECOHcalCalMinBias.SelectEvents,
         dataTier = cms.untracked.string('ALCARECO')
         )
+
+
+
+# AlCaReco for LumiPixel stream
+from Calibration.TkAlCaRecoProducers.ALCARECOLumiPixels_cff import *
+
+# FIXME: in case we need to add a DQM step
+#from DQMOffline.Configuration.AlCaRecoDQM_cff import *
+#pathALCARECOLumiPixels = cms.Path(seqALCARECOLumiPixels*ALCARECOLumiPixelsDQM)
+
+pathALCARECOLumiPixels = cms.Path(seqALCARECOLumiPixels)
+
+from Configuration.EventContent.AlCaRecoOutput_cff import *
+
+ALCARECOStreamLumiPixels = cms.FilteredStream(
+        responsible = 'Cerminara Gianluca',
+        name = 'ALCARECOLumiPixels',
+        paths  = (pathALCARECOLumiPixels),
+        content = OutALCARECOLumiPixels.outputCommands,
+        selectEvents = OutALCARECOLumiPixels.SelectEvents,
+        dataTier = cms.untracked.string('ALCARECO')
+        )
+
+
