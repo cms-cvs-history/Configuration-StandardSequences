@@ -66,32 +66,45 @@ addMixingScenario("E7TeV_Flat20_AllEarly_50ns",{'file': 'SimGeneral.MixingModule
 addMixingScenario("E7TeV_Flat20_AllLate_50ns",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Flat20_AllLate_50ns_cfi'})
 addMixingScenario("E7TeV_FlatDist10_2011EarlyData_50ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_FlatDist10_2011EarlyData_50ns_PoissonOOT'})
 addMixingScenario("E7TeV_FlatDist10_2011EarlyData_25ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_FlatDist10_2011EarlyData_25ns_PoissonOOT_cfi'})
-addMixingScenario("mix_E7TeV_Ave25_50ns_PoissonOOTPU_cfi",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_50ns_PoissonOOTPU_cfi'})
-addMixingScenario("mix_E7TeV_Ave25_25ns_PoissonOOTPU_cfi",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_25ns_PoissonOOTPU_cfi'})
+addMixingScenario("E7TeV_Ave18p4_50ns", {'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave18p4_50ns_cfi'})
+addMixingScenario("E7TeV_Ave23_50ns", {'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave18p4_50ns_cfi', 'N': 23 })
+addMixingScenario("E7TeV_Ave32_50ns", {'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave18p4_50ns_cfi', 'N': 32 })
+addMixingScenario("E7TeV_Ave25_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_50ns_PoissonOOTPU_cfi'})
+addMixingScenario("E7TeV_Ave25_25ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Ave25_25ns_PoissonOOTPU_cfi'})
+addMixingScenario("E7TeV_Fall2011ReDigi_prelim_50ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Fall2011ReDigi_prelim_50ns_PoissonOOT_cfi'})
+addMixingScenario("E7TeV_Fall2011ReDigi_50ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Fall2011ReDigi_50ns_PoissonOOT_cfi'})
+addMixingScenario("E7TeV_Fall2011ReDigi_25ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Fall2011ReDigi_25ns_PoissonOOT_cfi'})
+addMixingScenario("E7TeV_Fall2011_Reprocess_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Fall2011_Reprocess_50ns_PoissonOOTPU_cfi'})
+addMixingScenario("E7TeV_Chamonix2012_50ns_PoissonOOT",{'file': 'SimGeneral.MixingModule.mix_E7TeV_Chamonix2012_50ns_PoissonOOT_cfi'})
+addMixingScenario("2012_lumiLevel_15_20_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_2012_lumiLevel_15_20_50ns_PoissonOOTPU_cfi'})
+addMixingScenario("2012_peak11_25ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_2012_peak11_25ns_PoissonOOTPU_cfi'})
+addMixingScenario("2012_peak26_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_2012_peak26_50ns_PoissonOOTPU_cfi'})
+addMixingScenario("2012_Startup_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_2012_Startup_50ns_PoissonOOTPU_cfi'})
+addMixingScenario("2012_Summer_50ns_PoissonOOTPU",{'file': 'SimGeneral.MixingModule.mix_2012_Summer_50ns_PoissonOOTPU_cfi'})
 addMixingScenario("ProdStep2",{'file': 'SimGeneral.MixingModule.mixProdStep2_cfi'})
 
 ##fastsim section
-#addMixingScenario("FS_NoPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_cff', 'N': 0})
-#addMixingScenario("FS_156BxLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_cff', 'N': 2})
-#addMixingScenario("FS_HighLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_cff', 'N': 20})
-#addMixingScenario("FS_InitialPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_cff', 'N': 3.8})
-#addMixingScenario("FS_LowLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_cff', 'N': 7.1})
 addMixingScenario("FS_NoPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_NoPileUp_cff'})
-addMixingScenario("FS_156BxLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_156BxLumiPileUp_cff'})
-addMixingScenario("FS_HighLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_HighLumiPileUp_cff'})
-addMixingScenario("FS_InitialPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_InitialPileUp_cff'})
 addMixingScenario("FS_LowLumiPileUp",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_LowLumiPileUp_cff'})
-addMixingScenario("FS_FlatDist10_2011EarlyData_50ns",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_FlatDist10_2011EarlyData_50ns_cff'})
+addMixingScenario("FS_FlatDist10_2011EarlyData_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_FlatDist10_2011EarlyData_inTimeOnly_cff'})
+addMixingScenario("FS_E7TeV_Fall2011_Reprocess_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_E7TeV_Fall2011_Reprocess_inTimeOnly_cff'})
+addMixingScenario("FS_E7TeV_ProbDist_2011Data_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_E7TeV_ProbDist_2011Data_inTimeOnly_cff'})
+addMixingScenario("FS_2012_Startup_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_2012_Startup_inTimeOnly_cff'})
+addMixingScenario("FS_2012_Summer_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.PileUpSimulator_2012_Summer_inTimeOnly_cff'})
+addMixingScenario("FS_mix_2012_Startup_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.mix_2012_Startup_inTimeOnly_cff'})
+addMixingScenario("FS_mix_2012_Summer_inTimeOnly",{'file': 'FastSimulation.PileUpProducer.mix_2012_Summer_inTimeOnly_cff'})
 
-##slch section
-addMixingScenario("SLHC_LowLumiPileUp_Phase1_R39F16",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R39F16_cff'})
-addMixingScenario("SLHC_LowLumiPileUp_Phase1_R39F16_smpx",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R39F16_smpx_cff'})
+##slhc section
+addMixingScenario("SLHC_LowLumiPileUp_Phase1_R30F12",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R30F12_cff'})
+addMixingScenario("SLHC_LowLumiPileUp_Phase1_R30F12_smpx",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R30F12_smpx_cff'})
 addMixingScenario("SLHC_LowLumiPileUp_Phase1_R34F16",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R34F16_cff'})
 addMixingScenario("SLHC_LowLumiPileUp_Phase1_R34F16_smpx",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R34F16_smpx_cff'})
 addMixingScenario("SLHC_LowLumiPileUp_stdgeom",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_stdgeom_cff'})
-addMixingScenario("SLHC_LowLumiPileUp_Phase1_R39F16_HCal",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R39F16_HCal_cff'})
+addMixingScenario("SLHC_LowLumiPileUp_Phase1_R30F12_HCal",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R30F12_HCal_cff'})
+addMixingScenario("SLHC_LowLumiPileUp_Phase1_R34F16_HCal",{'file':'SLHCUpgradeSimulations.Geometry.mixLowLumPU_Phase1_R34F16_HCal_cff'})
 
-MixingDefaultKey = 'NoPileUp'
+MixingDefaultKey = '2012_Summer_50ns_PoissonOOTPU'
+MixingFSDefaultKey = '2012_Summer_inTimeOnly'
 
 def printMe():
     global Mixing
