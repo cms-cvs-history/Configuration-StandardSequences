@@ -30,7 +30,6 @@ from RecoParticleFlow.Configuration.RecoParticleFlow_cff import *
 # new tau configuration
 #
 from RecoTauTag.Configuration.RecoPFTauTag_cff import *
-from RecoTauTag.Configuration.RecoTauTag_cff import *
 # Also BeamSpot
 from RecoVertex.BeamSpotProducer.BeamSpot_cff import *
 
@@ -62,7 +61,6 @@ globalreco = cms.Sequence(offlineBeamSpot*
                           muoncosmicreco*
                           CastorFullReco)
 
-globalreco_plusRS = cms.Sequence(globalreco*rstracks)
 globalreco_plusPL= cms.Sequence(globalreco*ctfTracksPixelLess)
 
 
@@ -76,7 +74,6 @@ highlevelreco = cms.Sequence(egammaHighLevelRecoPrePF*
                              muonshighlevelreco *
                              particleFlowLinks*
                              jetHighLevelReco*
-                             tautagging*
                              metrecoPlusHCALNoise*
                              btagging*
                              recoPFMET*
@@ -153,7 +150,6 @@ reconstruction_noTracking = reconstruction.copyAndExclude(noTrackingAndDependent
 
 #sequences with additional stuff
 reconstruction_withPixellessTk  = cms.Sequence(localreco        *globalreco_plusPL*highlevelreco*EITopPAG*logErrorHarvester)
-reconstruction_withRS  = cms.Sequence(localreco        *globalreco_plusRS*highlevelreco*EITopPAG*logErrorHarvester)
 reconstruction_HcalNZS = cms.Sequence(localreco_HcalNZS*globalreco       *highlevelreco*EITopPAG*logErrorHarvester)
 
 #sequences without some stuffs
