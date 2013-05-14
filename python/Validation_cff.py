@@ -31,7 +31,7 @@ validation = cms.Sequence(cms.SequencePlaceholder("mix")
                          +genvalid_all
                          *globaldigisanalyze
                          *globalhitsanalyze
-#                         *globalrechitsanalyze # N.B. this has been taken out because rec hits are no longer put in crossing frames
+                         *globalrechitsanalyze
                          *globalValidation
                          *hltvalidation)
 
